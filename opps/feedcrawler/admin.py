@@ -12,10 +12,10 @@ class GroupAdmin(admin.ModelAdmin):
 
 @apply_opps_rules('feedcrawler')
 class FeedAdmin(PublishableAdmin):
-    list_display = ['xml_url', 'title', 'group',
+    list_display = ['xml_url', 'title', 'slug', 'channel', 'group',
                     'published_time', 'last_polled_time']
-    list_filter = ['group']
-    search_fields = ['link', 'title']
+    list_filter = ['group', 'channel']
+    search_fields = ['link', 'title', 'slug']
     readonly_fields = ['title', 'link', 'description', 'published_time',
                        'last_polled_time']
     raw_id_fields = ('channel', 'main_image')
