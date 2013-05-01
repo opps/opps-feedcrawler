@@ -128,12 +128,30 @@ def refresh_feed(db_feed, verbose=False):
                 db_entry.description = html.escape(entry.description)
 
             try:
+                content = None
+                if hasattr(entry, 'content'):
+                    content = entry.content
+                    if isinstance(content, list) and content:
+                        content = entry.content[0]
+
+                if content and content.type != 'text/plain':
+                    db_entry.content = content.value
+                elif hasattr(entry, 'content'):
+                    db_entry.content = html.escape(content.value)
+            except Exception, e:
+                print str(e)
+                msg = 'Feedcrawler refresh_feeds. Entry "%s" content error'
+                logger.warning(msg % (entry.link))
+
+            try:
                 allowed = (str, unicode, dict, list)
                 entry_source = json.dumps(
                     {k: v for k, v in entry.iteritems()
                         if isinstance(v, allowed)}
                 )
-            except:
+                db_entry.entry_source = entry_source
+            except Exception, e:
+                print str(e)
                 msg = 'Feedcrawler refresh_feeds. Entry "%s" json error'
                 logger.warning(msg % (entry.link))
             db_entry.save()

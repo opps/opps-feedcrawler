@@ -4,8 +4,8 @@ This command polls all of the Feeds and inserts any new entries found.
 """
 from optparse import make_option
 from django.core.management.base import BaseCommand
-from feedreader.models import Feed, Entry, FeedConfig
-from feedreader.utils import refresh_feed
+from ...models import Feed, Entry, FeedConfig
+from ...utils import refresh_feed
 
 import logging
 logger = logging.getLogger('feedreader')
@@ -28,7 +28,7 @@ class Command(BaseCommand):
         """
         Read through all the feeds looking for new entries.
         """
-        verbose = options['verbose']
+        verbose = options.get('verbose')
         feeds = Feed.objects.all()
         num_feeds = len(feeds)
         if verbose:
@@ -39,7 +39,7 @@ class Command(BaseCommand):
             refresh_feed(feed, verbose)
             # Remove older entries
             entries = Entry.objects.filter(feed=feed)
-            max_entries_saved = FeedConfig.get_value('max_entries_saved')
+            max_entries_saved = FeedConfig.get_value('max_entries_saved') or 100
             if max_entries_saved:
                 entries = entries[max_entries_saved:]
             for entry in entries:

@@ -1,6 +1,6 @@
 # coding: utf-8
 from django.contrib import admin
-from feedreader.models import Group, Feed, Entry, FeedConfig
+from .models import Group, Feed, Entry, FeedConfig
 from opps.core.admin import PublishableAdmin
 
 
@@ -8,7 +8,7 @@ class GroupAdmin(admin.ModelAdmin):
     pass
 
 
-class FeedAdmin(admin.ModelAdmin):
+class FeedAdmin(PublishableAdmin):
     list_display = ['xml_url', 'title', 'group',
                     'published_time', 'last_polled_time']
     list_filter = ['group']
@@ -31,13 +31,15 @@ class EntryAdmin(admin.ModelAdmin):
     list_filter = ['feed']
     search_fields = ['title', 'link']
     readonly_fields = ['link', 'title', 'description',
-                       'published_time', 'feed']
+                       'published_time', 'feed', 'content']
     fieldsets = (
         (None, {
             'fields': (('link',),
                        ('title', 'feed',),
                        ('description',),
-                       ('published_time', 'read_flag'),
+                       ('content',),
+                       ('published_time',),
+                       'entry_source'
                        )
         }),
     )

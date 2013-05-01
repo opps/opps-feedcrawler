@@ -95,6 +95,7 @@ class Entry(models.Model):
     title = models.CharField(max_length=2000, blank=True, null=True)
     link = models.CharField(max_length=2000)
     description = models.TextField(blank=True, null=True)
+    content = models.TextField(blank=True, null=True)
     published_time = models.DateTimeField(auto_now_add=True)
     entry_source = models.TextField(blank=True, null=True)
 
