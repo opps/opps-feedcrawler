@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from opps.core.models import Publishable, BaseConfig, Slugged
 from django.utils.translation import ugettext_lazy as _
+from opps.core.models import Publishable, BaseConfig, Slugged
+from opps.articles.models import Article
 
 
 class Group(models.Model):
@@ -57,7 +58,7 @@ class Feed(Publishable, Slugged):
     channel = models.ForeignKey(
         'channels.Channel',
         null=True,
-        blank=True,
+        blank=False,
         on_delete=models.SET_NULL
     )
 
@@ -90,8 +91,16 @@ class Feed(Publishable, Slugged):
             from .utils import refresh_feed
             refresh_feed(self)
 
+    def get_absolute_url(self):
+        return "/feed/{0}/{1}".format(self.channel.long_slug, self.slug)
 
-class Entry(models.Model):
+    def get_http_absolute_url(self):
+        protocol, path = "http://{0}/{1}".format(
+            self.channel, self.slug).split(self.site.domain)
+        return "{0}{1}/feed{2}".format(protocol, self.site, path)
+
+
+class Entry(Article):
     """
     Feed entry information.
 
@@ -108,20 +117,31 @@ class Entry(models.Model):
         updated_time : date_time
             When entry was last updated.
     """
-    feed = models.ForeignKey(Feed)
-    title = models.CharField(max_length=2000, blank=True, null=True)
-    link = models.CharField(max_length=2000)
-    description = models.TextField(blank=True, null=True)
-    content = models.TextField(blank=True, null=True)
-    published_time = models.DateTimeField(auto_now_add=True)
+    entry_feed = models.ForeignKey(Feed)
+    entry_title = models.CharField(
+        max_length=2000,
+        blank=True,
+        null=True
+    )
+    entry_link = models.CharField(max_length=2000)
+    entry_description = models.TextField(blank=True, null=True)
+    entry_content = models.TextField(blank=True, null=True)
+    entry_published_time = models.DateTimeField(auto_now_add=True)
     entry_source = models.TextField(blank=True, null=True)
 
     class Meta:
-        ordering = ['-published_time']
+        ordering = ['-entry_published_time']
         verbose_name_plural = 'entries'
 
     def __unicode__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return self.entry_link
+
+    def get_http_absolute_url(self):
+        return self.entry_link
+    get_http_absolute_url.short_description = 'URL'
 
 
 class FeedConfig(BaseConfig):

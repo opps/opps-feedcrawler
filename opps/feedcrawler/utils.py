@@ -2,11 +2,13 @@
 import feedparser
 import pytz
 import json
+import uuid
 from datetime import datetime
 from time import mktime
 from django.conf import settings
 from django.utils import html
 from django.utils import timezone
+from django.utils.text import slugify
 from .models import Entry, FeedConfig
 
 
@@ -93,9 +95,16 @@ def refresh_feed(db_feed, verbose=False):
             if verbose:
                 print(msg)
             continue
+        u_id = unicode(uuid.uuid4())
         db_entry, created = Entry.objects.get_or_create(
-            feed=db_feed,
-            link=entry.link
+            entry_feed=db_feed,
+            entry_link=entry.link,
+            channel=db_feed.channel,
+            title=u_id,
+            slug=slugify(u_id),
+            site=db_feed.site,
+            user=db_feed.user,
+            published=True
         )
         if created:
             if hasattr(entry, 'published_parsed'):
@@ -114,18 +123,18 @@ def refresh_feed(db_feed, verbose=False):
 
                 if published_time > now:
                     published_time = now
-                db_entry.published_time = published_time
+                db_entry.entry_published_time = published_time
             if entry.title_detail.type == 'text/plain':
-                db_entry.title = html.escape(entry.title)
+                db_entry.entry_title = html.escape(entry.title)
             else:
-                db_entry.title = entry.title
+                db_entry.entry_title = entry.title
             # Lots of entries are missing description_detail attributes.
             # Escape their content by default
             if hasattr(entry, 'description_detail') and \
                     entry.description_detail.type != 'text/plain':
-                db_entry.description = entry.description
+                db_entry.entry_description = entry.description
             else:
-                db_entry.description = html.escape(entry.description)
+                db_entry.entry_description = html.escape(entry.description)
 
             try:
                 content = None
@@ -135,9 +144,9 @@ def refresh_feed(db_feed, verbose=False):
                         content = entry.content[0]
 
                 if content and content.type != 'text/plain':
-                    db_entry.content = content.value
+                    db_entry.entry_content = content.value
                 elif hasattr(entry, 'content'):
-                    db_entry.content = html.escape(content.value)
+                    db_entry.entry_content = html.escape(content.value)
             except Exception, e:
                 print str(e)
                 msg = 'Feedcrawler refresh_feeds. Entry "%s" content error'
@@ -154,4 +163,11 @@ def refresh_feed(db_feed, verbose=False):
                 print str(e)
                 msg = 'Feedcrawler refresh_feeds. Entry "%s" json error'
                 logger.warning(msg % (entry.link))
+
+            # fill Article properties
+            db_entry.title = db_entry.entry_title[:140]
+            db_entry.slug = slugify(db_entry.entry_title[:150])
+            db_entry.headline = db_entry.entry_description
+            db_entry.short_title = db_entry.title
+            db_entry.hat = db_entry.title
             db_entry.save()

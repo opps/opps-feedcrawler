@@ -21,7 +21,8 @@ class FeedAdmin(PublishableAdmin):
     raw_id_fields = ('channel', 'main_image')
     fieldsets = (
         (None, {
-            'fields': (('xml_url', 'group',),
+            'fields': (('site',),
+                       ('xml_url', 'group',),
                        ('slug',),
                        ('title', 'link',),
                        ('description',),
@@ -34,19 +35,27 @@ class FeedAdmin(PublishableAdmin):
 
 
 @apply_opps_rules('feedcrawler')
-class EntryAdmin(admin.ModelAdmin):
-    list_display = ['title', 'feed', 'published_time']
-    list_filter = ['feed']
-    search_fields = ['title', 'link']
-    readonly_fields = ['link', 'title', 'description',
-                       'published_time', 'feed', 'content']
+class EntryAdmin(PublishableAdmin):
+    list_display = ['entry_title', 'entry_feed', 'entry_published_time']
+    list_filter = ['entry_feed']
+    search_fields = ['entry_title', 'entry_link']
+    readonly_fields = ['entry_link', 'entry_title', 'entry_description',
+                       'entry_published_time', 'entry_feed', 'entry_content']
+    raw_id_fields = ('channel',)
     fieldsets = (
         (None, {
-            'fields': (('link',),
-                       ('title', 'feed',),
-                       ('description',),
-                       ('content',),
-                       ('published_time',),
+            'fields': (('site',),
+                       ('title',),
+                       ('hat',),
+                       ('short_title',),
+                       ('slug',),
+                       ('headline',),
+                       ('channel',),
+                       ('entry_link',),
+                       ('entry_title', 'entry_feed',),
+                       ('entry_description',),
+                       ('entry_content',),
+                       ('entry_published_time',),
                        'entry_source'
                        )
         }),
