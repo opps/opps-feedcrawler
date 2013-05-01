@@ -61,6 +61,15 @@ class Feed(Publishable, Slugged):
         on_delete=models.SET_NULL
     )
 
+    main_image = models.ForeignKey(
+        'images.Image',
+        verbose_name=_(u'Feed Image'),
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='feed_image'
+    )
+
     class Meta:
         ordering = ['title']
 

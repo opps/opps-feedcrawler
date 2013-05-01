@@ -18,7 +18,7 @@ class FeedAdmin(PublishableAdmin):
     search_fields = ['link', 'title']
     readonly_fields = ['title', 'link', 'description', 'published_time',
                        'last_polled_time']
-    raw_id_fields = ('channel',)
+    raw_id_fields = ('channel', 'main_image')
     fieldsets = (
         (None, {
             'fields': (('xml_url', 'group',),
@@ -26,7 +26,8 @@ class FeedAdmin(PublishableAdmin):
                        ('title', 'link',),
                        ('description',),
                        ('published_time', 'last_polled_time',),
-                       ('channel',)
+                       ('channel',),
+                       ('main_image',)
                        )
         }),
     )
