@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from opps.core.models import Publishable, BaseConfig
+from opps.core.models import Publishable, BaseConfig, Slugged
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -25,7 +25,7 @@ class Group(models.Model):
         return len(Entry.objects.filter(feed__group=self, read=False))
 
 
-class Feed(Publishable):
+class Feed(Publishable, Slugged):
     """
     Feed information.
 
@@ -54,14 +54,22 @@ class Feed(Publishable):
     last_polled_time = models.DateTimeField(blank=True, null=True)
     group = models.ForeignKey(Group, blank=True, null=True)
 
+    channel = models.ForeignKey(
+        'channels.Channel',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL
+    )
+
     class Meta:
         ordering = ['title']
 
     def __unicode__(self):
         return self.title
 
-    def num_unread(self):
-        return len(Entry.objects.filter(feed=self, read=False))
+    @property
+    def entries(self):
+        return self.entry_set.all()
 
     def save(self, *args, **kwargs):
         """Poll new Feed"""

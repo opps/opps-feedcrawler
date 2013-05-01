@@ -4,8 +4,8 @@ This command polls all of the Feeds and inserts any new entries found.
 """
 from optparse import make_option
 from django.core.management.base import BaseCommand
-from ...models import Feed, Entry, FeedConfig
-from ...utils import refresh_feed
+from opps.feedcrawler.models import Feed, Entry, FeedConfig
+from opps.feedcrawler.utils import refresh_feed
 
 import logging
 logger = logging.getLogger('feedreader')

@@ -2,12 +2,15 @@
 from django.contrib import admin
 from .models import Group, Feed, Entry, FeedConfig
 from opps.core.admin import PublishableAdmin
+from opps.core.admin import apply_opps_rules
 
 
+@apply_opps_rules('feedcrawler')
 class GroupAdmin(admin.ModelAdmin):
     pass
 
 
+@apply_opps_rules('feedcrawler')
 class FeedAdmin(PublishableAdmin):
     list_display = ['xml_url', 'title', 'group',
                     'published_time', 'last_polled_time']
@@ -15,17 +18,21 @@ class FeedAdmin(PublishableAdmin):
     search_fields = ['link', 'title']
     readonly_fields = ['title', 'link', 'description', 'published_time',
                        'last_polled_time']
+    raw_id_fields = ('channel',)
     fieldsets = (
         (None, {
             'fields': (('xml_url', 'group',),
+                       ('slug',),
                        ('title', 'link',),
                        ('description',),
                        ('published_time', 'last_polled_time',),
+                       ('channel',)
                        )
         }),
     )
 
 
+@apply_opps_rules('feedcrawler')
 class EntryAdmin(admin.ModelAdmin):
     list_display = ['title', 'feed', 'published_time']
     list_filter = ['feed']
