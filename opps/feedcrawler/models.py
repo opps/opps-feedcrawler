@@ -137,12 +137,12 @@ class Entry(Article):
     def __unicode__(self):
         return self.title
 
-    def get_absolute_url(self):
-        return self.entry_link
+    # def get_absolute_url(self):
+    #     return self.entry_link
 
-    def get_http_absolute_url(self):
-        return self.entry_link
-    get_http_absolute_url.short_description = 'URL'
+    # def get_http_absolute_url(self):
+    #     return self.entry_link
+    # get_http_absolute_url.short_description = 'URL'
 
 
 class FeedConfig(BaseConfig):
