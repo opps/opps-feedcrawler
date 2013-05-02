@@ -13,7 +13,7 @@ from .models import Entry, FeedConfig
 
 
 import logging
-logger = logging.getLogger('feedreader')
+logger = logging.getLogger()
 
 
 def refresh_feed(db_feed, verbose=False):
