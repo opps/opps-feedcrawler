@@ -95,13 +95,20 @@ def refresh_feed(db_feed, verbose=False):
             if verbose:
                 print(msg)
             continue
+
+        if entry.title_detail.type == 'text/plain':
+            entry_title = html.escape(entry.title)
+        else:
+            entry_title = entry.title
+
         u_id = unicode(uuid.uuid4())
         db_entry, created = Entry.objects.get_or_create(
             entry_feed=db_feed,
             entry_link=entry.link,
             channel=db_feed.channel,
-            title=u_id,
-            slug=slugify(u_id),
+            title=entry_title[:140],
+            slug=slugify(entry_title[:150]),
+            entry_title=entry_title,
             site=db_feed.site,
             user=db_feed.user,
             published=True
@@ -124,10 +131,12 @@ def refresh_feed(db_feed, verbose=False):
                 if published_time > now:
                     published_time = now
                 db_entry.entry_published_time = published_time
-            if entry.title_detail.type == 'text/plain':
-                db_entry.entry_title = html.escape(entry.title)
-            else:
-                db_entry.entry_title = entry.title
+
+            # if entry.title_detail.type == 'text/plain':
+            #     db_entry.entry_title = html.escape(entry.title)
+            # else:
+            #     db_entry.entry_title = entry.title
+
             # Lots of entries are missing description_detail attributes.
             # Escape their content by default
             if hasattr(entry, 'description_detail') and \
