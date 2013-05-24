@@ -111,7 +111,8 @@ def refresh_feed(db_feed, verbose=False):
             entry_title=entry_title,
             site=db_feed.site,
             user=db_feed.user,
-            published=True
+            published=True,
+            show_on_root_channel=False
         )
         if created:
             if hasattr(entry, 'published_parsed'):
