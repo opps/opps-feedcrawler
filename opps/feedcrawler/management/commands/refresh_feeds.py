@@ -8,7 +8,7 @@ from opps.feedcrawler.models import Feed, Entry, FeedConfig
 from opps.feedcrawler.utils import refresh_feed
 
 import logging
-logger = logging.getLogger('feedreader')
+logger = logging.getLogger()
 
 
 class Command(BaseCommand):
@@ -36,9 +36,14 @@ class Command(BaseCommand):
         for i, feed in enumerate(feeds):
             if verbose:
                 print('(%d/%d) Processing Feed %s' % (i + 1, num_feeds, feed.title))
-            refresh_feed(feed, verbose)
+            try:
+                refresh_feed(feed, verbose)
+            except Exception, e:
+                if verbose:
+                    print str(e)
+                pass
             # Remove older entries
-            entries = Entry.objects.filter(feed=feed)
+            entries = Entry.objects.filter(entry_feed=feed)
             max_entries_saved = FeedConfig.get_value('max_entries_saved') or 100
             if max_entries_saved:
                 entries = entries[max_entries_saved:]

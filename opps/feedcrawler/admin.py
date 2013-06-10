@@ -56,7 +56,10 @@ class EntryAdmin(PublishableAdmin):
                        ('entry_description',),
                        ('entry_content',),
                        ('entry_published_time',),
-                       'entry_source'
+                       'entry_source',
+                       'published',
+                       'date_available',
+                       'show_on_root_channel'
                        )
         }),
     )
