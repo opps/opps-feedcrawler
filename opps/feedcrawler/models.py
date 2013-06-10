@@ -26,6 +26,10 @@ class Group(models.Model):
     def num_unread(self):
         return len(Entry.objects.filter(feed__group=self, read=False))
 
+    class Meta:
+        verbose_name = _(u'Group')
+        verbose_name_plural = _(u'Groups')
+
 
 class Feed(Publishable, Slugged):
     """
@@ -74,6 +78,9 @@ class Feed(Publishable, Slugged):
 
     class Meta:
         ordering = ['title']
+        verbose_name = _(u'Feed')
+        verbose_name_plural = _(u'Feeds')
+
 
     def __unicode__(self):
         return self.title
@@ -144,6 +151,10 @@ class Entry(Article):
     #     return self.entry_link
     # get_http_absolute_url.short_description = 'URL'
 
+    class Meta:
+        verbose_name = _(u'Entry')
+        verbose_name_plural = _(u'Entries')
+
 
 class FeedConfig(BaseConfig):
     """
@@ -162,3 +173,5 @@ class FeedConfig(BaseConfig):
         permissions = (("developer", "Developer"),)
         unique_together = ("key_group", "key", "site",
                            "channel", "article", "feed")
+        verbose_name = _(u'Feed Config')
+        verbose_name_plural = _(u'Feed Configs')
