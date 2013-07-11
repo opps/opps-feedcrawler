@@ -19,18 +19,16 @@ class Group(models.Model):
 
     class Meta:
         ordering = ['name']
+        verbose_name = _(u'Group')
+        verbose_name_plural = _(u'Groups')
 
     def __unicode__(self):
         return self.name
 
     def num_unread(self):
         return len(Entry.objects.filter(feed__group=self, read=False))
-
-    class Meta:
-        verbose_name = _(u'Group')
-        verbose_name_plural = _(u'Groups')
-
-
+        
+        
 class Feed(Publishable, Slugged):
     """
     Feed information.
@@ -140,6 +138,8 @@ class Entry(Article):
     class Meta:
         ordering = ['-entry_published_time']
         verbose_name_plural = 'entries'
+        verbose_name = _(u'Entry')
+        verbose_name_plural = _(u'Entries')
 
     def __unicode__(self):
         return self.title
@@ -151,9 +151,6 @@ class Entry(Article):
     #     return self.entry_link
     # get_http_absolute_url.short_description = 'URL'
 
-    class Meta:
-        verbose_name = _(u'Entry')
-        verbose_name_plural = _(u'Entries')
 
 
 class FeedConfig(BaseConfig):
