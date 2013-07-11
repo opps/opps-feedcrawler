@@ -1,8 +1,13 @@
 # coding: utf-8
 from django.contrib import admin
-from .models import Group, Feed, Entry, FeedConfig
+from .models import Group, Feed, Entry, FeedType
 from opps.core.admin import PublishableAdmin
 from opps.core.admin import apply_opps_rules
+
+
+@apply_opps_rules('feedcrawler')
+class FeedTypeAdmin(admin.ModelAdmin):
+    pass
 
 
 @apply_opps_rules('feedcrawler')
@@ -12,23 +17,33 @@ class GroupAdmin(admin.ModelAdmin):
 
 @apply_opps_rules('feedcrawler')
 class FeedAdmin(PublishableAdmin):
-    list_display = ['xml_url', 'title', 'slug', 'channel', 'group',
+    list_display = ['title', 'slug', 'source_url', 'feed_type', 'channel', 'group',
                     'published_time', 'last_polled_time']
-    list_filter = ['group', 'channel']
-    search_fields = ['link', 'title', 'slug']
-    readonly_fields = ['title', 'link', 'description', 'published_time',
+    list_filter = ['group', 'channel', 'feed_type']
+    search_fields = ['link', 'title', 'slug', 'description']
+    readonly_fields = ['published_time',
                        'last_polled_time']
     raw_id_fields = ('channel', 'main_image')
     fieldsets = (
         (None, {
             'fields': (('site',),
-                       ('xml_url', 'group',),
+                       ('title',),
                        ('slug',),
-                       ('title', 'link',),
+                       ('group',),
+                       ('feed_type',),
+                       ('link',),
                        ('description',),
                        ('published_time', 'last_polled_time',),
                        ('channel',),
-                       ('main_image',)
+                       ('main_image',),
+                       ('max_entries',),
+
+                       ('source_url',),
+                       ('source_username',),
+                       ('source_password',),
+                       ('source_port',),
+                       ('source_root_folder',),
+                       ('source_json_params',),
                        )
         }),
     )
@@ -38,25 +53,25 @@ class FeedAdmin(PublishableAdmin):
 class EntryAdmin(PublishableAdmin):
     list_display = ['entry_title', 'entry_feed', 'entry_published_time']
     list_filter = ['entry_feed']
-    search_fields = ['entry_title', 'entry_link']
+    search_fields = ['entry_title', 'entry_link', 'entry_description']
     readonly_fields = ['entry_link', 'entry_title', 'entry_description',
-                       'entry_published_time', 'entry_feed', 'entry_content']
+                       'entry_published_time', 'entry_feed', 'entry_content',
+                       'entry_pulled_time']
     raw_id_fields = ('channel',)
     fieldsets = (
         (None, {
             'fields': (('site',),
                        ('title',),
                        ('hat',),
-                       ('short_title',),
                        ('slug',),
-                       ('headline',),
                        ('channel',),
                        ('entry_link',),
                        ('entry_title', 'entry_feed',),
                        ('entry_description',),
                        ('entry_content',),
                        ('entry_published_time',),
-                       'entry_source',
+                       ('entry_pulled_time',),
+                       'entry_json',
                        'published',
                        'date_available',
                        'show_on_root_channel'
@@ -64,16 +79,7 @@ class EntryAdmin(PublishableAdmin):
         }),
     )
 
-
-class FeedConfigAdmin(PublishableAdmin):
-    list_display = ['key', 'key_group', 'channel', 'date_insert',
-                    'date_available', 'published']
-    list_filter = ["key", 'key_group', "channel", "published"]
-    search_fields = ["key", "key_group", "value"]
-    raw_id_fields = ['feed', 'channel', 'article']
-    exclude = ('user',)
-
 admin.site.register(Feed, FeedAdmin)
 admin.site.register(Group, GroupAdmin)
 admin.site.register(Entry, EntryAdmin)
-admin.site.register(FeedConfig, FeedConfigAdmin)
+admin.site.register(FeedType, FeedTypeAdmin)

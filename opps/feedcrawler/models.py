@@ -1,20 +1,28 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import json
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.core.exceptions import ValidationError
+
 from opps.core.models import Publishable, Slugged
 from opps.containers.models import Container
 
 
+RSS_PROCESSOR = 'opps.feedcrawler.processors.rss.RSSProcessor'
+RSS_ACTIONS = 'opps.feedcrawler.actions.rss.RSSActions'
+
+
+class FeedType(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    processor = models.CharField(max_length=255, default=RSS_PROCESSOR)
+    actions = models.CharField(max_length=255, default=RSS_ACTIONS)
+
+    def __unicode__(self):
+        return self.name
+
+
 class Group(models.Model):
-    """
-    Group of feeds.
-
-    :Fields:
-
-        name : char
-            Name of group.
-    """
     name = models.CharField(max_length=250, unique=True)
 
     class Meta:
@@ -30,38 +38,32 @@ class Group(models.Model):
 
 
 class Feed(Publishable, Slugged):
-    """
-    Feed information.
+    title = models.CharField(max_length=255)
 
-    :Fields:
-
-        title : char
-            Title of feed.
-        xml_url : char
-            URL of xml feed.
-        link : char
-            URL of feed site.
-        description : text
-            Description of feed.
-        updated_time : date_time
-            When feed was last updated.
-        last_polled_time : date_time
-            When feed was last polled.
-        group : ForeignKey
-            Group this feed is a part of.
-    """
-    title = models.CharField(max_length=2000, blank=True, null=True)
-    xml_url = models.CharField(max_length=255, unique=True)
-    link = models.CharField(max_length=2000, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
+    link = models.CharField(max_length=2000, blank=True, null=True)
+
+    source_url = models.CharField(max_length=255)
+
+    source_username = models.CharField(max_length=255, blank=True, null=True)
+    source_password = models.CharField(max_length=255, blank=True, null=True)
+    source_port = models.PositiveIntegerField(blank=True, null=True)
+    source_root_folder = models.CharField(max_length=255, default="/")
+
+    source_json_params = models.TextField(blank=True, null=True)
+
     published_time = models.DateTimeField(blank=True, null=True)
     last_polled_time = models.DateTimeField(blank=True, null=True)
+
     group = models.ForeignKey(Group, blank=True, null=True)
+    feed_type = models.ForeignKey(FeedType)
+
+    max_entries = models.PositiveIntegerField(blank=True, null=True)
 
     channel = models.ForeignKey(
         'channels.Channel',
         null=True,
-        blank=False,
+        blank=True,
         on_delete=models.SET_NULL
     )
 
@@ -82,19 +84,19 @@ class Feed(Publishable, Slugged):
     def __unicode__(self):
         return self.title
 
+    def load_json_params(self):
+        if self.source_json_params:
+            try:
+                json.loads(self.source_json_params)
+            except:
+                raise ValidationError(_(u'Invalid JSON'))
+
+    def clean(self):
+        self.load_json_params()
+
     @property
     def entries(self):
         return self.entry_set.all()
-
-    def save(self, *args, **kwargs):
-        """Poll new Feed"""
-        try:
-            Feed.objects.get(xml_url=self.xml_url)
-            super(Feed, self).save(*args, **kwargs)
-        except Feed.DoesNotExist:
-            super(Feed, self).save(*args, **kwargs)
-            from .utils import refresh_feed
-            refresh_feed(self)
 
     def get_absolute_url(self):
         return "/feed/{0}/{1}".format(self.channel.long_slug, self.slug)
@@ -106,46 +108,26 @@ class Feed(Publishable, Slugged):
 
 
 class Entry(Container):
-    """
-    Feed entry information.
-
-    :Fields:
-
-        feed : ForeignKey
-            Feed this entry is a part of.
-        title : char
-            Title of entry.
-        link : char
-            URL of entry.
-        description : text
-            Description of entry.
-        updated_time : date_time
-            When entry was last updated.
-    """
     entry_feed = models.ForeignKey(Feed)
     entry_title = models.CharField(
-        max_length=2000,
+        max_length=255,
         blank=True,
         null=True
     )
-    entry_link = models.CharField(max_length=2000)
+    entry_link = models.CharField(max_length=2000, blank=True, null=True)
     entry_description = models.TextField(blank=True, null=True)
     entry_content = models.TextField(blank=True, null=True)
     entry_published_time = models.DateTimeField(auto_now_add=True)
-    entry_source = models.TextField(blank=True, null=True)
+    entry_pulled_time = models.DateTimeField(auto_now_add=True)
+    entry_json = models.TextField(blank=True, null=True)
 
     class Meta:
         ordering = ['-entry_published_time']
-        verbose_name_plural = 'entries'
         verbose_name = _(u'Entry')
         verbose_name_plural = _(u'Entries')
 
     def __unicode__(self):
         return self.title
 
-    # def get_absolute_url(self):
-    #     return self.entry_link
-
-    # def get_http_absolute_url(self):
-    #     return self.entry_link
-    # get_http_absolute_url.short_description = 'URL'
+    def get(self):
+        pass
