@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from opps.core.models import Publishable, BaseConfig, Slugged
-from opps.articles.models import Article
+from opps.core.models import Publishable, Slugged
+from opps.containers.models import Container
 
 
 class Group(models.Model):
@@ -19,16 +19,14 @@ class Group(models.Model):
 
     class Meta:
         ordering = ['name']
+        verbose_name = _(u'Group')
+        verbose_name_plural = _(u'Groups')
 
     def __unicode__(self):
         return self.name
 
     def num_unread(self):
         return len(Entry.objects.filter(feed__group=self, read=False))
-
-    class Meta:
-        verbose_name = _(u'Group')
-        verbose_name_plural = _(u'Groups')
 
 
 class Feed(Publishable, Slugged):
@@ -81,7 +79,6 @@ class Feed(Publishable, Slugged):
         verbose_name = _(u'Feed')
         verbose_name_plural = _(u'Feeds')
 
-
     def __unicode__(self):
         return self.title
 
@@ -108,7 +105,7 @@ class Feed(Publishable, Slugged):
         return "{0}{1}/feed{2}".format(protocol, self.site, path)
 
 
-class Entry(Article):
+class Entry(Container):
     """
     Feed entry information.
 
@@ -140,6 +137,8 @@ class Entry(Article):
     class Meta:
         ordering = ['-entry_published_time']
         verbose_name_plural = 'entries'
+        verbose_name = _(u'Entry')
+        verbose_name_plural = _(u'Entries')
 
     def __unicode__(self):
         return self.title
@@ -150,28 +149,3 @@ class Entry(Article):
     # def get_http_absolute_url(self):
     #     return self.entry_link
     # get_http_absolute_url.short_description = 'URL'
-
-    class Meta:
-        verbose_name = _(u'Entry')
-        verbose_name_plural = _(u'Entries')
-
-
-class FeedConfig(BaseConfig):
-    """
-    max_entries_saved
-    """
-
-    feed = models.ForeignKey(
-        'feedcrawler.Feed',
-        null=True, blank=True,
-        on_delete=models.SET_NULL,
-        related_name='feedconfig_feeds',
-        verbose_name=_(u'Feed'),
-    )
-
-    class Meta:
-        permissions = (("developer", "Developer"),)
-        unique_together = ("key_group", "key", "site",
-                           "channel", "article", "feed")
-        verbose_name = _(u'Feed Config')
-        verbose_name_plural = _(u'Feed Configs')
