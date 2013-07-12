@@ -1,10 +1,13 @@
 #coding: utf-8
 import urllib
+import json
 import xml.etree.ElementTree as ET
 from ftplib import FTP
 from tempfile import NamedTemporaryFile
 
-# from django.utils.text import slugify
+from datetime import datetime
+
+from django.utils.text import slugify
 
 from .base import BaseProcessor
 from .efe import iptc
@@ -84,6 +87,8 @@ class EFEXMLProcessor(BaseProcessor):
         created = self.create_entry(data)
         if created:
             self.record_log(s)
+        else:
+            self.verbose_print("Entry not created")
 
     def parse_xml(self, filename):
         data = {}
@@ -147,7 +152,7 @@ class EFEXMLProcessor(BaseProcessor):
                 './NewsItem/NewsComponent/ContentItem/DataContent/nitf/'
                 'body/body.content')
             data['body'] = u"\n".join(
-                u"<p>{0}</p>".format(p.text) for p in body.getchildren())
+                u"<p>{0}</p>".format(p.text) for p in body)
         except:
             pass
 
@@ -158,27 +163,60 @@ class EFEXMLProcessor(BaseProcessor):
 
         return data
 
+    def parse_dt(self, s):
+        self.verbose_print("REceived to parse_dt %s" % s)
+        try:
+            new_s = datetime.strptime(s[:8], "%Y%m%d")
+            self.verbose_print("parsed to %s" % new_s)
+            return new_s
+        except Exception as e:
+            self.verbose_print("CAnt parse dt")
+            self.verbose_print(str(e))
+            return
+
     def create_entry(self, data):
         if not data:
             self.verbose_print("data is null")
             return
 
         # working
+        entry_title = unicode(data.get('headline'))
 
         try:
-            # db_entry, created = self.entry_model.objects.get_or_create(
-            #     entry_feed=self.feed,
-            #     channel=self.feed.channel,
-            #     title=entry_title[:140],
-            #     slug=slugify(entry_title[:150]),
-            #     entry_title=entry_title,
-            #     site=self.feed.site,
-            #     user=self.feed.user,
-            #     published=True,
-            #     show_on_root_channel=True
-            # )
-            pass
+            db_entry, created = self.entry_model.objects.get_or_create(
+                entry_feed=self.feed,
+                channel=self.feed.get_channel(),
+                title=entry_title[:140],
+                slug=slugify(entry_title[:150]),
+                entry_title=entry_title,
+                site=self.feed.site,
+                user=self.feed.user,
+                published=self.feed.publish_entries,
+                show_on_root_channel=True
+            )
+            db_entry.entry_description = unicode(data.get('abstract', ''))
+            db_entry.entry_content = unicode(data.get('body', ''))
+            db_entry.entry_category = unicode(data.get('iptc_matter', ''))
+            db_entry.hat = unicode(data.get('subheadline', ''))
+            db_entry.entry_category_code = unicode(data.get('iptc_code', ''))
+
+            db_entry.entry_published_time = self.parse_dt(
+                data.get('pub_date', data.get('story_data', None))
+            )
+
+            try:
+                db_entry.entry_json = json.dumps(data)
+            except Exception as e:
+                self.verbose_print("Cound not dump json %s" % str(data))
+                self.verbose_print(str(e))
+
+            db_entry.save()
+            self.verbose_print("Entry saved: %s" % db_entry.pk)
+
+            return db_entry.pk
+
         except Exception as e:
+            self.verbose_print("Cannot save the entry")
             self.verbose_print(str(data))
             self.verbose_print(str(e))
 
@@ -205,6 +243,7 @@ class EFEXMLProcessor(BaseProcessor):
             type="created",
             text=s
         )
+        self.verbose_print("Process log created")
 
     def process(self):
         self.connect()
