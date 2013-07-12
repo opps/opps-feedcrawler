@@ -37,6 +37,7 @@ class FeedAdmin(PublishableAdmin):
                        ('channel',),
                        ('main_image',),
                        ('max_entries',),
+                       ('published',),
 
                        ('source_url',),
                        ('source_username',),

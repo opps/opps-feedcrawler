@@ -106,6 +106,14 @@ class Feed(Publishable, Slugged):
             self.channel, self.slug).split(self.site.domain)
         return "{0}{1}/feed{2}".format(protocol, self.site, path)
 
+    def get_processor(self, verbose=False):
+        processor = self.feed_type.processor
+        _module = '.'.join(processor.split('.')[:-1])
+        _processor = processor.split('.')[-1]
+        _temp = __import__(_module, globals(), locals(), [_processor], -1)
+        Processor = getattr(_temp, _processor)
+        return Processor(self, verbose=verbose)
+
 
 class Entry(Container):
     entry_feed = models.ForeignKey(Feed)

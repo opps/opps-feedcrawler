@@ -23,8 +23,15 @@ class RSSProcessor(BaseProcessor):
     def fetch(self):
         self.parsed = feedparser.parse(self.feed.source_url)
         if hasattr(self.parsed.feed, 'bozo_exception'):
-            logger.warning("Malformed feed %s" % self.feed.source_url)
+            msg = "Malformed feed %s" % self.feed.source_url
+            logger.warning(msg)
+            if self.verbose:
+                print(msg)
             return
+
+        if self.verbose:
+            print("Feed succesfully parsed")
+
         return self.parsed
 
     def update_feed(self):
@@ -67,13 +74,15 @@ class RSSProcessor(BaseProcessor):
         self.feed.last_polled_time = timezone.now()
         self.feed.save()
 
+        if self.verbose:
+            print("Feed object updated %s" % self.feed.last_polled_time)
+
         return len(self.parsed.entries)
 
     def create_entries(self):
-        max_entries_saved = self.feed.max_entries or 100
         count = 0
         for i, entry in enumerate(self.parsed.entries):
-            if i > max_entries_saved:
+            if i > self.max_entries_saved:
                 break
             missing_attr = False
             for attr in ['title', 'title_detail', 'link', 'description']:
@@ -170,10 +179,27 @@ class RSSProcessor(BaseProcessor):
                 db_entry.save()
                 count += 1
 
+                if self.verbose:
+                    print("Entry created %s" % db_entry.title)
+
+        if self.verbose:
+            print("%d entries created" % count)
         return count
+
+    def delete_old_entries(self):
+        entries = self.entry_model.objects.filter(entry_feed=self.feed)
+        entries = entries[self.max_entries_saved:]
+        # Cannot use 'limit' or 'offset' with delete.
+        for entry in entries:
+            entry.delete()
+
+        if self.verbose:
+            print("%d entries deleted" % len(entries))
 
     def process(self):
         # fetch and parse the feed
+
+        self.max_entries_saved = self.feed.max_entries or 1000
         if not self.fetch():
             logger.warning("Feed cannot be parsed")
             return 0
@@ -182,4 +208,6 @@ class RSSProcessor(BaseProcessor):
             logger.info("No entry returned")
             return 0
 
-        return self.create_entries()
+        created_count = self.create_entries()
+        self.delete_old_entries()
+        return created_count

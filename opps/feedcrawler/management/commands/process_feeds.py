@@ -4,8 +4,7 @@ This command polls all of the Feeds and inserts any new entries found.
 """
 from optparse import make_option
 from django.core.management.base import BaseCommand
-from opps.feedcrawler.models import Feed, Entry, FeedConfig
-from opps.feedcrawler.utils import refresh_feed
+from opps.feedcrawler.models import Feed
 
 import logging
 logger = logging.getLogger()
@@ -13,7 +12,7 @@ logger = logging.getLogger()
 
 class Command(BaseCommand):
     args = 'none'
-    help = 'Polls all Feeds for Entries.'
+    help = 'run the feed processor for every published feed.'
     option_list = BaseCommand.option_list + (
         make_option(
             '--verbose',
@@ -22,6 +21,13 @@ class Command(BaseCommand):
             default=False,
             help='Print progress on command line'
         ),
+        make_option(
+            '--feed',
+            action='store_true',
+            dest='feed',
+            default=False,
+            help='Process only specified feed'
+        ),
     )
 
     def handle(self, *args, **options):
@@ -29,26 +35,33 @@ class Command(BaseCommand):
         Read through all the feeds looking for new entries.
         """
         verbose = options.get('verbose')
-        feeds = Feed.objects.all()
-        num_feeds = len(feeds)
+        feed_slug = options.get('feed')
+
+        if feed_slug:
+            feeds = Feed.objects.filter(slug=feed_slug)
+        else:
+            feeds = Feed.objects.filter(published=True)
+
+        num_feeds = feeds.count()
+
         if verbose:
             print('%d feeds to process' % (num_feeds))
+
         for i, feed in enumerate(feeds):
             if verbose:
-                print('(%d/%d) Processing Feed %s' % (i + 1, num_feeds, feed.title))
-            try:
-                refresh_feed(feed, verbose)
-            except Exception, e:
+                print(
+                    '(%d/%d) Processing Feed %s'
+                    % (i + 1, num_feeds, feed.title)
+                )
+
+            processor = feed.get_processor(verbose)
+            if processor:
                 if verbose:
-                    print str(e)
-                pass
-            # Remove older entries
-            entries = Entry.objects.filter(entry_feed=feed)
-            max_entries_saved = FeedConfig.get_value('max_entries_saved') or 100
-            if max_entries_saved:
-                entries = entries[max_entries_saved:]
-            for entry in entries:
-                entry.delete()
-            if verbose:
-                print('Deleted %d entries from feed %s' % ((len(entries), feed.title)))
-        logger.info('Feedreader refresh_feeds completed successfully')
+                    print("Processing: %s" % processor.__class__)
+                try:
+                    processor.process()
+                except Exception as e:
+                    if verbose:
+                        print str(e)
+
+        logger.info('Feedcrawler process_feeds completed successfully')
