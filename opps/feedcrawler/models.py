@@ -129,6 +129,10 @@ class Entry(Container):
     entry_pulled_time = models.DateTimeField(auto_now_add=True)
     entry_json = models.TextField(blank=True, null=True)
 
+    entry_category = models.CharField(max_length=255, blank=True, null=True)
+    entry_category_code = models.CharField(max_length=255, blank=True,
+                                           null=True)
+
     class Meta:
         ordering = ['-entry_published_time']
         verbose_name = _(u'Entry')
@@ -139,3 +143,8 @@ class Entry(Container):
 
     def get(self):
         pass
+
+
+class ProcessLog(models.Model):
+    feed = models.ForeignKey(Feed)
+    text = models.CharField(max_length=255, blank=True, null=True)
