@@ -8,7 +8,7 @@ from django.utils import timezone
 
 from opps.core.models import Publishable, Slugged
 from opps.containers.models import Container
-
+from opps.channels.models import Channel
 
 RSS_PROCESSOR = 'opps.feedcrawler.processors.rss.RSSProcessor'
 RSS_ACTIONS = 'opps.feedcrawler.actions.rss.RSSActions'
@@ -60,6 +60,8 @@ class Feed(Publishable, Slugged):
     feed_type = models.ForeignKey(FeedType)
 
     max_entries = models.PositiveIntegerField(blank=True, null=True)
+
+    publish_entries = models.BooleanField(default=True)
 
     channel = models.ForeignKey(
         'channels.Channel',
@@ -114,6 +116,9 @@ class Feed(Publishable, Slugged):
         _temp = __import__(_module, globals(), locals(), [_processor], -1)
         Processor = getattr(_temp, _processor)
         return Processor(self, verbose=verbose)
+
+    def get_channel(self):
+        return self.channel or Channel.objects.get_homepage(site=self.site)
 
 
 class Entry(Container):
