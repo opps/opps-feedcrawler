@@ -4,6 +4,7 @@ import json
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ValidationError
+from django.utils import timezone
 
 from opps.core.models import Publishable, Slugged
 from opps.containers.models import Container
@@ -148,3 +149,4 @@ class Entry(Container):
 class ProcessLog(models.Model):
     feed = models.ForeignKey(Feed)
     text = models.CharField(max_length=255, blank=True, null=True)
+    log_time = models.DateTimeField(auto_now_add=True, default=timezone.now)
