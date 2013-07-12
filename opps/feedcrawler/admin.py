@@ -42,6 +42,7 @@ class FeedAdmin(PublishableAdmin):
                        ('channel',),
                        ('main_image',),
                        ('max_entries',),
+                       ('publish_entries',),
                        ('published',),
 
                        ('source_url',),
@@ -57,12 +58,15 @@ class FeedAdmin(PublishableAdmin):
 
 @apply_opps_rules('feedcrawler')
 class EntryAdmin(PublishableAdmin):
-    list_display = ['entry_title', 'entry_feed', 'entry_published_time']
+    list_display = ['entry_title', 'entry_feed', 'entry_published_time',
+                    'entry_pulled_time', 'entry_category',
+                    'entry_category_code']
     list_filter = ['entry_feed']
     search_fields = ['entry_title', 'entry_link', 'entry_description']
     readonly_fields = ['entry_link', 'entry_title', 'entry_description',
                        'entry_published_time', 'entry_feed', 'entry_content',
-                       'entry_pulled_time']
+                       'entry_pulled_time', 'entry_category',
+                       'entry_category_code']
     raw_id_fields = ('channel',)
     fieldsets = (
         (None, {
@@ -73,6 +77,7 @@ class EntryAdmin(PublishableAdmin):
                        ('channel',),
                        ('entry_link',),
                        ('entry_title', 'entry_feed',),
+                       ('entry_category', 'entry_category_code',),
                        ('entry_description',),
                        ('entry_content',),
                        ('entry_published_time',),
