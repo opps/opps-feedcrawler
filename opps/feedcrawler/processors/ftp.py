@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 from ftplib import FTP
 from tempfile import NamedTemporaryFile
 
-from django.utils.text import slugify
+# from django.utils.text import slugify
 
 from .base import BaseProcessor
 from .efe import iptc
@@ -95,13 +95,17 @@ class EFEXMLProcessor(BaseProcessor):
             return
 
         try:
-            data['headline'] = root.find('./NewsItem/NewsComponent/NewsLines/HeadLine').text
-            data['subheadline'] = root.find('./NewsItem/NewsComponent/NewsLines/SubHeadLine').text
+            data['headline'] = root.find(
+                './NewsItem/NewsComponent/NewsLines/HeadLine').text
+            data['subheadline'] = root.find(
+                './NewsItem/NewsComponent/NewsLines/SubHeadLine').text
         except:
             pass
 
         try:
-            tobject_attrib = root.find('./NewsItem/NewsComponent/ContentItem/DataContent/nitf/head/tobject/tobject.subject')
+            tobject_attrib = root.find(
+                './NewsItem/NewsComponent/ContentItem/'
+                'DataContent/nitf/head/tobject/tobject.subject')
             data['iptc_code'] = tobject_attrib.get('tobject.subject.refnum')
             data['iptc_matter'] = tobject_attrib.get('tobject.subject.matter')
             data['iptc_type'] = tobject_attrib.get('tobject.subject.type')
@@ -109,35 +113,47 @@ class EFEXMLProcessor(BaseProcessor):
             pass
 
         try:
-            pub_data_attrib = root.find('./NewsItem/NewsComponent/ContentItem/DataContent/nitf/head/pubdata')
+            pub_data_attrib = root.find(
+                './NewsItem/NewsComponent/ContentItem/'
+                'DataContent/nitf/head/pubdata')
             data['pub_date'] = pub_data_attrib.get('date.publication')
             data['item_len'] = pub_data_attrib.get('item-length')
         except:
             pass
 
         try:
-            data['abstract'] = root.find('./NewsItem/NewsComponent/ContentItem/DataContent/nitf/body/body.head/abstract/').text
+            data['abstract'] = root.find(
+                './NewsItem/NewsComponent/ContentItem'
+                '/DataContent/nitf/body/body.head/abstract/').text
         except:
             pass
 
         try:
-            data['owner'] = root.find('./NewsItem/NewsComponent/ContentItem/DataContent/nitf/body/body.head/rights/').text
+            data['owner'] = root.find(
+                './NewsItem/NewsComponent/ContentItem/DataContent/nitf/'
+                'body/body.head/rights/').text
         except:
             pass
 
         try:
-            data['story_data'] = root.find('./NewsItem/NewsComponent/ContentItem/DataContent/nitf/body/body.head/dateline/story.date').get('norm')
+            data['story_data'] = root.find(
+                './NewsItem/NewsComponent/ContentItem/DataContent/nitf/'
+                'body/body.head/dateline/story.date').get('norm')
         except:
             pass
 
         try:
-            body = root.find('./NewsItem/NewsComponent/ContentItem/DataContent/nitf/body/body.content')
-            data['body'] = u"\n".join(u"<p>{0}</p>".format(p.text) for p in body.getchildren())
+            body = root.find(
+                './NewsItem/NewsComponent/ContentItem/DataContent/nitf/'
+                'body/body.content')
+            data['body'] = u"\n".join(
+                u"<p>{0}</p>".format(p.text) for p in body.getchildren())
         except:
             pass
 
         if not all([data.get('body'), data.get('headline')]):
-            self.verbose_print("Data does not have body and headline %s" % str(data))
+            self.verbose_print(
+                "Data does not have body and headline %s" % str(data))
             return
 
         return data
@@ -147,21 +163,21 @@ class EFEXMLProcessor(BaseProcessor):
             self.verbose_print("data is null")
             return
 
-
         # working
 
         try:
-            db_entry, created = self.entry_model.objects.get_or_create(
-                entry_feed=self.feed,
-                channel=self.feed.channel,
-                title=entry_title[:140],
-                slug=slugify(entry_title[:150]),
-                entry_title=entry_title,
-                site=self.feed.site,
-                user=self.feed.user,
-                published=True,
-                show_on_root_channel=True
-            )
+            # db_entry, created = self.entry_model.objects.get_or_create(
+            #     entry_feed=self.feed,
+            #     channel=self.feed.channel,
+            #     title=entry_title[:140],
+            #     slug=slugify(entry_title[:150]),
+            #     entry_title=entry_title,
+            #     site=self.feed.site,
+            #     user=self.feed.user,
+            #     published=True,
+            #     show_on_root_channel=True
+            # )
+            pass
         except Exception as e:
             self.verbose_print(str(data))
             self.verbose_print(str(e))
@@ -183,8 +199,6 @@ class EFEXMLProcessor(BaseProcessor):
 
         return data
 
-
-
     def record_log(self, s):
         self.log_model.objects.create(
             feed=self.feed,
@@ -199,7 +213,6 @@ class EFEXMLProcessor(BaseProcessor):
 
         self.count = 0
         self.ftp.retrlines('NLST', self.process_file)
-
 
 
 # LIST retrieves a list of files and information about those files.
