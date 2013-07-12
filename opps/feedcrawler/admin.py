@@ -1,8 +1,13 @@
 # coding: utf-8
 from django.contrib import admin
-from .models import Group, Feed, Entry, FeedType
+from .models import Group, Feed, Entry, FeedType, ProcessLog
 from opps.core.admin import PublishableAdmin
 from opps.core.admin import apply_opps_rules
+
+
+@apply_opps_rules('feedcrawler')
+class ProcessLogadmin(admin.ModelAdmin):
+    pass
 
 
 @apply_opps_rules('feedcrawler')
@@ -84,3 +89,4 @@ admin.site.register(Feed, FeedAdmin)
 admin.site.register(Group, GroupAdmin)
 admin.site.register(Entry, EntryAdmin)
 admin.site.register(FeedType, FeedTypeAdmin)
+admin.site.register(ProcessLog, ProcessLogadmin)

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-data = {
+iptc = {
     '12008000': {
         'parent_desc': 'Religi\xc3\xb5es e cren\xc3\xa7as',
         'cat': 'REL',

@@ -88,7 +88,7 @@ class Feed(Publishable, Slugged):
     def load_json_params(self):
         if self.source_json_params:
             try:
-                json.loads(self.source_json_params)
+                return json.loads(self.source_json_params)
             except:
                 raise ValidationError(_(u'Invalid JSON'))
 
@@ -148,5 +148,9 @@ class Entry(Container):
 
 class ProcessLog(models.Model):
     feed = models.ForeignKey(Feed)
+    type = models.CharField(max_length=255, blank=True, null=True)
     text = models.CharField(max_length=255, blank=True, null=True)
     log_time = models.DateTimeField(auto_now_add=True, default=timezone.now)
+
+    def __unicode__(self):
+        return self.text
