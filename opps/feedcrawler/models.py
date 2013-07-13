@@ -90,7 +90,7 @@ class Feed(Publishable, Slugged):
     def load_json_params(self):
         if self.source_json_params:
             try:
-                return json.loads(self.source_json_params)
+                return json.loads(self.source_json_params or "{}")
             except:
                 raise ValidationError(_(u'Invalid JSON'))
 
@@ -147,8 +147,15 @@ class Entry(Container):
     def __unicode__(self):
         return self.title
 
-    def get(self):
-        pass
+    def get(self, key):
+        data = self.load_json()
+        return data.get(key)
+
+    def load_json(self):
+        try:
+            return json.loads(self.entry_json or "{}")
+        except:
+            raise ValidationError(u"Invalid Json")
 
 
 class ProcessLog(models.Model):
