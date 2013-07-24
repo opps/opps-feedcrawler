@@ -58,6 +58,15 @@ class FeedAdmin(PublishableAdmin):
 
 @apply_opps_rules('feedcrawler')
 class EntryAdmin(PublishableAdmin):
+
+    action_buttons = [
+        {"text": "Create post",
+         "url": '/feedcrawler/createpost/%s',
+         "class": "btn btn-success",
+         "style": "",
+         "title": "Click to generate a post form this entry"},
+    ]
+
     list_display = ['entry_title', 'entry_feed', 'entry_published_time',
                     'entry_pulled_time', 'entry_category',
                     'entry_category_code']
