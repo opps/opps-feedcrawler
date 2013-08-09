@@ -1,7 +1,7 @@
 [main]
 host = https://www.transifex.com
 
-[opps.feedcrawler]
+[opps-feedcrawler.feedcrawler]
 file_filter = opps/feedcrawler/locale/<lang>/LC_MESSAGES/django.po
 source_file = opps/feedcrawler/locale/en_US/LC_MESSAGES/django.po
 source_lang = en
