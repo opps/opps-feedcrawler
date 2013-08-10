@@ -3,9 +3,6 @@ import datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
-from django.contrib.auth import get_user_model
-
-User = get_user_model()
 
 
 class Migration(SchemaMigration):
@@ -32,7 +29,7 @@ class Migration(SchemaMigration):
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('date_insert', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
             ('date_update', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-            ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['%s.%s' % (User._meta.app_label, User._meta.object_name)])),
+            ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['accounts.CustomUser'])),
             ('site', self.gf('django.db.models.fields.related.ForeignKey')(default=1, to=orm['sites.Site'])),
             ('site_iid', self.gf('django.db.models.fields.PositiveIntegerField')(db_index=True, max_length=4, null=True, blank=True)),
             ('site_domain', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=100, null=True, blank=True)),
@@ -53,6 +50,7 @@ class Migration(SchemaMigration):
             ('group', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['feedcrawler.Group'], null=True, blank=True)),
             ('feed_type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['feedcrawler.FeedType'])),
             ('max_entries', self.gf('django.db.models.fields.PositiveIntegerField')(null=True, blank=True)),
+            ('publish_entries', self.gf('django.db.models.fields.BooleanField')(default=True)),
             ('channel', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['channels.Channel'], null=True, on_delete=models.SET_NULL, blank=True)),
             ('main_image', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='feed_image', null=True, on_delete=models.SET_NULL, to=orm['images.Image'])),
         ))
@@ -69,8 +67,20 @@ class Migration(SchemaMigration):
             ('entry_published_time', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
             ('entry_pulled_time', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
             ('entry_json', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+            ('entry_category', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
+            ('entry_category_code', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
         ))
         db.send_create_signal(u'feedcrawler', ['Entry'])
+
+        # Adding model 'ProcessLog'
+        db.create_table(u'feedcrawler_processlog', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('feed', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['feedcrawler.Feed'])),
+            ('type', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
+            ('text', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
+            ('log_time', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime.now, auto_now_add=True, blank=True)),
+        ))
+        db.send_create_signal(u'feedcrawler', ['ProcessLog'])
 
 
     def backwards(self, orm):
@@ -86,24 +96,30 @@ class Migration(SchemaMigration):
         # Deleting model 'Entry'
         db.delete_table(u'feedcrawler_entry')
 
+        # Deleting model 'ProcessLog'
+        db.delete_table(u'feedcrawler_processlog')
+
 
     models = {
-        u'archives.archive': {
-            'Meta': {'object_name': 'Archive'},
-            'archive': ('django.db.models.fields.files.FileField', [], {'max_length': '255'}),
-            'date_available': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now', 'null': 'True', 'db_index': 'True'}),
-            'date_insert': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'date_update': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+        u'accounts.customuser': {
+            'Meta': {'object_name': 'CustomUser'},
+            'date_joined': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
+            'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
+            'email': ('django.db.models.fields.EmailField', [], {'unique': 'True', 'max_length': '75', 'db_index': 'True'}),
+            'facebook_url': ('django.db.models.fields.URLField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
+            'first_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
+            'groups': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['auth.Group']", 'symmetrical': 'False', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'published': ('django.db.models.fields.BooleanField', [], {'default': 'False', 'db_index': 'True'}),
-            'site': ('django.db.models.fields.related.ForeignKey', [], {'default': '1', 'to': u"orm['sites.Site']"}),
-            'site_domain': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'site_iid': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True', 'max_length': '4', 'null': 'True', 'blank': 'True'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '150'}),
-            'source': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['sources.Source']", 'null': 'True', 'blank': 'True'}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '140', 'db_index': 'True'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['%s.%s']" % (User._meta.app_label, User._meta.object_name)})
+            'is_active': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
+            'is_staff': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'is_superuser': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'last_login': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
+            'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
+            'main_image': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['images.Image']", 'null': 'True', 'blank': 'True'}),
+            'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
+            'twitter_url': ('django.db.models.fields.URLField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
+            'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'}),
+            'username': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'})
         },
         u'auth.group': {
             'Meta': {'object_name': 'Group'},
@@ -118,11 +134,8 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
-        u'%s.%s' % (User._meta.app_label, User._meta.module_name) : {
-            'Meta': {'object_name': User.__name__},
-        },
         u'channels.channel': {
-            'Meta': {'object_name': 'Channel'},
+            'Meta': {'ordering': "['name', 'parent__id', 'published']", 'unique_together': "(('site', 'long_slug', 'slug', 'parent'),)", 'object_name': 'Channel'},
             'date_available': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now', 'null': 'True', 'db_index': 'True'}),
             'date_insert': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'date_update': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -131,6 +144,7 @@ class Migration(SchemaMigration):
             'homepage': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'include_in_main_rss': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
+            'layout': ('django.db.models.fields.CharField', [], {'default': "'default'", 'max_length': '250', 'db_index': 'True'}),
             'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'lft': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'long_slug': ('django.db.models.fields.SlugField', [], {'max_length': '250'}),
@@ -145,7 +159,7 @@ class Migration(SchemaMigration):
             'site_iid': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True', 'max_length': '4', 'null': 'True', 'blank': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '150'}),
             'tree_id': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['%s.%s']" % ( User._meta.app_label, User._meta.object_name )})
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['accounts.CustomUser']"})
         },
         u'containers.container': {
             'Meta': {'ordering': "['-date_available', 'title', 'channel_long_slug']", 'unique_together': "(('site', 'child_class', 'channel_long_slug', 'slug'),)", 'object_name': 'Container'},
@@ -154,6 +168,7 @@ class Migration(SchemaMigration):
             'channel_name': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '140', 'null': 'True', 'blank': 'True'}),
             'child_app_label': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '30', 'null': 'True', 'blank': 'True'}),
             'child_class': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '30', 'null': 'True', 'blank': 'True'}),
+            'child_module': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '120', 'null': 'True', 'blank': 'True'}),
             'date_available': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now', 'null': 'True', 'db_index': 'True'}),
             'date_insert': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'date_update': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -162,6 +177,7 @@ class Migration(SchemaMigration):
             'images': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['images.Image']", 'null': 'True', 'through': u"orm['containers.ContainerImage']", 'blank': 'True'}),
             'main_image': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'containers_container_mainimage'", 'null': 'True', 'on_delete': 'models.SET_NULL', 'to': u"orm['images.Image']"}),
             'main_image_caption': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            'polymorphic_ctype': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'polymorphic_containers.container_set'", 'null': 'True', 'to': u"orm['contenttypes.ContentType']"}),
             'published': ('django.db.models.fields.BooleanField', [], {'default': 'False', 'db_index': 'True'}),
             'short_url': ('django.db.models.fields.URLField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
             'show_on_root_channel': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
@@ -170,11 +186,12 @@ class Migration(SchemaMigration):
             'site_iid': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True', 'max_length': '4', 'null': 'True', 'blank': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '150'}),
             'sources': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['sources.Source']", 'null': 'True', 'through': u"orm['containers.ContainerSource']", 'blank': 'True'}),
+            'tags': ('django.db.models.fields.CharField', [], {'max_length': '4000', 'null': 'True', 'blank': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '140', 'db_index': 'True'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['%s.%s']" % (User._meta.app_label, User._meta.object_name)})
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['accounts.CustomUser']"})
         },
         u'containers.containerimage': {
-            'Meta': {'object_name': 'ContainerImage'},
+            'Meta': {'ordering': "('order',)", 'object_name': 'ContainerImage'},
             'caption': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'container': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['containers.Container']", 'null': 'True', 'on_delete': 'models.SET_NULL', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
@@ -182,7 +199,7 @@ class Migration(SchemaMigration):
             'order': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'})
         },
         u'containers.containersource': {
-            'Meta': {'object_name': 'ContainerSource'},
+            'Meta': {'ordering': "('order',)", 'object_name': 'ContainerSource'},
             'container': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['containers.Container']", 'null': 'True', 'on_delete': 'models.SET_NULL', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'order': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
@@ -198,6 +215,8 @@ class Migration(SchemaMigration):
         u'feedcrawler.entry': {
             'Meta': {'ordering': "['-entry_published_time']", 'object_name': 'Entry', '_ormbases': [u'containers.Container']},
             u'container_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['containers.Container']", 'unique': 'True', 'primary_key': 'True'}),
+            'entry_category': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            'entry_category_code': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'entry_content': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'entry_description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'entry_feed': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['feedcrawler.Feed']"}),
@@ -221,6 +240,7 @@ class Migration(SchemaMigration):
             'link': ('django.db.models.fields.CharField', [], {'max_length': '2000', 'null': 'True', 'blank': 'True'}),
             'main_image': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'feed_image'", 'null': 'True', 'on_delete': 'models.SET_NULL', 'to': u"orm['images.Image']"}),
             'max_entries': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True', 'blank': 'True'}),
+            'publish_entries': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
             'published': ('django.db.models.fields.BooleanField', [], {'default': 'False', 'db_index': 'True'}),
             'published_time': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             'site': ('django.db.models.fields.related.ForeignKey', [], {'default': '1', 'to': u"orm['sites.Site']"}),
@@ -234,7 +254,7 @@ class Migration(SchemaMigration):
             'source_url': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'source_username': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['%s.%s']" % (User._meta.app_label, User._meta.object_name)})
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['accounts.CustomUser']"})
         },
         u'feedcrawler.feedtype': {
             'Meta': {'object_name': 'FeedType'},
@@ -248,19 +268,41 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '250'})
         },
+        u'feedcrawler.processlog': {
+            'Meta': {'object_name': 'ProcessLog'},
+            'feed': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['feedcrawler.Feed']"}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'log_time': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now', 'auto_now_add': 'True', 'blank': 'True'}),
+            'text': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            'type': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'})
+        },
         u'images.image': {
-            'Meta': {'object_name': 'Image', '_ormbases': [u'archives.Archive']},
-            u'archive_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['archives.Archive']", 'unique': 'True', 'primary_key': 'True'}),
+            'Meta': {'object_name': 'Image'},
+            'archive': ('django.db.models.fields.files.FileField', [], {'max_length': '255'}),
             'crop_example': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'crop_x1': ('django.db.models.fields.PositiveSmallIntegerField', [], {'default': '0', 'null': 'True', 'blank': 'True'}),
             'crop_x2': ('django.db.models.fields.PositiveSmallIntegerField', [], {'default': '0', 'null': 'True', 'blank': 'True'}),
             'crop_y1': ('django.db.models.fields.PositiveSmallIntegerField', [], {'default': '0', 'null': 'True', 'blank': 'True'}),
             'crop_y2': ('django.db.models.fields.PositiveSmallIntegerField', [], {'default': '0', 'null': 'True', 'blank': 'True'}),
+            'date_available': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now', 'null': 'True', 'db_index': 'True'}),
+            'date_insert': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_update': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'fit_in': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
             'flip': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'flop': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'halign': ('django.db.models.fields.CharField', [], {'default': 'False', 'max_length': '6', 'null': 'True', 'blank': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'published': ('django.db.models.fields.BooleanField', [], {'default': 'False', 'db_index': 'True'}),
+            'site': ('django.db.models.fields.related.ForeignKey', [], {'default': '1', 'to': u"orm['sites.Site']"}),
+            'site_domain': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '100', 'null': 'True', 'blank': 'True'}),
+            'site_iid': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True', 'max_length': '4', 'null': 'True', 'blank': 'True'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '150'}),
             'smart': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'source': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['sources.Source']", 'null': 'True', 'blank': 'True'}),
+            'tags': ('django.db.models.fields.CharField', [], {'max_length': '4000', 'null': 'True', 'blank': 'True'}),
+            'title': ('django.db.models.fields.CharField', [], {'max_length': '140', 'db_index': 'True'}),
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['accounts.CustomUser']"}),
             'valign': ('django.db.models.fields.CharField', [], {'default': 'False', 'max_length': '6', 'null': 'True', 'blank': 'True'})
         },
         u'sites.site': {
@@ -270,7 +312,7 @@ class Migration(SchemaMigration):
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
         u'sources.source': {
-            'Meta': {'object_name': 'Source'},
+            'Meta': {'unique_together': "(('site', 'slug'),)", 'object_name': 'Source'},
             'date_available': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now', 'null': 'True', 'db_index': 'True'}),
             'date_insert': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'date_update': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -283,20 +325,7 @@ class Migration(SchemaMigration):
             'site_iid': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True', 'max_length': '4', 'null': 'True', 'blank': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '150'}),
             'url': ('django.db.models.fields.URLField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['%s.%s']" % (User._meta.app_label, User._meta.object_name)})
-        },
-        u'taggit.tag': {
-            'Meta': {'object_name': 'Tag'},
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '100'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '100'})
-        },
-        u'taggit.taggeditem': {
-            'Meta': {'object_name': 'TaggedItem'},
-            'content_type': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'taggit_taggeditem_tagged_items'", 'to': u"orm['contenttypes.ContentType']"}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'object_id': ('django.db.models.fields.IntegerField', [], {'db_index': 'True'}),
-            'tag': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'taggit_taggeditem_items'", 'to': u"orm['taggit.Tag']"})
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['accounts.CustomUser']"})
         }
     }
 
