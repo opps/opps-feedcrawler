@@ -22,6 +22,10 @@ class FeedType(models.Model):
     def __unicode__(self):
         return self.name
 
+    class Meta:
+        verbose_name = _(u'Feed Type')
+        verbose_name_plural = _(u'Feed Types')
+
 
 class Group(models.Model):
     name = models.CharField(max_length=250, unique=True)
@@ -166,3 +170,7 @@ class ProcessLog(models.Model):
 
     def __unicode__(self):
         return self.text
+
+    class Meta:
+        verbose_name = _(u'Process Log')
+        verbose_name_plural = _(u'Process Logs')

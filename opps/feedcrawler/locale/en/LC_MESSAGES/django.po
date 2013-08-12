@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-08 22:40-0300\n"
+"POT-Creation-Date: 2013-08-12 15:01-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,34 +17,50 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: models.py:31
+#: models.py:26
+msgid "Feed Type"
+msgstr ""
+
+#: models.py:27
+msgid "Feed Types"
+msgstr ""
+
+#: models.py:35
 msgid "Group"
 msgstr ""
 
-#: models.py:32
+#: models.py:36
 msgid "Groups"
 msgstr ""
 
-#: models.py:75
+#: models.py:79
 msgid "Feed Image"
 msgstr ""
 
-#: models.py:84
+#: models.py:88
 msgid "Feed"
 msgstr ""
 
-#: models.py:85
+#: models.py:89
 msgid "Feeds"
 msgstr ""
 
-#: models.py:95
+#: models.py:99
 msgid "Invalid JSON"
 msgstr ""
 
-#: models.py:144
+#: models.py:148
 msgid "Entry"
 msgstr ""
 
-#: models.py:145
+#: models.py:149
 msgid "Entries"
+msgstr ""
+
+#: models.py:175
+msgid "Process Log"
+msgstr ""
+
+#: models.py:176
+msgid "Process Logs"
 msgstr ""
