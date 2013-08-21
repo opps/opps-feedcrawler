@@ -73,7 +73,7 @@ class EntryAdmin(PublishableAdmin):
 
     list_display = ['entry_title', 'entry_feed', 'entry_published_time',
                     'entry_pulled_time', 'entry_category',
-                    'entry_category_code']
+                    'entry_category_code', 'published', 'post_created']
     list_filter = ['entry_feed', 'entry_category']
     search_fields = ['entry_title', 'entry_link', 'entry_description']
     readonly_fields = ['entry_link', 'entry_title', 'entry_description',

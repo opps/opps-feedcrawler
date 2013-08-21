@@ -143,6 +143,8 @@ class Entry(Container):
     entry_category_code = models.CharField(max_length=255, blank=True,
                                            null=True)
 
+    post_created = models.BooleanField(_(u"Post created"), default=False)
+
     class Meta:
         ordering = ['-entry_published_time']
         verbose_name = _(u'Entry')

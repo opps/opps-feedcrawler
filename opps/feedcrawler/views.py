@@ -35,4 +35,7 @@ def create_post(request, post_id):
         post.slug = u"{0}-{1}".format(post.slug[:100], random.getrandbits(32))
         post.save()
 
+    entry.post_created = True
+    entry.save()
+
     return redirect('/admin/articles/post/{}/'.format(post.pk))
