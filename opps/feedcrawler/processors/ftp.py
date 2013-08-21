@@ -187,7 +187,7 @@ class EFEXMLProcessor(BaseProcessor):
                 entry_feed=self.feed,
                 channel=self.feed.get_channel(),
                 title=entry_title[:140],
-                slug=slugify(entry_title[:150]),
+                slug=slugify(self.feed.slug + "-" + entry_title[:150]),
                 entry_title=entry_title,
                 site=self.feed.site,
                 user=self.feed.user,

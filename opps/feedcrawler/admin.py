@@ -1,5 +1,6 @@
 # coding: utf-8
 from django.contrib import admin
+from django.utils.translation import ugettext_lazy as _
 from .models import Group, Feed, Entry, FeedType, ProcessLog
 from opps.core.admin import PublishableAdmin
 from opps.core.admin import apply_opps_rules
@@ -60,11 +61,11 @@ class FeedAdmin(PublishableAdmin):
 class EntryAdmin(PublishableAdmin):
 
     action_buttons = [
-        {"text": "Create post",
-         "url": '/feedcrawler/createpost/%s',
+        {"text": _(u"Create post"),
+         "url": '/feedcrawler/createpost/{obj.pk}',
          "class": "btn btn-success",
          "style": "",
-         "title": "Click to generate a post form this entry"},
+         "title": _(u"Click to generate a post from this entry")},
     ]
 
     list_display = ['entry_title', 'entry_feed', 'entry_published_time',
@@ -75,7 +76,7 @@ class EntryAdmin(PublishableAdmin):
     readonly_fields = ['entry_link', 'entry_title', 'entry_description',
                        'entry_published_time', 'entry_feed', 'entry_content',
                        'entry_pulled_time', 'entry_category',
-                       'entry_category_code']
+                       'entry_category_code', 'content_as_html', 'description_as_html']
     raw_id_fields = ('channel',)
     fieldsets = (
         (None, {
@@ -87,8 +88,8 @@ class EntryAdmin(PublishableAdmin):
                        ('entry_link',),
                        ('entry_title', 'entry_feed',),
                        ('entry_category', 'entry_category_code',),
-                       ('entry_description',),
-                       ('entry_content',),
+                       ('description_as_html',),
+                       ('content_as_html',),
                        ('entry_published_time',),
                        ('entry_pulled_time',),
                        'entry_json',
@@ -98,6 +99,17 @@ class EntryAdmin(PublishableAdmin):
                        )
         }),
     )
+
+
+    def content_as_html(self, obj, *args, **kwargs):
+        return obj.entry_content
+    content_as_html.allow_tags = True
+    content_as_html.description = _(u"Content")
+
+    def description_as_html(self, obj, *args, **kwargs):
+        return obj.entry_description
+    description_as_html.allow_tags = True
+    description_as_html.description = _(u"Content")
 
 admin.site.register(Feed, FeedAdmin)
 admin.site.register(Group, GroupAdmin)
