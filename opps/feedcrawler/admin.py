@@ -60,6 +60,9 @@ class FeedAdmin(PublishableAdmin):
 @apply_opps_rules('feedcrawler')
 class EntryAdmin(PublishableAdmin):
 
+    def has_add_permission(self, request):
+        return False
+
     action_buttons = [
         {"text": _(u"Create post"),
          "url": '/feedcrawler/createpost/{obj.pk}',
@@ -71,7 +74,7 @@ class EntryAdmin(PublishableAdmin):
     list_display = ['entry_title', 'entry_feed', 'entry_published_time',
                     'entry_pulled_time', 'entry_category',
                     'entry_category_code']
-    list_filter = ['entry_feed']
+    list_filter = ['entry_feed', 'entry_category']
     search_fields = ['entry_title', 'entry_link', 'entry_description']
     readonly_fields = ['entry_link', 'entry_title', 'entry_description',
                        'entry_published_time', 'entry_feed', 'entry_content',
