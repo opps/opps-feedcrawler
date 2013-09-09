@@ -23,6 +23,7 @@ class GroupAdmin(admin.ModelAdmin):
 
 @apply_opps_rules('feedcrawler')
 class FeedAdmin(PublishableAdmin):
+    prepopulated_fields = {"slug": ("title",)}
     list_display = ['title', 'slug', 'source_url', 'feed_type', 'channel', 'group',
                     'published_time', 'last_polled_time']
     list_filter = ['group', 'channel', 'feed_type']
