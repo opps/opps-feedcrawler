@@ -60,7 +60,8 @@ class Feed(Publishable, Slugged):
     published_time = models.DateTimeField(blank=True, null=True)
     last_polled_time = models.DateTimeField(blank=True, null=True)
 
-    group = models.ForeignKey(Group, blank=True, null=True)
+    group = models.ForeignKey(Group, blank=True, null=True,
+                              verbose_name=_(u"Group or Source"))
     feed_type = models.ForeignKey(FeedType)
 
     max_entries = models.PositiveIntegerField(blank=True, null=True)

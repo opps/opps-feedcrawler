@@ -309,6 +309,9 @@ class EFEXMLProcessorAuto(EFEXMLProcessor):
             hat=entry.hat,
         )
 
+        if self.feed.group:
+            post.source = self.feed.group.name
+
         try:
             post.save()
         except:
