@@ -1,4 +1,5 @@
 #coding: utf-8
+import random
 import urllib
 import json
 import xml.etree.ElementTree as ET
@@ -12,13 +13,25 @@ from django.utils.text import slugify
 from .base import BaseProcessor
 from .efe import iptc
 
+from opps.articles.models import Post
+
 
 class EFEXMLProcessor(BaseProcessor):
 
     def connect(self):
-        self.ftp = FTP(self.feed.source_url)
-        self.ftp.login(self.feed.source_username, self.feed.source_password)
+        self.ftp = FTP()
+        params = {"host": self.feed.source_url}
+        if self.feed.source_port:
+            params['port'] = int(self.feed.source_port)
+
+        self.ftp.connect(**params)
+
+        if self.feed.source_username:
+            self.ftp.login(self.feed.source_username,
+                           self.feed.source_password)
+
         self.verbose_print(self.ftp.getwelcome())
+
         return self.ftp
 
     def get_temp_file(self):
@@ -49,11 +62,16 @@ class EFEXMLProcessor(BaseProcessor):
         if not source_root_folder.endswith('/'):
             source_root_folder += "/"
 
-        url = "ftp://{0}:{1}@{2}{3}{4}".format(self.feed.source_username,
-                                               self.feed.source_password,
-                                               self.feed.source_url,
-                                               source_root_folder,
-                                               s)
+        if self.feed.source_username:
+            url = "ftp://{0}:{1}@{2}{3}{4}".format(self.feed.source_username,
+                                                   self.feed.source_password,
+                                                   self.feed.source_url,
+                                                   source_root_folder,
+                                                   s)
+        else:
+            url = "ftp://{0}{1}{2}".format(self.feed.source_url,
+                                       source_root_folder,
+                                       s)
         self.verbose_print(url)
 
         f = self.get_temp_file()
@@ -98,6 +116,8 @@ class EFEXMLProcessor(BaseProcessor):
             root = tree.getroot()
         except:
             return
+
+        # TODO: NewsItem can be multiple items
 
         try:
             data['headline'] = root.find(
@@ -213,6 +233,8 @@ class EFEXMLProcessor(BaseProcessor):
             db_entry.save()
             self.verbose_print("Entry saved: %s" % db_entry.pk)
 
+            self.run_hooks(db_entry)
+
             return db_entry.pk
 
         except Exception as e:
@@ -235,6 +257,7 @@ class EFEXMLProcessor(BaseProcessor):
             data['parent'] = None
             data['cat'] = None
 
+
         return data
 
     def record_log(self, s):
@@ -253,6 +276,52 @@ class EFEXMLProcessor(BaseProcessor):
         self.count = 0
         self.ftp.retrlines('NLST', self.process_file)
 
+
+    def hook_not_found(self, *args, **kwargs):
+        self.verbose_print("Hook not found")
+
+    def run_hooks(self, entry):
+        hooks = getattr(self, 'hooks', [])
+        for hook in hooks:
+            try:
+                getattr(self, hook, self.hook_not_found)(entry)
+            except Exception as e:
+                self.verbose_print(str(e))
+
+
+class EFEXMLProcessorAuto(EFEXMLProcessor):
+
+    hooks = ['create_post']
+
+    # match category X channel
+
+    def create_post(self, entry):
+        entry = entry
+        post = Post(
+            title=entry.entry_title,
+            slug=slugify(entry.entry_title),
+            content=entry.entry_content,
+            channel=entry.channel,
+            site=entry.site,
+            user=entry.user,
+            show_on_root_channel=True,
+            published=True,
+            hat=entry.hat,
+        )
+
+        try:
+            post.save()
+        except:
+            post.slug = u"{0}-{1}".format(post.slug[:100],
+                                          random.getrandbits(32))
+            post.save()
+
+        entry.post_created = True
+        entry.save()
+
+        self.verbose_print(u"Post {p.id}{p.title} created".format(p=post))
+
+        return post
 
 # LIST retrieves a list of files and information about those files.
 # NLST retrieves a list of file names.

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T023315+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18718533">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T023100+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18718533</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T023100+0000:18718533:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T023100+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T023100+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18718533.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Insurgentes mantêm 20 civis como reféns nas Filipinas</HeadLine>
+        <SubHeadLine>FILIPINAS TERRORISMO</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="fil/ma" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Justiça ; Crimes ; Terrorismo-->
+          <SubjectDetail FormalName="02001010" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Justiça ; Crimes ; Seqüestro-->
+          <SubjectDetail FormalName="02001007" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Distúrbios, conflitos e guerra-->
+          <Subject FormalName="16000000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="TRI:JUSTICA-POLICIAIS,TERRORISMO;TRI:JUSTICA-POLICIAIS,POLICIAIS;POL:POLITICA,CONFLITO" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Insurgentes mantêm 20 civis como reféns nas Filipinas</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="JEI" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Justiça;Crimes;Terrorismo-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="02001010" tobject.subject.type="Justiça" tobject.subject.matter="Crimes" tobject.subject.detail="Terrorismo" />
+                <!--Justiça;Crimes;Seqüestro-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="02001007" tobject.subject.type="Justiça" tobject.subject.matter="Crimes" tobject.subject.detail="Seqüestro" />
+                <!--Distúrbios, conflitos e guerra-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="16000000" tobject.subject.type="Distúrbios, conflitos e guerra" />
+                <!--TRI:JUSTICIA-INTERIOR-SUCESOS;TERRORISMO-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F02005000" tobject.subject.type="TRI:JUSTICIA-INTERIOR-SUCESOS" tobject.subject.matter="TERRORISMO" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Manila" />
+                <doc-id id-string="18718533" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T023100+0000" />
+                <key-list>
+                  <keyword key="FILIPINAS TERRORISMO" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T023100+0000" edition.area="RIM BGE" item-length="00264" unit-of-measure="word" id="PB7090" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Insurgentes mantêm 20 civis como reféns nas Filipinas</hl1>
+                  <hl2>FILIPINAS TERRORISMO</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>fil/ma</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T023100+0000">20130909T023100+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>Um grupo de 300 homens fortemente armados, supostos membros do grupo rebelde Frente Moro de Libertação Nacional (FMLN), mantém 20 civis sequestrados na cidade filipina de Zamboaga, no sul do arquipélago, informou nesta segunda-feira (data local) a imprensa local.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Manila, 10 set (EFE).- Um grupo de 300 homens fortemente armados, supostos membros do grupo rebelde Frente Moro de Libertação Nacional (FMLN), mantém 20 civis sequestrados na cidade filipina de Zamboaga, no sul do arquipélago, informou nesta segunda-feira (data local) a imprensa local.</p>
+                <p>Os terroristas entraram na cidade no fim da madrugada após duros confrontos com os soldados desdobrados na região, nos quais pelo menos um membro do Exército filipino morreu.</p>
+                <p>Os separatistas ordenaram o fechamento de escolas e escritórios governamentais, até chegar à Prefeitura "onde querem levantar a bandeira independentista", segundo a emissora local "DZBB".</p>
+                <p>A fonte também assinalou que os insurgentes mantêm pelo menos 20 civis como reféns e o negociador do Governo chegou à região para conseguir a libertação destes.</p>
+                <p>A Frente Moro de Libertação Nacional aceitou negociar uma solução que não fosse a independência e depois em 1996 assinou a paz com o Governo.</p>
+                <p>Vários membros do grupo insatisfeitos com as negociações decidiram então fundar a Frente Moro de Libertação Islâmica (MILF, sigla em inglês), a maior organização separatista das Filipinas que conta com cerca de 12 mil militantes e agora parece querer também dialogar com o Governo de Manila.</p>
+                <p>Segundo analistas locais citados pelo portal de notícias "Rappler", Nour Misuari, fundador do FMLN, "está fazendo barulho" por causa do suposto fracasso do acordo de paz assinado em 1996 com o então presidente Fidel Ramos.</p>
+                <p>Com esta ação, Misuari pretende boicotar as novas rodadas de conversas entre o Governo filipino de Benigno Aquino e o MILF, cuja rodada enfrenta o final da negociação de paz, segundo os especialistas. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

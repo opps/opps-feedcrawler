@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T200255+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18721455">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T200200+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18721455</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T200200+0000:18721455:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T200200+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T200200+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18721455.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Com vaga em disputa no meio, Brasil encara motivado Portugal mesmo sem CR7</HeadLine>
+        <SubHeadLine>FUTEBOL AMISTOSO (prévia)</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="sid/id" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Esportes ; Futebol-->
+          <SubjectMatter FormalName="15054000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="DEP:ESPORTES,FUTEBOL" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Com vaga em disputa no meio, Brasil encara motivado Portugal mesmo sem CR7</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="DEP" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Esportes;Futebol-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="15054000" tobject.subject.type="Esportes" tobject.subject.matter="Futebol" />
+                <!--DEP:ESPORTES;FUTEBOL-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F07001000" tobject.subject.type="DEP:ESPORTES" tobject.subject.matter="FUTEBOL" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Boston" />
+                <doc-id id-string="18721455" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T200200+0000" />
+                <key-list>
+                  <keyword key="FUTEBOL AMISTOSO (prévia)" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T200200+0000" edition.area="RIM BES" item-length="00553" unit-of-measure="word" id="PB1122" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Com vaga em disputa no meio, Brasil encara motivado Portugal mesmo sem CR7</hl1>
+                  <hl2>FUTEBOL AMISTOSO (prévia)</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>sid/id</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T200200+0000">20130909T200200+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>Após a bela exibição do último sábado nos 6 a 0 sobre a Austrália, a seleção brasileira volta a campo nesta terça-feira para mais um amistoso, desta vez em Boston (EUA) contra um Portugal que não poderá contar com Cristiano Ronaldo, mas que está motivado pela importante vitória de virada por 4 a 2 sobre a Irlanda do Norte pelas Eliminatórias para a Copa do Mundo.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Boston, 9 set (EFE).- Após a bela exibição do último sábado nos 6 a 0 sobre a Austrália, a seleção brasileira volta a campo nesta terça-feira para mais um amistoso, desta vez em Boston (EUA) contra um Portugal que não poderá contar com Cristiano Ronaldo, mas que está motivado pela importante vitória de virada por 4 a 2 sobre a Irlanda do Norte pelas Eliminatórias para a Copa do Mundo.</p>
+                <p>O Brasil poderá ter a volta de Oscar ao time titular, caso o meia mostre que está recuperado de uma entorse no tornozelo direito que o deixou de fora da goleada sobre os australianos.</p>
+                <p>Neste caso, a dúvida é sobre quem seria sacado. Bernard e Ramires, que foram bem no sábado, teoricamente disputam a vaga, e dependendo dessa escolha do técnico Luiz Felipe Scolari, a forma de a seleção jogar seria diretamente influenciada.</p>
+                <p>Caso o atacante do Shakhtar permaneça entre os titulares, a formação com um trio ofensivo, tônica desde os tempos de Mano Menezes no comando da seleção, continuaria. Já se Ramires permanecer, o time ganharia ares de um 4-4-2 aos moldes da preferência do atual coordenador-técnico, Carlos Alberto Parreira.</p>
+                <p>A seleção tem um desfalque certo na lateral-esquerda. Cortado devido a uma lesão muscular na coxa esquerda, Marcelo nem viajou aos Estados Unidos, e com isso quem vai começar jogando no Gillette Stadium é Maxwell, que já havia entrado no segundo tempo do amistoso com a Austrália.</p>
+                <p>Na defesa, com essa exceção, não deve haver alterações. Maicon, Thiago Silva e David Luiz treinaram como titulares, assim como o goleiro Julio César. No meio, Luiz Gustavo e Paulinho são nomes praticamente certos, e na frente a dupla Neymar e Jô está garantida.</p>
+                <p>Pelo lado de Portugal, Cristiano Ronaldo, autor de três gols contra os norte-irlandeses, ficará de fora da partida devido a uma tendinite. Mesmo com o significativo desfalque, a confiança da seleção treinada por Paulo Bento não ficou abalada para o duelo</p>
+                <p>Em entrevista coletiva no hotel onde os portugueses estão concentrados, o atacante Nani, que perdeu a posição para Vieirinha nos últimos jogos e deve substituir CR7, afirmou que o amistoso "é o tipo de partida que faz o jogador crescer".</p>
+                <p>Paulo Bento também pode dar oportunidade de estreia, no segundo tempo, a duas jovens promessas do Porto: o meia Josué e o atacante Licá, revelações da última temporada atuando por Paços de Ferreira e Estoril, respectivamente. Os dois foram convocados pela primeira vez para uma partida oficial contra a Irlanda do Norte, mas ficaram fora até do banco de reservas.</p>
+                <p>O amistoso de amanhã voltará a pôr frente a frente Brasil e Portugal, que não se encontravam desde o empate sem gols na primeira fase da Copa do Mundo de 2010, na África do Sul. Além disso, o duelo servirá de reencontro entre a seleção portuguesa e o técnico Luiz Felipe Scolari, que a treinou por cinco anos.</p>
+                <p />
+                <p>Prováveis escalações:.</p>
+                <p>Brasil: Julio César; Maicon, Thiago Silva, David Luiz e Maxwell; Luiz Gustavo, Paulinho e Ramires; Bernard (Oscar), Neymar e Jô. Técnico: Luiz Felipe Scolari.</p>
+                <p>Portugal: Rui Patrício; João Pereira, Bruno Alves, Pepe e Fábio Coentrão; Miguel Veloso, João Moutinho e Raul Meireles; Nani, Vieirinha e Hélder Postiga. Técnico: Paulo Bento.</p>
+                <p>Árbitro: Juan Guzman (EUA), auxiliado por seus compatriotas Peter Manikowski e Adam Wienckowski.</p>
+                <p>Estádio: Gillette Stadium, em Boston. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18721454">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T200000+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18721454</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T200000+0000:18721454:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T200000+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T200000+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18721454.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Léo Baptistão defende linha dura de Simeone à frente do Atlético de Madrid</HeadLine>
+        <SubHeadLine>FUTEBOL BRASILEIROS</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="mam/fk/dr" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Esportes ; Futebol-->
+          <SubjectMatter FormalName="15054000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="DEP:ESPORTES,FUTEBOL" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Léo Baptistão defende linha dura de Simeone à frente do Atlético de Madrid</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="DEP" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Esportes;Futebol-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="15054000" tobject.subject.type="Esportes" tobject.subject.matter="Futebol" />
+                <!--DEP:ESPORTES;FUTEBOL-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F07001000" tobject.subject.type="DEP:ESPORTES" tobject.subject.matter="FUTEBOL" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Madri" />
+                <doc-id id-string="18721454" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T200000+0000" />
+                <key-list>
+                  <keyword key="FUTEBOL BRASILEIROS" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T200000+0000" edition.area="RIM BES" item-length="00370" unit-of-measure="word" id="PB1121" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Léo Baptistão defende linha dura de Simeone à frente do Atlético de Madrid</hl1>
+                  <hl2>FUTEBOL BRASILEIROS</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>mam/fk/dr</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T200000+0000">20130909T200000+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>O atacante Léo Baptistão, do Atlético de Madrid, reconheceu que o técnico Diego Simeone vem sendo bastante exigente, mas ao mesmo tempo motivador, e garantiu não ter ficado chateado por não ter sido relacionado para o último jogo da equipe, contra a Real Sociedad, há oito dias.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Madri, 9 set (EFE).- O atacante Léo Baptistão, do Atlético de Madrid, reconheceu que o técnico Diego Simeone vem sendo bastante exigente, mas ao mesmo tempo motivador, e garantiu não ter ficado chateado por não ter sido relacionado para o último jogo da equipe, contra a Real Sociedad, há oito dias.</p>
+                <p>"Simeone te motiva e te faz pensar que não se pode relaxar um só segundo em um treino. Estou muito contente de estar aqui", disse o brasileiro em entrevista coletiva realizada após a primeira atividade da semana no centro de treinamentos do Atlético.</p>
+                <p>"Não fui relacionado, mas não dei muita importância. Já disse a Simeone que ele poderia me passar da arquibancada ao campo e do campo à arquibancada", acrescentou Baptistão, que se descreveu como um jogador "esperançoso, com vontade de trabalhar e de jogar".</p>
+                <p>O ex-atacante do Rayo Vallecano reconheceu também que se surpreendeu em muitos aspectos desde sua chegada ao Atlético de Madrid. "É um clube muito grande, com muitas coisas diferentes. É um mundo muito novo para mim", comentou o atleta de 21 anos.</p>
+                <p>"O Atlético, pela história que tem na Espanha e na Europa, é muito grande e já alcançou muitos títulos. Nós vamos lutar pelos quatro primeiros lugares e ver o que podemos fazer", completou.</p>
+                <p>Na próxima semana, no estádio Vicente Calderón, o Atlético fará sua estreia na Liga dos Campeões diante do Zenit São Petersburgo, um desafio que enche o brasileiro de motivação.</p>
+                <p>"Para mim, é um sonho desfrutar desse ambiente da 'Champions'. Estou muito ansioso, mas, primeiramente, temos que pensar no fim de semana. Não podemos nos afastar disso", destacou.</p>
+                <p>Questionado sobre a possibilidade de o atacante brasileiro Diego Costa jogar pela seleção espanhola, Baptistão afirmou se sentir feliz por seu companheiro, que, segundo ele, é um "grande amigo e grande jogador.</p>
+                <p>"Ter o privilégio de estar com uma das melhores seleções do mundo não é algo para todos. Ele que tem que decidir", comentou Baptistão, que, com todo bom humor, fez questão de ressaltar que ele não teria "nenhum problema" em jogar pela Espanha.</p>
+                <p>"O salto que deu Diego é incrível, todos nós sabemos de sua história e de sua carreira na Espanha. Estamos muito contentes por ele", finalizou. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

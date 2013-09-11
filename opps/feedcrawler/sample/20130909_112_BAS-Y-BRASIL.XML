@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T210953+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18721577">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T210800+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18721577</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T210800+0000:18721577:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T210800+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T210800+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="4" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18721577.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Dilma: governo tomará medidas para "proteger o país" contra espionagem</HeadLine>
+        <SubHeadLine>(Chamada) EUA ESPIONAGEM</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="cma/id" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Política-->
+          <Subject FormalName="11000000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="POL:POLITICA" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Dilma: governo tomará medidas para "proteger o país" contra espionagem</title>
+              <meta name="prioridad" content="U" />
+              <meta name="categoria" content="POL" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Política-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="11000000" tobject.subject.type="Política" />
+                <!--POL:POLITICA-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01000000" tobject.subject.type="POL:POLITICA" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Brasília" />
+                <doc-id id-string="18721577" />
+                <urgency ed-urg="3" />
+                <date.issue norm="20130909T210800+0000" />
+                <key-list>
+                  <keyword key="(Chamada) EUA ESPIONAGEM" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T210800+0000" edition.area="RIM BGE" item-length="00131" unit-of-measure="word" id="PB1134" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Dilma: governo tomará medidas para "proteger o país" contra espionagem</hl1>
+                  <hl2>(Chamada) EUA ESPIONAGEM</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>cma/id</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T210800+0000">20130909T210800+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>A presidente Dilma Rousseff declarou nesta segunda-feira que o governo tomará "todas as medidas para proteger o país" de espionagens e que "está empenhado em obter esclarecimentos do governo dos Estados Unidos", cuja Agência Nacional de Segurança teria monitorado ilegalmente a Petrobras.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Brasília, 8 set (EFE).- A presidente Dilma Rousseff declarou nesta segunda-feira que o governo tomará "todas as medidas para proteger o país" de espionagens e que "está empenhado em obter esclarecimentos do governo dos Estados Unidos", cuja Agência Nacional de Segurança teria monitorado ilegalmente a Petrobras.</p>
+                <p>"Se confirmados os fatos veiculados pela imprensa, fica evidenciado que o motivo das tentativas de violação e de espionagem não é a segurança ou o combate ao terrorismo, mas interesses econômicos e estratégicos", disse a presidente em nota oficial.</p>
+                <p>"O governo brasileiro está empenhado em obter esclarecimentos do governo norte-americano sobre todas as violações eventualmente praticadas, bem como em exigir medidas concretas que afastem em definitivo a possibilidade de espionagem ofensiva aos direitos humanos, a nossa soberania e aos nossos interesses econômicos", acrescentou. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18721569">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T210400+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18721569</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T210400+0000:18721569:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T210400+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T210400+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="4" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18721569.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Governo e oposição trocam acusações sobre responsabilidade de golpe de 73</HeadLine>
+        <SubHeadLine>CHILE ANIVERSÁRIO GOLPE (Pauta)</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="(foto)(vídeo)" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Distúrbios, conflitos e guerra ; Golpe de estado-->
+          <SubjectMatter FormalName="16004000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="POL:POLITICA,CONFLITO" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Governo e oposição trocam acusações sobre responsabilidade de golpe de 73</title>
+              <meta name="prioridad" content="U" />
+              <meta name="categoria" content="DCG" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Distúrbios, conflitos e guerra;Golpe de estado-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="16004000" tobject.subject.type="Distúrbios, conflitos e guerra" tobject.subject.matter="Golpe de estado" />
+                <!--POL:POLITICA;CONFLITO-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01011000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="CONFLITO" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Santiago do Chile" />
+                <doc-id id-string="18721569" />
+                <urgency ed-urg="3" />
+                <date.issue norm="20130909T210400+0000" />
+                <key-list>
+                  <keyword key="CHILE ANIVERSÁRIO GOLPE (Pauta)" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T210400+0000" edition.area="RIM BGE" item-length="00708" unit-of-measure="word" id="PB1133" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Governo e oposição trocam acusações sobre responsabilidade de golpe de 73</hl1>
+                  <hl2>CHILE ANIVERSÁRIO GOLPE (Pauta)</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>(foto)(vídeo)</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T210400+0000">20130909T210400+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>O governo do Chile e a oposição lembraram nesta segunda-feira de forma bem diferente o 40º aniversário do golpe de Augusto Pinochet, de 11 de setembro de 1973, concordando no pedido de verdade e justiça, mas divididos sobre a responsabilidade que cada bloco teve na conjuntura que antecedeu o golpe.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Santiago do Chile, 9 set (EFE).- O governo do Chile e a oposição lembraram nesta segunda-feira de forma bem diferente o 40º aniversário do golpe de Augusto Pinochet, de 11 de setembro de 1973, concordando no pedido de verdade e justiça, mas divididos sobre a responsabilidade que cada bloco teve na conjuntura que antecedeu o golpe.</p>
+                <p>O presidente Sebastián Piñera liderou um ato no Palácio de la Moneda e a ex-presidente, e novamente candidata, Michelle Bachelet outro que começou duas horas antes no Museu da Memória e dos Direitos Humanos.</p>
+                <p>Ambos disseram que as violações aos direitos humanos são injustificáveis, mas enquanto Bachelet afirmou que o golpe é responsabilidade dos que o cometeram e justificaram, Piñera considera que existem responsabilidades compartilhadas, mesmo que não equivalentes.</p>
+                <p>Eles foram os únicos a discursar nos atos realizados dois dias antes do aniversário do golpe contra o presidente Salvador Allende, a pouco mais de dois meses das eleições presidenciais, que acontecem dia 17 de novembro.</p>
+                <p>A oposição de centro-esquerda recusou o convite do governo, o primeiro de direita a governar o país depois da ditadura (1973-1990).</p>
+                <p>Diante de membros da base governista, que abarca setores aliados de Pinochet e que inclusive ainda defendem o ex-ditador, Piñera afirmou que o governo do socialista Allende (1970-1973) "quebrou a legalidade e o estado de direito".</p>
+                <p>Para o presidente, a rachadura na democracia e as más políticas públicas provocaram um caos político, econômico e social crescente. "Isso não significa, claro, que todas as responsabilidades sejam equivalentes, mas que precisam ser muito mais compartilhadas do que alguns ainda sustentam", afirmou.</p>
+                <p>"Alguns querem crer que toda a responsabilidade recai em quem cometeu ou ordenou as violações aos direitos humanos", opinou o que presidente, que também considera responsáveis "aqueles que não respeitaram o estado de direito e promoveram a intolerância, o ódio e a violência".</p>
+                <p>Já Bachelet, favorita às eleições de novembro e candidata de um bloco que reúne da Democracia Cristã ao Partido Comunista, reconheceu que é "justo falar da agudização do conflito social" durante o governo de Salvador Allende.</p>
+                <p>"O que não é justo é falar do golpe de Estado como um destino fatal e inevitável. Não é justo afirmar que houve uma guerra civil na tomada de decisões, porque para dar continuidade e respaldo à democracia era necessário mais democracia, não um golpe de Estado", criticou em discurso para integrantes do pacto eleitoral Nova Maioria.</p>
+                <p>"As responsabilidades da implantação da ditadura, os crimes cometidos por agentes do Estado, a violação dos direitos humanos não são justificáveis, não são inevitáveis, e são responsabilidade de quem os cometeu e os justificou", ressaltou.</p>
+                <p>Piñera, que não falou em "ditadura" no ato, concordou que não há argumento que justifique as violações dos direitos humanos, que deixaram 38 mil vítimas de torturas e prisões, mais de três mil mortos e cerca de 1.200 desaparecidos.</p>
+                <p>"Nenhum dos fatos, causas, erros ou responsabilidades que conduziram ao rompimento da democracia justificam as inaceitáveis agressões à vida e a integridade das pessoas", discursou Piñera, que votou pelo "não" à continuidade de Pinochet no plebiscito de 1988.</p>
+                <p>Bachelet, que foi torturada e era filha de um general leal ao presidente Allende, que morreu torturado pelos companheiros de armas, advertiu que sem verdade e justiça não haverá reconciliação no país.</p>
+                <p>"A verdade, porque temos necessidade de conhecer o que viveram as vítimas e o que se passou com eles. E a justiça, porque onde a justiça se nega, a impunidade ocupa seu espaço aprofundando as fraturas de um povo", ressaltou.</p>
+                <p>Para Piñera, é preciso fazer o necessário para aliviar "a dor e sofrimento" dos que ainda desconhecem o paradeiro de seus familiares "avançando na verdade, na justiça, na reparação e na reconciliação", e disse que "quem tiver informação relevante têm a obrigação moral de entregá-la".</p>
+                <p>No entanto, poucos são os militares apoiadores do golpe que colaboraram com a justiça.</p>
+                <p>Nos tribunais tramitam atualmente 1.250 processos, e já foram julgados 911 ex-agentes, 263 deles condenados e só 66 cumprem pena efetivamente, e o resto ainda espera o resultado do julgamento.</p>
+                <p>Bachelet disputará o cargo de presidente com a candidata do governo Evelyn Matthei, filha de um general que integrou a Junta Militar. Matthei afirmou hoje que "as violações aos direitos humanos não são nunca aceitáveis". EFE</p>
+                <p>frf-mf/cd</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

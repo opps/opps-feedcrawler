@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T201307+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18721475">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T201200+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18721475</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T201200+0000:18721475:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T201200+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T201200+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18721475.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Dilma sanciona lei que destina royalties do petróleo para saúde e educação</HeadLine>
+        <SubHeadLine>BRASIL PETRÓLEO</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="(foto)" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Economia, negócios e finanças ; Energia e recursos ; Petróleo e gás-->
+          <SubjectDetail FormalName="04005004" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Saúde-->
+          <Subject FormalName="07000000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Educação-->
+          <Subject FormalName="05000000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="ECO:ECONOMIA,AREAS-EMPRESAS,ENERGIA-MINERACAO;SOC:SOCIEDADE-SAUDE,SAUDE;SOC:SOCIEDADE-SAUDE,EDUCACAO" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Dilma sanciona lei que destina royalties do petróleo para saúde e educação</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="ECO" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Economia, negócios e finanças;Energia e recursos;Petróleo e gás-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="04005004" tobject.subject.type="Economia, negócios e finanças" tobject.subject.matter="Energia e recursos" tobject.subject.detail="Petróleo e gás" />
+                <!--Saúde-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="07000000" tobject.subject.type="Saúde" />
+                <!--Educação-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="05000000" tobject.subject.type="Educação" />
+                <!--ECO:ECONOMIA;AREAS-EMPRESAS;ENERGIA-MINERACAO-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F06003003" tobject.subject.type="ECO:ECONOMIA" tobject.subject.matter="AREAS-EMPRESAS" tobject.subject.detail="ENERGIA-MINERACAO" />
+                <!--SOC:SOCIEDADE-SAUDE;SAUDE-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F04001000" tobject.subject.type="SOC:SOCIEDADE-SAUDE" tobject.subject.matter="SAUDE" />
+                <!--SOC:SOCIEDADE-SAUDE;EDUCACAO-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F04004000" tobject.subject.type="SOC:SOCIEDADE-SAUDE" tobject.subject.matter="EDUCACAO" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Brasília" />
+                <doc-id id-string="18721475" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T201200+0000" />
+                <key-list>
+                  <keyword key="BRASIL PETRÓLEO" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T201200+0000" edition.area="RIM BGE" item-length="00267" unit-of-measure="word" id="PB1124" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Dilma sanciona lei que destina royalties do petróleo para saúde e educação</hl1>
+                  <hl2>BRASIL PETRÓLEO</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>(foto)</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T201200+0000">20130909T201200+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>A presidente Dilma Rousseff sancionou nesta segunda-feira uma lei que destina os fundos obtidos com os royalties da extração do petróleo para melhorar os sistemas públicos de saúde e educação.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Brasília, 9 set (EFE).- A presidente Dilma Rousseff sancionou nesta segunda-feira uma lei que destina os fundos obtidos com os royalties da extração do petróleo para melhorar os sistemas públicos de saúde e educação.</p>
+                <p>A lei, aprovada pelo Congresso no calor dos grandes protestos do último mês de junho, outorga 75% dos royalties petrolíferos à educação e 25% à saúde.</p>
+                <p>Ao sancionar a lei, Dilma afirmou que "a educação é cara" e "não se pode economizar" nela, porque isso significaria "o triunfo da ignorância".</p>
+                <p>"É necessário dar um salto de qualidade no ensino para poder dar um salto de qualidade em todas as atividades, desde a pesquisa científica até a economia", declarou Dilma em discurso no Palácio do Planalto perante centenas de estudantes e representantes do Legislativo e Executivo.</p>
+                <p>Segundo a governante, o maior investimento em educação trará benefícios em longo prazo e servirá para "tornar irreversível o processo de redução de desigualdades".</p>
+                <p>A nova distribuição de fundos só será aplicada aos blocos exploratórios que tenham sido declarados de interesse comercial a partir do dia 3 de dezembro de 2012. As jazidas que levem mais tempo em exploração continuarão seguindo a legislação anterior, que destina os royalties aos governos estaduais e municipais.</p>
+                <p>Nas ricas jazidas do pré-sal será aplicado um regime diferente, pelo qual apenas se reservará metade de seus royalties à saúde e educação.</p>
+                <p>O governo calcula que em 2013 se destinarão R$ 770 milhões à saúde e à educação públicas graças a esta lei. Nos próximos dez anos, os royalties petrolíferos poderiam somar R$ 112,25 bilhões, segundo cálculos da Presidência da República. EFE</p>
+                <p>mp/rsd</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

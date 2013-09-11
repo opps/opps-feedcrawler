@@ -121,8 +121,25 @@ class Feed(Publishable, Slugged):
         Processor = getattr(_temp, _processor)
         return Processor(self, verbose=verbose)
 
+    def create_channel(self):
+        try:
+            channel = Channel.objects.get(slug=self.slug)
+        except:
+            channel = Channel.objects.create(
+                name=self.title,
+                slug=self.slug,
+                published=True,
+                site=self.site,
+                user=self.user
+            )
+        self.channel = channel
+        self.save()
+        return channel
+
     def get_channel(self):
-        return self.channel or Channel.objects.get_homepage(site=self.site)
+        return (self.channel or
+                Channel.objects.get_homepage(site=self.site) or
+                self.create_channel())
 
 
 class Entry(Container):

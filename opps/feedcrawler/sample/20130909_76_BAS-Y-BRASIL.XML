@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T161145+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18720587">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T160600+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18720587</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T160600+0000:18720587:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T160600+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T160600+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18720587.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Maioria de americanos se opõe ao uso de força militar contra a Síria</HeadLine>
+        <SubHeadLine>SÍRIA CONFLITO</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="mb/ff" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Distúrbios, conflitos e guerra ; Guerra ; Intervenções militares internacionais-->
+          <SubjectDetail FormalName="16009002" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Política ; Defesa ; Armas biológicas e químicas-->
+          <SubjectDetail FormalName="11001007" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="POL:POLITICA,CONFLITO;POL:POLITICA,DEFESA" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Maioria de americanos se opõe ao uso de força militar contra a Síria</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="DCG" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Distúrbios, conflitos e guerra;Guerra;Intervenções militares internacionais-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="16009002" tobject.subject.type="Distúrbios, conflitos e guerra" tobject.subject.matter="Guerra" tobject.subject.detail="Intervenções militares internacionais" />
+                <!--Política;Defesa;Armas biológicas e químicas-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="11001007" tobject.subject.type="Política" tobject.subject.matter="Defesa" tobject.subject.detail="Armas biológicas e químicas" />
+                <!--POL:POLITICA;CONFLITO-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01011000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="CONFLITO" />
+                <!--POL:POLITICA;DEFESA-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01010000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="DEFESA" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Washington" />
+                <doc-id id-string="18720587" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T160600+0000" />
+                <key-list>
+                  <keyword key="SÍRIA CONFLITO" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T160600+0000" edition.area="RIM BGE" item-length="00353" unit-of-measure="word" id="PB1080" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Maioria de americanos se opõe ao uso de força militar contra a Síria</hl1>
+                  <hl2>SÍRIA CONFLITO</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>mb/ff</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T160600+0000">20130909T160600+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>A maioria dos americanos acredita que o Congresso não deveria aprovar uma resolução para autorizar o uso da força militar contra o regime sírio, algo que o presidente Barack Obama deseja, segundo uma nova pesquisa divulgada nesta segunda-feira.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Washington, 9 set (EFE).- A maioria dos americanos acredita que o Congresso não deveria aprovar uma resolução para autorizar o uso da força militar contra o regime sírio, algo que o presidente Barack Obama deseja, segundo uma nova pesquisa divulgada nesta segunda-feira.</p>
+                <p>A pesquisa da rede "CNN" segue a linha das publicadas durante os últimos dias e exemplifica, mais uma vez, a rejeição majoritária entre os americanos a uma intervenção militar de seu país na Síria.</p>
+                <p>Entre os indagados pela "CNN", 59% se mostraram contrários a uma aprovação da resolução que autorize uma ação militar contra a Síria pelo Congresso, enquanto 39% se mostraram a favor.</p>
+                <p>Além disso, a pesquisa revela que a maioria (55%) se opõe a uma ação militar na Síria inclusive se o Congresso aprovasse uma resolução a esse respeito.</p>
+                <p>Ainda assim, 80% dos entrevistados consideram "provável" ou "seguro" que o Governo do presidente sírio, Bashar al-Assad, tenha usado armas químicas.</p>
+                <p>Apesar disso, quase 7 de cada 10 americanos dizem que se envolver na guerra civil da Síria não faz parte "do interesse nacional" dos Estados Unidos.</p>
+                <p>A pesquisa de "CNN" foi realizada entre 6 e 8 de setembro com 1.022 adultos e tem uma margem de erro de mais ou menos três pontos percentuais.</p>
+                <p>Além disso, uma pesquisa da "Gallup" indicou que a maioria dos americanos que se opõe a uma intervenção militar na Síria não considera que o conflito nesse país seja um assunto dos Estados Unidos</p>
+                <p>A firma entrevistou entre os dias 3 e e 4 de setembro 1.021 adultos de todo o país. A pesquisa de opinião admite uma margem de erro de menos ou mais 4 pontos percentuais.</p>
+                <p>Esta semana é considerada crucial dentro dos esforços que a Casa Branca e o próprio Obama estão realizando para conseguir os apoios suficientes para que o Congresso aprove uma resolução que autorize um ataque militar "limitada" contra a Síria.</p>
+                <p>Obama fará hoje uma rodada de entrevistas com distintas televisões nacionais para convencer sobre a necessidade de uma intervenção militar limitada na Síria e na terça-feira pela noite, fará um discurso à nação em horário nobre. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

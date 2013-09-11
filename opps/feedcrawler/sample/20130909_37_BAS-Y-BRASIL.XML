@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T090405+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18719001">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T090200+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18719001</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T090200+0000:18719001:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T090200+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T090200+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18719001.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Agadèz, a esquecida porta do deserto do Níger</HeadLine>
+        <SubHeadLine>NÍGER TURISMO (Crônica)</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="io/jfu/ff/rsd" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Economia, negócios e finanças ; Turismo e lazer-->
+          <SubjectMatter FormalName="04014000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Estilo de vida e lazer ; Turismo-->
+          <SubjectMatter FormalName="10006000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="ECO:ECONOMIA,AREAS-EMPRESAS,TURISMO;SOC:SOCIEDADE-SAUDE,GENTE-CURIOSIDADES" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="Crônica" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Agadèz, a esquecida porta do deserto do Níger</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="ECO" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="Crônica" />
+              <tobject tobject.type="News">
+                <!--Economia, negócios e finanças;Turismo e lazer-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="04014000" tobject.subject.type="Economia, negócios e finanças" tobject.subject.matter="Turismo e lazer" />
+                <!--Estilo de vida e lazer;Turismo-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="10006000" tobject.subject.type="Estilo de vida e lazer" tobject.subject.matter="Turismo" />
+                <!--ECO:ECONOMIA;SECTORES-EMPRESAS;TURISMO-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F06003009" tobject.subject.type="ECO:ECONOMIA" tobject.subject.matter="SECTORES-EMPRESAS" tobject.subject.detail="TURISMO" />
+                <!--SOC:SOCIEDAD-SALUD;GENTE-CURIOSIDADES-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F04006000" tobject.subject.type="SOC:SOCIEDAD-SALUD" tobject.subject.matter="GENTE-CURIOSIDADES" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Agadez (Níger) 8 set (EFE)- Agadèz" />
+                <doc-id id-string="18719001" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T090200+0000" />
+                <key-list>
+                  <keyword key="NÍGER TURISMO (Crônica)" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T090200+0000" edition.area="RIM BGE" item-length="00553" unit-of-measure="word" id="PB1020" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Agadèz, a esquecida porta do deserto do Níger</hl1>
+                  <hl2>NÍGER TURISMO (Crônica)</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>io/jfu/ff/rsd</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T090200+0000">20130909T090200+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>Issa Ousseni.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Issa Ousseni.</p>
+                <p>Agadez (Níger) 8 set (EFE)- Agadèz, erguida entre os séculos 15 e 16 às portas do deserto nigerino do Ténéré e classificada em junho pela Unesco como Patrimônio da Humanidade, lembra com saudade os tempos nos quais o turismo era uma das principais atividades da cidade.</p>
+                <p>"No final do século passado, Agadèz era uma etapa inevitável para os organizadores do Rali Paris-Argel-Dacar, o que contribuiu para desenvolver o turismo, que é uma das nossas principais atividades econômicas", comentou à Agência Efe Mohammed Agaly, um antigo guia turístico que buscou melhor sorte trabalhando como artesão de couro.</p>
+                <p>No entanto, as rebeliões tuaregues e os golpes de estado que atingiram o país ao longo da década dos anos 1990 afastaram os 4x4 do famoso rali, que passou por Agadèz pela última vez em 1997, e pouco a pouco foi debilitando o turismo.</p>
+                <p>"As rebeliões armadas, que começaram nos anos 90, acabaram com nossa principal fonte para ganhar o pão. Os turistas deixaram de visitar nossos monumentos históricos e nosso formoso deserto por medo de serem sequestrados", ressaltou Agaly, antes de acrescentar que as recentes ameaças terroristas ainda pioraram a situação.</p>
+                <p>No último dia 23 de maio, 25 soldados morreram em um atentado suicida contra o quartel militar de Agadèz.</p>
+                <p>O ataque, o primeiro dessas características ocorrido no Níger, foi reivindicado pelos grupos Monoteísmo e Jihad na África Ocidental (MYAO) e os Signatários com Sangue, cujo líder é o terrorista argelino Mojtar Belmojtar.</p>
+                <p>Enquanto terminava de calçar alpargatas de couro, Agaly lembrou o tempo no qual chegavam diariamente à cidade voos de várias cidades europeias com viajantes e turistas curiosos para descobrir os segredos desse antigo enclave comercial.</p>
+                <p>Em junho, a Unesco incluiu em sua lista o centro histórico da cidade, erguido com tijolos de adobe durante a rebelião tuaregue de Air.</p>
+                <p>No total, são 11 bairros que se estendem em 70 hectares, nos quais destaca-se a Grande Mesquita e seu mirante de terra que parece desafiar o céu, o Palácio do Sultão, a Casa do Padeiro e a do explorador alemão Henri Barth, que residiu na cidade em 1850.</p>
+                <p>Segundo o historiador nigerino Djibo Hamani, a origem da cidade, centro comercial entre a África setentrional e a subsaariana, remonta ao século 11.</p>
+                <p>"A cidade de Air foi uma importante encruzilhada comercial de caravaneiros, um ponto de união entre a África negra e o Magrebe, onde a hospitalidade é um valor essencial entre a população local", disse à Agência Efe a socióloga Sumana Adamu.</p>
+                <p>Segundo Sumana, seu nome vem da palavra "egdez", que em tamasheq, a língua da comunidade tuaregue que fundou a cidade, significa "fazer uma visita".</p>
+                <p>"Estes valores favoreceram a eclosão da diversidade étnica nesta cidade, onde vivem etnias como a hausa, a árabe, a kanuri, a sonrai e a peul em perfeita simbiose", acrescentou a socióloga.</p>
+                <p>Em algumas ruas, é possível perceber algum movimento, mas as patrulhas militares que percorrem a cidade de maneira intermitente seguem lembrando o sangrento atentado de maio.</p>
+                <p>"Desde que ocorreu o ataque criminoso, que afetou várias famílias, o esquema de segurança na cidade experimentou um reforço excepcional" assegurou Agaicha Ibrahim, que administra uma loja.</p>
+                <p>Agaicha se sente satisfeito pela presença das forças de segurança. "Estão para proteger nossas vidas e nossos bens dos grupos terroristas", acrescentou este comerciante do velho mercado da poeirenta Agadèz. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

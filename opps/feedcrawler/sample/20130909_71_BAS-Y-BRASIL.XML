@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T154510+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18720481">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T154200+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18720481</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T154200+0000:18720481:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T154200+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T154200+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18720481.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Repórter italiano retido na Síria ouviu que ataque com gás foi de rebeldes</HeadLine>
+        <SubHeadLine>SÍRIA CONFLITO</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="ebp/ff" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Política ; Defesa ; Armas biológicas e químicas-->
+          <SubjectDetail FormalName="11001007" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Distúrbios, conflitos e guerra ; Guerra ; Guerra civil-->
+          <SubjectDetail FormalName="16009001" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="POL:POLITICA,DEFESA;POL:POLITICA,CONFLITO" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Repórter italiano retido na Síria ouviu que ataque com gás foi de rebeldes</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="POL" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Política;Defesa;Armas biológicas e químicas-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="11001007" tobject.subject.type="Política" tobject.subject.matter="Defesa" tobject.subject.detail="Armas biológicas e químicas" />
+                <!--Distúrbios, conflitos e guerra;Guerra;Guerra civil-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="16009001" tobject.subject.type="Distúrbios, conflitos e guerra" tobject.subject.matter="Guerra" tobject.subject.detail="Guerra civil" />
+                <!--POL:POLITICA;DEFESA-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01010000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="DEFESA" />
+                <!--POL:POLITICA;CONFLITO-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01011000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="CONFLITO" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Roma" />
+                <doc-id id-string="18720481" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T154200+0000" />
+                <key-list>
+                  <keyword key="SÍRIA CONFLITO" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T154200+0000" edition.area="RIM BGE" item-length="00512" unit-of-measure="word" id="PB1074" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Repórter italiano retido na Síria ouviu que ataque com gás foi de rebeldes</hl1>
+                  <hl2>SÍRIA CONFLITO</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>ebp/ff</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T154200+0000">20130909T154200+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>O jornalista italiano Domenico Quirico, que permaneceu sequestrado por cinco meses na Síria, declarou nesta segunda-feira que chegou a escutar uma conversa de seus sequestradores na qual diziam que "a operação com gás em dois bairros de Damasco" foi perpetrada pelos rebeldes para provocar a intervenção militar do Ocidente.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Roma, 9 set (EFE).- O jornalista italiano Domenico Quirico, que permaneceu sequestrado por cinco meses na Síria, declarou nesta segunda-feira que chegou a escutar uma conversa de seus sequestradores na qual diziam que "a operação com gás em dois bairros de Damasco" foi perpetrada pelos rebeldes para provocar a intervenção militar do Ocidente.</p>
+                <p>Quirico ofereceu seu testemunho ao jornal turinês "La Stampa", do qual é correspondente, em resposta às declarações realizadas por seu companheiro de cativeiro, o professor universitário belga Pierre Piccinin da Prata, que em uma entrevista a uma rádio de seu país, recolhida pelos meios de comunicação italianos, assegurou que o Governo de Bashar al-Assad não utilizou gás sarin na periferia de Damasco.</p>
+                <p>"É uma loucura dizer que eu sei que não foi Assad o que utilizou o gás", afirmou Quirico, que ontem à noite voltou à Itália após ser libertado após cinco meses de cativeiro.</p>
+                <p>Quirico assinalou que desconheciam tudo o que estava acontecendo na Síria durante seu sequestro e, "portanto, também o ataque com gás em Damasco".</p>
+                <p>No entanto, o italiano explicou que em uma ocasião escutou desde o quarto no qual permaneciam retidos e através de uma porta entreaberta, uma conversa em inglês por Skype (chamadas pela internet) entre três pessoas.</p>
+                <p>Quirico ressaltou que desconhece os nomes dos participantes da conversa, mas que um deles se apresentou como um general do Exército de libertação sírio, enquanto nunca tinha visto o homem que lhe acompanhava, e que também não sabe nada do terceiro interlocutor com o qual falavam através de internet.</p>
+                <p>"Nessa conversa - precisou Quirico - diziam que a operação com gás nos dois bairros de Damasco tinha sido perpetrada pelos rebeldes como provocação, para induzir o Ocidente a intervir militarmente e que, na sua opinião, o número de mortos era exagerado".</p>
+                <p>Quirico reiterou que desconhece se o dito nessa conversa "é certo", insistiu que desconhece a identidade dos três participantes da mesma e em que não dispõe de elementos para assegurar que as afirmações estivessem baseadas em fatos reais ou se eram boatos.</p>
+                <p>"É importante saber as condições nas quais nos encontrávamos e não se pode esquecer que éramos prisioneiros que escutavam coisas através das portas. Não tenho elementos para julgar (...) É um loucura dizer que eu sei que não foi Assad que utilizou o gás", concluiu o jornalista.</p>
+                <p>Em 29 de abril, o jornal "La Stampa" denunciou o desaparecimento de Quirico, após não ter notícias do jornalista em 20 dias e explicou que a última vez que haviam falado com ele foi depois que conseguiu entrar na Síria desde o Líbano para realizar uma série de reportagens na zona de Homs.</p>
+                <p>Ontem à noite, o jornal anunciou que o jornalista tinha sido liderado e que ia viajar de volta à Itália de forma imediata.</p>
+                <p>Domenico Quirico, de 62 anos, conta com uma sólida trajetória profissional em zonas de conflito e foi enviado pelo "La Stampa" ao Sudão, além de ter sido o encarregado de cobrir a primavera árabe em países como Tunísia e Egito e a crise alimentícia no Chifre da África. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

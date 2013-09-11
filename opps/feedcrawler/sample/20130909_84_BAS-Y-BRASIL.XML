@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T172448+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18720928">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T172200+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18720928</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T172200+0000:18720928:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T172200+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T172200+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18720928.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Cientistas britânicos sugerem que água lunar surgiu antes da Terra</HeadLine>
+        <SubHeadLine>R.UNIDO CIÊNCIA</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="smb/ff" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Ciência e tecnologia ; Ciências aplicadas ; Cosmologia-->
+          <SubjectDetail FormalName="13001003" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Ciência e tecnologia ; Pesquisa-->
+          <SubjectMatter FormalName="13006000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="CYT:CIENCIA-TECNOLOGIA,CIENCIA;CYT:CIENCIA-TECNOLOGIA" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Cientistas britânicos sugerem que água lunar surgiu antes da Terra</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="CYT" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Ciência e tecnologia;Ciências aplicadas;Cosmologia-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="13001003" tobject.subject.type="Ciência e tecnologia" tobject.subject.matter="Ciências aplicadas" tobject.subject.detail="Cosmologia" />
+                <!--Ciência e tecnologia;Pesquisa-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="13006000" tobject.subject.type="Ciência e tecnologia" tobject.subject.matter="Pesquisa" />
+                <!--CYT:CIENCIA-TECNOLOGIA;CIENCIA-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F05001000" tobject.subject.type="CYT:CIENCIA-TECNOLOGIA" tobject.subject.matter="CIENCIA" />
+                <!--CYT:CIENCIA-TECNOLOGIA-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F05000000" tobject.subject.type="CYT:CIENCIA-TECNOLOGIA" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Londres" />
+                <doc-id id-string="18720928" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T172200+0000" />
+                <key-list>
+                  <keyword key="R.UNIDO CIÊNCIA" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T172200+0000" edition.area="RIM BGE" item-length="00311" unit-of-measure="word" id="PB1093" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Cientistas britânicos sugerem que água lunar surgiu antes da Terra</hl1>
+                  <hl2>R.UNIDO CIÊNCIA</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>smb/ff</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T172200+0000">20130909T172200+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>Um grupo de cientistas apresentou nesta segunda-feira no Congresso Europeu de Ciências Planetárias de Londres uma pesquisa na qual sugerem que a água encontrada na Lua poderia ter sido originada antes mesmo que a formação da Terra.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Londres, 9 set (EFE).- Um grupo de cientistas apresentou nesta segunda-feira no Congresso Europeu de Ciências Planetárias de Londres uma pesquisa na qual sugerem que a água encontrada na Lua poderia ter sido originada antes mesmo que a formação da Terra.</p>
+                <p>O estudo foi realizado por uma equipe de cientistas da universidade britânica Open University e se baseia nas mostras lunares recolhidas pelos astronautas do programa Apolo, que deram evidências da existência de água na Lua.</p>
+                <p>Para realizar a pesquisa, os cientistas britânicos analisaram a quantidade de água presente dentro da apatita, um mineral de fosfato de cálcio achado nas mostras que foram extraídas da crosta lunar mais antiga.</p>
+                <p>"Estas são algumas das rochas mais antigas que temos da Lua e são inclusive anteriores às mais antigas que encontradas na Terra", explicou em comunicado Jessica Barnes, chefe do projeto.</p>
+                <p>Segundo a equipe, estas mostras de rocha lunar são as mais apropriadas para "compreender como a água se originou na Lua pouco após sua formação há cerca 4,5 bilhões de anos" e para "descobrir de que parte do Sistema Solar provém a água".</p>
+                <p>A partir das apreciáveis quantidades de água que foram encontradas dentro da estrutura cristalina da apatita, a equipe de Barnes também defendeu que o interior da Lua é muito mais úmido do que se achava.</p>
+                <p>Embora os cientistas não tenham conseguido identificar a origem exata de água lunar, a pesquisa destacou que poderia ter um vínculo comum entre a água da Lua e a Terra.</p>
+                <p>"A água da apatita que há nas rochas lunares analisadas tem um marcador isotópico muito similar ao da Terra e ao de alguns meteoritos de carbono", acrescentou Barnes.</p>
+                <p>"A extraordinária relação que há entre as mostras lunares e as reservas de água achadas na Terra sugerem que há uma origem comum para a água da Lua e da Terra", concluiu a cientista. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18720921">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T172100+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18720921</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T172100+0000:18720921:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T172100+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T172100+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18720921.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Resultados de hoje do torneio de tênis de Tashkent</HeadLine>
+        <SubHeadLine>TÊNIS TASHKENT</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="sab/id" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Esportes ; Tênis-->
+          <SubjectMatter FormalName="15065000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="DEP:ESPORTES,TENIS" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Resultados de hoje do torneio de tênis de Tashkent</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="DEP" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Esportes;Tênis-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="15065000" tobject.subject.type="Esportes" tobject.subject.matter="Tênis" />
+                <!--DEP:DEPORTES;TENIS-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F07011000" tobject.subject.type="DEP:DEPORTES" tobject.subject.matter="TENIS" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Redação Central" />
+                <doc-id id-string="18720921" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T172100+0000" />
+                <key-list>
+                  <keyword key="TÊNIS TASHKENT" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T172100+0000" edition.area="RIM BES" item-length="00148" unit-of-measure="word" id="PB1092" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Resultados de hoje do torneio de tênis de Tashkent</hl1>
+                  <hl2>TÊNIS TASHKENT</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>sab/id</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T172100+0000">20130909T172100+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>Resultados desta segunda-feira do torneio de tênis de Tashkent (Uzbequistão), válido pelo circuito feminino e disputado em quadra dura:.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Redação Central, 9 set (EFE).- Resultados desta segunda-feira do torneio de tênis de Tashkent (Uzbequistão), válido pelo circuito feminino e disputado em quadra dura:.</p>
+                <p />
+                <p>Primeira rodada.</p>
+                <p>Nastassja Burnett (ITA) venceu Lesia Tsurenko (UCR, 2) por 7-6 (4) e 6-4.</p>
+                <p>Riso Ozaki (JAP) venceu Kateryna Kozlova (UCR) por 7-5 e 6-2.</p>
+                <p>Bojana Jovanovski (SER, 1) venceu Kurumi Nara (JAP) por 6-4 e 6-3.</p>
+                <p>Donna Vekic (CRO, 4) venceu Lyudmyla Kichenok (UCR) por 6-3 e 6-2.</p>
+                <p>Olga Govortsova (BLR) venceu Michaella Krajicek (HOL) por 7-5, 2-6 e 6-1.</p>
+                <p>Nadiya Kichenok (UCR) venceu Eva Birnerova (RTC) por 7-5 e 6-2.</p>
+                <p>Alexandra Cadantu (ROU, 5) venceu Sabina Sharipova (UZB) por 6-2, e 6-0.</p>
+                <p>Irina-Camélia Begu (ROM, 6) venceu Alexandra Panova (RUS) por 7-6 (8) e 6-1.</p>
+                <p>Yvonne Meusburger (AUT, 3) venceu Timea Babos (HUN) por 2-6, 6-2 e 6-1.</p>
+                <p>Mandy Minella (LUX) venceu Olga Puchkova (RUS) por 6-2 e 6-3. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

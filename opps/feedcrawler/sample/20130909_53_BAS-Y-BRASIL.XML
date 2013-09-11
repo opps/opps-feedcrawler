@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T130809+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18719930">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T130400+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18719930</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T130400+0000:18719930:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T130400+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T130400+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18719930.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Neymar ganhará massa muscular através de "poção mágica"</HeadLine>
+        <SubHeadLine>FUTEBOL BRASILEIROS</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="asf/dr" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Esportes ; Futebol-->
+          <SubjectMatter FormalName="15054000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="DEP:ESPORTES,FUTEBOL" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Neymar ganhará massa muscular através de "poção mágica"</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="DEP" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Esportes;Futebol-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="15054000" tobject.subject.type="Esportes" tobject.subject.matter="Futebol" />
+                <!--DEP:ESPORTES;FUTEBOL-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F07001000" tobject.subject.type="DEP:ESPORTES" tobject.subject.matter="FUTEBOL" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Barcelona" />
+                <doc-id id-string="18719930" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T130400+0000" />
+                <key-list>
+                  <keyword key="FUTEBOL BRASILEIROS" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T130400+0000" edition.area="RIM BES" item-length="00173" unit-of-measure="word" id="PB1051" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Neymar ganhará massa muscular através de "poção mágica"</hl1>
+                  <hl2>FUTEBOL BRASILEIROS</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>asf/dr</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T130400+0000">20130909T130400+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>Chamado de "filé de borboleta" pelo técnico Vanderlei Luxemburgo quando subiu para o time profissional do Santos, em 2009, o atacante Neymar vem ingerindo, por recomendação do Barcelona, uma "poção mágica" feita de vitaminas e proteínas para recuperar massa muscular e peso, depois da anemia detectada no fim de julho.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Barcelona, 9 set (EFE).- Chamado de "filé de borboleta" pelo técnico Vanderlei Luxemburgo quando subiu para o time profissional do Santos, em 2009, o atacante Neymar vem ingerindo, por recomendação do Barcelona, uma "poção mágica" feita de vitaminas e proteínas para recuperar massa muscular e peso, depois da anemia detectada no fim de julho.</p>
+                <p>Segundo informações divulgadas nesta segunda-feira pelo jornal espanhol "Sport", o jovem craque optou por um combinado de proteínas de sabor baunilha para recuperar massa muscular e ganhou dois quilos. Ele havia perdido peso depois de ter sido submetido a uma cirurgia nas amígdalas, logo depois da conquista do título da Copa das Confederações, que lhe causou uma "hemorragia excessiva", detalha a publicação.</p>
+                <p>Por esse motivo, o jogador foi entregue a um trabalho de nutricionistas do Barcelona, que se encarregaram de aumentar os índices de ferro no sangue do atleta. Agora, Neymar vem consumindo mais carne vermelha, frango, peixe, feijão, cereais integrais e espinafre, além de ingerir proteínas e vitaminas. O tratamento será realizado durante toda a temporada. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18719929">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T130400+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18719929</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T130400+0000:18719929:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T130400+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T130400+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18719929.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Kerry diz que Assad poderia evitar um ataque se entregasse armas químicas</HeadLine>
+        <SubHeadLine>SÍRIA CONFLITO</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="prc/fk" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Distúrbios, conflitos e guerra-->
+          <Subject FormalName="16000000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="POL:POLITICA,CONFLITO" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Kerry diz que Assad poderia evitar um ataque se entregasse armas químicas</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="DCG" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Distúrbios, conflitos e guerra-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="16000000" tobject.subject.type="Distúrbios, conflitos e guerra" />
+                <!--POL:POLITICA;CONFLITO-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01011000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="CONFLITO" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Londres" />
+                <doc-id id-string="18719929" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T130400+0000" />
+                <key-list>
+                  <keyword key="SÍRIA CONFLITO" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T130400+0000" edition.area="RIM BGE" item-length="00276" unit-of-measure="word" id="PB1050" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Kerry diz que Assad poderia evitar um ataque se entregasse armas químicas</hl1>
+                  <hl2>SÍRIA CONFLITO</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>prc/fk</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T130400+0000">20130909T130400+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>O presidente da Síria, Bashar al Assad, poderia evitar uma eventual intervenção militar dos Estados Unidos caso entregasse todas suas armas químicas no prazo de uma semana, afirmou nesta segunda-feira em Londres o secretário de Estado americano, John Kerry.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Londres, 9 set (EFE).- O presidente da Síria, Bashar al Assad, poderia evitar uma eventual intervenção militar dos Estados Unidos caso entregasse todas suas armas químicas no prazo de uma semana, afirmou nesta segunda-feira em Londres o secretário de Estado americano, John Kerry.</p>
+                <p>Em uma entrevista coletiva conjunta com o ministro das Relações Exteriores do Reino Unido, William Hague, realizada na sede do Foreign Office, Kerry também fez questão de ressaltar que tem certeza que o regime sírio não entregará suas armas.</p>
+                <p>A Síria pode evitar um ataque "entregando cada uma das armas químicas à comunidade internacional na próxima semana", "todas e sem atraso", mas Assad "não vai fazer" isso, declarou Kerry.</p>
+                <p>O secretário de Estado americano acrescentou que ele e o presidente Barack Obama estão "totalmente de acordo" em relação ao fim do conflito na Síria em definitivo, fato que, segundo Kerry, "requer uma solução política".</p>
+                <p>"A solução não se encontra no campo de batalha, mas em uma mesa de negociações. No entanto, temos que chegar a essa mesa", precisou.</p>
+                <p>Kerry encerra hoje a viagem europeia que realizou com intenção de obter apoios para uma eventual ação militar na Síria em resposta ao ataque do último dia 21 de agosto em Damasco, no qual o regime sírio teria utilizado gás sarin.</p>
+                <p>Para o secretário de Estado americano, que hoje deve informar o Congresso de seu país sobre a situação síria, o objetivo de uma intervenção é fazer com que Assad "preste contas" e impedir que atrocidades desta magnitude "voltem a ocorrer".</p>
+                <p>Segundo Kerry, se não houver um ataque à Síria, o regime de Assad poderá voltar a utilizar as armas químicas contra população. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

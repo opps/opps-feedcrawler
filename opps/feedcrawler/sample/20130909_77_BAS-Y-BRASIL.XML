@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T161616+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18720620">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T161400+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18720620</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T161400+0000:18720620:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T161400+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T161400+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18720620.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Bolsa de Londres: FTSE-100 fecha em baixa de 0,25%</HeadLine>
+        <SubHeadLine>BOLSA LONDRES FECHAMENTO</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="jm/id" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Economia, negócios e finanças ; Mercados e bolsas-->
+          <SubjectMatter FormalName="04009000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="ECO:ECONOMIA,MERCADOS-FINANCAS,BOLSAS-VALORES" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Bolsa de Londres: FTSE-100 fecha em baixa de 0,25%</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="ECO" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Economia, negócios e finanças;Mercados e bolsas-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="04009000" tobject.subject.type="Economia, negócios e finanças" tobject.subject.matter="Mercados e bolsas" />
+                <!--ECO:ECONOMIA;MERCADOS-FINANZAS;BOLSAS-VALORES-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F06002002" tobject.subject.type="ECO:ECONOMIA" tobject.subject.matter="MERCADOS-FINANZAS" tobject.subject.detail="BOLSAS-VALORES" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Londres" />
+                <doc-id id-string="18720620" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T161400+0000" />
+                <key-list>
+                  <keyword key="BOLSA LONDRES FECHAMENTO" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T161400+0000" edition.area="RIM BGE" item-length="00027" unit-of-measure="word" id="PB1084" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Bolsa de Londres: FTSE-100 fecha em baixa de 0,25%</hl1>
+                  <hl2>BOLSA LONDRES FECHAMENTO</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>jm/id</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T161400+0000">20130909T161400+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>Londres, 9 set (EFE).- O índice principal da Bolsa de Valores de Londres, o FTSE-100, fechou nesta segunda-feira em baixa de 0,25%, aos 6.530,74 pontos. EFE</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Londres, 9 set (EFE).- O índice principal da Bolsa de Valores de Londres, o FTSE-100, fechou nesta segunda-feira em baixa de 0,25%, aos 6.530,74 pontos. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18720618">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T161400+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18720618</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T161400+0000:18720618:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T161400+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T161400+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="4" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18720618.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Síria elogia proposta russa de controle internacional sobre armas químicas</HeadLine>
+        <SubHeadLine>(Urgente) SÍRIA CONFLITO</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Distúrbios, conflitos e guerra ; Guerra ; Intervenções militares internacionais-->
+          <SubjectDetail FormalName="16009002" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Política ; Defesa ; Armas biológicas e químicas-->
+          <SubjectDetail FormalName="11001007" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="POL:POLITICA,CONFLITO;POL:POLITICA,DEFESA" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="Urgente" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Síria elogia proposta russa de controle internacional sobre armas químicas</title>
+              <meta name="prioridad" content="U" />
+              <meta name="categoria" content="DCG" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="Urgente" />
+              <tobject tobject.type="News">
+                <!--Distúrbios, conflitos e guerra;Guerra;Intervenções militares internacionais-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="16009002" tobject.subject.type="Distúrbios, conflitos e guerra" tobject.subject.matter="Guerra" tobject.subject.detail="Intervenções militares internacionais" />
+                <!--Política;Defesa;Armas biológicas e químicas-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="11001007" tobject.subject.type="Política" tobject.subject.matter="Defesa" tobject.subject.detail="Armas biológicas e químicas" />
+                <!--POL:POLITICA;CONFLITO-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01011000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="CONFLITO" />
+                <!--POL:POLITICA;DEFESA-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01010000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="DEFESA" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Moscou" />
+                <doc-id id-string="18720618" />
+                <urgency ed-urg="3" />
+                <date.issue norm="20130909T161400+0000" />
+                <key-list>
+                  <keyword key="(Urgente) SÍRIA CONFLITO" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T161400+0000" edition.area="RIM BGE" item-length="00077" unit-of-measure="word" id="PB1083" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Síria elogia proposta russa de controle internacional sobre armas químicas</hl1>
+                  <hl2>(Urgente) SÍRIA CONFLITO</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T161400+0000">20130909T161400+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>O ministro das Relações Exteriores da Síria, Walid Muallen, elogiou nesta segunda-feira a proposta da Rússia para que Damasco coopere com a comunidade internacional no controle de armas químicas e em sua total destruição.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Moscou, 9 set (EFE).- O ministro das Relações Exteriores da Síria, Walid Muallen, elogiou nesta segunda-feira a proposta da Rússia para que Damasco coopere com a comunidade internacional no controle de armas químicas e em sua total destruição.</p>
+                <p>"Em relação com isto, declaro que a República Árabe da Síria cumprimenta a iniciativa russa, partindo da preocupação dos dirigentes sírios pela vida de seus cidadãos e a segurança em nosso país", disse Muallem, segundo as agências russas. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18720614">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T161300+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18720614</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T161300+0000:18720614:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T161300+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T161300+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18720614.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Bolsa de Frankfurt: DAX 30 fecha praticamente estável</HeadLine>
+        <SubHeadLine>BOLSA FRANKFURT FECHAMENTO</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="aia/id" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Economia, negócios e finanças ; Mercados e bolsas-->
+          <SubjectMatter FormalName="04009000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="ECO:ECONOMIA,MERCADOS-FINANCAS,BOLSAS-VALORES" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Bolsa de Frankfurt: DAX 30 fecha praticamente estável</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="ECO" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Economia, negócios e finanças;Mercados e bolsas-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="04009000" tobject.subject.type="Economia, negócios e finanças" tobject.subject.matter="Mercados e bolsas" />
+                <!--ECO:ECONOMIA;MERCADOS-FINANZAS;BOLSAS-VALORES-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F06002002" tobject.subject.type="ECO:ECONOMIA" tobject.subject.matter="MERCADOS-FINANZAS" tobject.subject.detail="BOLSAS-VALORES" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Frankfurt" />
+                <doc-id id-string="18720614" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T161300+0000" />
+                <key-list>
+                  <keyword key="BOLSA FRANKFURT FECHAMENTO" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T161300+0000" edition.area="RIM BGE" item-length="00028" unit-of-measure="word" id="PB1082" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Bolsa de Frankfurt: DAX 30 fecha praticamente estável</hl1>
+                  <hl2>BOLSA FRANKFURT FECHAMENTO</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>aia/id</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T161300+0000">20130909T161300+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>Frankfurt, 9 set (EFE).- O índice seletivo DAX 30, da Bolsa de Valores de Frankfurt, fechou nesta segunda-feira em leve alta de 0,01%, aos 8.276,32 pontos. EFE</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Frankfurt, 9 set (EFE).- O índice seletivo DAX 30, da Bolsa de Valores de Frankfurt, fechou nesta segunda-feira em leve alta de 0,01%, aos 8.276,32 pontos. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18720602">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T161100+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18720602</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T161100+0000:18720602:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T161100+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T161100+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18720602.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Bolsa de Buenos Aires: Merval abre em alta de 1,83%</HeadLine>
+        <SubHeadLine>BOLSA BUENOS AIRES ABERTURA</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="mcg/fk" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Economia, negócios e finanças ; Mercados e bolsas-->
+          <SubjectMatter FormalName="04009000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="ECO:ECONOMIA,MERCADOS-FINANCAS,BOLSAS-VALORES" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Bolsa de Buenos Aires: Merval abre em alta de 1,83%</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="ECO" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Economia, negócios e finanças;Mercados e bolsas-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="04009000" tobject.subject.type="Economia, negócios e finanças" tobject.subject.matter="Mercados e bolsas" />
+                <!--ECO:ECONOMIA;MERCADOS-FINANZAS;BOLSAS-VALORES-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F06002002" tobject.subject.type="ECO:ECONOMIA" tobject.subject.matter="MERCADOS-FINANZAS" tobject.subject.detail="BOLSAS-VALORES" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Buenos Aires" />
+                <doc-id id-string="18720602" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T161100+0000" />
+                <key-list>
+                  <keyword key="BOLSA BUENOS AIRES ABERTURA" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T161100+0000" edition.area="RIM BGE" item-length="00089" unit-of-measure="word" id="PB1081" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Bolsa de Buenos Aires: Merval abre em alta de 1,83%</hl1>
+                  <hl2>BOLSA BUENOS AIRES ABERTURA</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>mcg/fk</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T161100+0000">20130909T161100+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>O índice Merval, da Bolsa de Comércio de Buenos Aires, abriu nesta segunda-feira em alta de 1,83%, aos 4.258,25 pontos.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Buenos Aires, 9 set (EFE).- O índice Merval, da Bolsa de Comércio de Buenos Aires, abriu nesta segunda-feira em alta de 1,83%, aos 4.258,25 pontos.</p>
+                <p>Às 12h37 locais (mesmo horário de Brasília), haviam sido negociadas as ações de 56 empresas, com um balanço de 38 em alta, 10 em baixa e 8 estáveis, em operações no valor de 16,7 milhões de pesos (US$ 3,27 milhões).</p>
+                <p>No mercado de câmbio, o dólar era cotado a 5,71 pesos para venda, um valor estável em relação ao fechamento de sexta-feira. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

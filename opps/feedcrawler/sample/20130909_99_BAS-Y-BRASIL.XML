@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T193048+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18721376">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T192900+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18721376</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T192900+0000:18721376:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T192900+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T192900+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="4" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18721376.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Atual oposição, direita vence eleições na Noruega, afirma pesquisa</HeadLine>
+        <SubHeadLine>(Chamada)NORUEGA ELEIÇÕES</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="alc/cd" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Política ; Eleições-->
+          <SubjectMatter FormalName="11003000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="POL:POLITICA,ELEICOES" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Atual oposição, direita vence eleições na Noruega, afirma pesquisa</title>
+              <meta name="prioridad" content="U" />
+              <meta name="categoria" content="POL" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Política;Eleições-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="11003000" tobject.subject.type="Política" tobject.subject.matter="Eleições" />
+                <!--POL:POLITICA;ELEICOES-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01007000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="ELEICOES" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Copenhague" />
+                <doc-id id-string="18721376" />
+                <urgency ed-urg="3" />
+                <date.issue norm="20130909T192900+0000" />
+                <key-list>
+                  <keyword key="(Chamada)NORUEGA ELEIÇÕES" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T192900+0000" edition.area="RIM BGE" item-length="00083" unit-of-measure="word" id="PB1113" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Atual oposição, direita vence eleições na Noruega, afirma pesquisa</hl1>
+                  <hl2>(Chamada)NORUEGA ELEIÇÕES</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>alc/cd</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T192900+0000">20130909T192900+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>A oposição, liderada pela conservadora Erna Solberg, venceu as eleições legislativas da Noruega com 52,8% dos votos, segundo projeção divulgada nesta segunda-feira pela televisão pública "NRK" após o fechamento dos colégios eleitorais.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Copenhague, 9 set (EFE).- A oposição, liderada pela conservadora Erna Solberg, venceu as eleições legislativas da Noruega com 52,8% dos votos, segundo projeção divulgada nesta segunda-feira pela televisão pública "NRK" após o fechamento dos colégios eleitorais.</p>
+                <p>O bloco de oposição conseguiria 93 das 169 cadeiras do Stortinget (parlamento) e a coalizão "rubroverde" do primeiro- ministro, o trabalhista Jens Stoltenberg, 76.</p>
+                <p>O Partido Trabalhista, no poder desde 2005, continuaria sendo a formação política mais votada com 30,4% dos votos e 55 cadeiras. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

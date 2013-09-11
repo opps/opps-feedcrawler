@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T083203+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18718933">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T083000+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18718933</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T083000+0000:18718933:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T083000+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T083000+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18718933.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Colégios eleitorais abrem na Noruega</HeadLine>
+        <SubHeadLine>NORUEGA ELEIÇÕES</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="alc/ma" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Política ; Eleições-->
+          <SubjectMatter FormalName="11003000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="POL:POLITICA,ELEICOES" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Colégios eleitorais abrem na Noruega</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="POL" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Política;Eleições-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="11003000" tobject.subject.type="Política" tobject.subject.matter="Eleições" />
+                <!--POL:POLITICA;ELEICOES-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01007000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="ELEICOES" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Copenhague" />
+                <doc-id id-string="18718933" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T083000+0000" />
+                <key-list>
+                  <keyword key="NORUEGA ELEIÇÕES" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T083000+0000" edition.area="RIM BGE" item-length="00149" unit-of-measure="word" id="PB1017" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Colégios eleitorais abrem na Noruega</hl1>
+                  <hl2>NORUEGA ELEIÇÕES</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>alc/ma</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T083000+0000">20130909T083000+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>Os colégios eleitorais abriram nesta segunda-feira na Noruega às 9h (horário local, 4h de Brasília) para iniciar um dia na qual a oposição de direita aparece como clara favorita para recuperar o poder oito anos depois.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Copenhague, 9 set (EFE).- Os colégios eleitorais abriram nesta segunda-feira na Noruega às 9h (horário local, 4h de Brasília) para iniciar um dia na qual a oposição de direita aparece como clara favorita para recuperar o poder oito anos depois.</p>
+                <p>Algo mais de 3,5 milhões de noruegueses foram convocados a exercer seu direito ao voto para escolher os 169 deputados que compõem o Stortinget (Parlamento), em uma eleição que terminará com o fechamento dos colégios às 21h (16h de Brasília).</p>
+                <p>Em alguns municípios do país já se pôde votar ontem e pela primeira vez 12 Prefeituras incluem a possibilidade de exercer o voto pela internet.</p>
+                <p>As pesquisas apontam para uma clara vantagem, de mais de dez pontos, para o bloco opositor contra a coalizão do primeiro-ministro, o trabalhista Jens Stoltenberg.</p>
+                <p>O Partido Trabalhista, força hegemônica desde 1924, poderia no entanto manter a condição de legenda mais votada. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

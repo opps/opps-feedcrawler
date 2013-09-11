@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T111009+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18719400">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T110700+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18719400</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T110700+0000:18719400:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T110700+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T110700+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="4" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18719400.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>EFE BRASIL - 9 OUT 2013</HeadLine>
+        <SubHeadLine>AGENDA</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="int/ma" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Multitematico-->
+          <Subject FormalName="22000000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="ABO:MULTITEMATICO" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>EFE BRASIL - 9 OUT 2013</title>
+              <meta name="prioridad" content="U" />
+              <meta name="categoria" content="ABO" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Multitematico-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="22000000" tobject.subject.type="Multitematico" />
+                <!--ABO:MULTITEMATICO-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F08000000" tobject.subject.type="ABO:MULTITEMATICO" />
+              </tobject>
+              <docdata management-status="usable">
+                <doc-id id-string="18719400" />
+                <urgency ed-urg="3" />
+                <date.issue norm="20130909T110700+0000" />
+                <key-list>
+                  <keyword key="AGENDA" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T110700+0000" edition.area="RIM BGE" item-length="00377" unit-of-measure="word" id="PB1036" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>EFE BRASIL - 9 OUT 2013</hl1>
+                  <hl2>AGENDA</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>int/ma</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T110700+0000">20130909T110700+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>O plenário do Senado e da Câmara dos Representantes dos EUA debatem uma resolução conjunta que autoriza um ataque militar limitado contra a Síria.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Washington.- O plenário do Senado e da Câmara dos Representantes dos EUA debatem uma resolução conjunta que autoriza um ataque militar limitado contra a Síria.</p>
+                <p>Washington.- O presidente dos Estados Unidos, Barack Obama, faz uma rodada de entrevistas com diferentes televisões nacionais dentro da campanha de seu Governo para convencer da necessidade de uma intervenção militar limitada na Síria.</p>
+                <p>Baltimore (EUA).- O vice-presidente dos EUA, Joe Biden, oferece um discurso sobre a importância de investir na infraestrutura para melhorar a competitividade do país e o fortalecimento de sua classe média.</p>
+                <p>Moscou.- O ministro das Relações Exteriores da Rússia, Sergei Lavrov, reúne-se com seu colega sírio, Walid Muallem.</p>
+                <p>Londres.- O ministro britânico de Relações Exteriores, William Hague, reúne-se com o secretário de Estado americano, John Kerry. (foto).</p>
+                <p>Havana.- As delegações de paz do Governo colombiana e a guerrilha das Farc, retomam em Havana suas negociações, centradas no tema da participação política. (foto).</p>
+                <p>Montevidéu.- Reunião do Parlamento do Mercosul (Parlasur). (foto).</p>
+                <p>Santiago (Chile).- O presidente Sebastián Piñera lidera um ato de comemoração do 40º aniversário do golpe de Estado no Chile. (foto) (vídeo).</p>
+                <p>Nairóbi.- O Fundo das Nações Unidas para a Infância (Unicef) informa da situação da mortalidade infantil na África.</p>
+                <p>Oslo.- Os noruegueses vão às urnas para escolher um novo Parlamento. (foto)</p>
+                <p>Moscou.- A Comissão Eleitoral Central da Rússia anuncia os resultados das eleições municipais e regionais.</p>
+                <p>Genebra.- O novo diretor-geral da Organização Mundial do Comércio (OMC), Roberto Azevêdo, apresenta os objetivos e prioridades com os quais começa seu mandato de quatro anos.</p>
+                <p>Berlim.- A chanceler alemã, Angela Merkel, candidata à reeleição, se submete às perguntas do público na televisão pública "ARD".</p>
+                <p>Tirana.- Constituição do novo Parlamento albanês, emanado das eleições legislativas do 23 de junho, que deram a vitória à oposição socialista liderada por Edi Ramo.</p>
+                <p>Nova Délhi.- A Comissão Eleitoral das Maldivas divulga os resultados das eleições presidenciais realizadas no domingo.</p>
+                <p>Pequim.- O Ministério de Comércio informa do IPC do mês de agosto.</p>
+                <p>Washington.- O Federal Reserve dos EUA divulga os dados relativos aos créditos ao consumo correspondentes ao mês de julho.</p>
+                <p>Nova York.- A rainha Sofía da Espanha recebe o Prêmio Internacional sobre os Direitos das Pessoas com Incapacidade. (foto).</p>
+                <p>Nova York.- Quinto dia da Semana da Moda de Nova York. (foto) (vídeo). EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18719394">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T110400+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18719394</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T110400+0000:18719394:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T110400+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T110400+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18719394.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Museu Van Gogh anuncia descoberta de nova pintura do artista holandês</HeadLine>
+        <SubHeadLine>HOLANDA VAN GOGH (Atualização)</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="(foto)" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Arte, cultura e espetáculos ; Pintura-->
+          <SubjectMatter FormalName="01012000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Arte, cultura e espetáculos-->
+          <Subject FormalName="01000000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="CUL:CULTURA-SHOWS,ARTE;CUL:CULTURA-SHOWS" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Museu Van Gogh anuncia descoberta de nova pintura do artista holandês</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="ACE" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Arte, cultura e espetáculos;Pintura-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="01012000" tobject.subject.type="Arte, cultura e espetáculos" tobject.subject.matter="Pintura" />
+                <!--Arte, cultura e espetáculos-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="01000000" tobject.subject.type="Arte, cultura e espetáculos" />
+                <!--CUL:CULTURA-ESPECTACULOS;ARTE-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F03005000" tobject.subject.type="CUL:CULTURA-ESPECTACULOS" tobject.subject.matter="ARTE" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Haia" />
+                <doc-id id-string="18719394" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T110400+0000" />
+                <key-list>
+                  <keyword key="HOLANDA VAN GOGH (Atualização)" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T110400+0000" edition.area="RIM BGE" item-length="00557" unit-of-measure="word" id="PB1035" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Museu Van Gogh anuncia descoberta de nova pintura do artista holandês</hl1>
+                  <hl2>HOLANDA VAN GOGH (Atualização)</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>(foto)</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T110400+0000">20130909T110400+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>O museu Van Gogh de Amsterdã anunciou nesta segunda-feira, após dois anos de pesquisa, a descoberta de um quadro até agora desconhecido do autor de "Os Girassóis", que data de 1888 e representa uma paisagem com árvores e arbustos.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>(Atualiza com mais informações)</p>
+                <p>Haia, 9 set (EFE).- O museu Van Gogh de Amsterdã anunciou nesta segunda-feira, após dois anos de pesquisa, a descoberta de um quadro até agora desconhecido do autor de "Os Girassóis", que data de 1888 e representa uma paisagem com árvores e arbustos.</p>
+                <p>O título da tela, descoberto em um coleção privada, é "Pôr do Sol em Montmajour" e inscreve-se na época na qual Vincent Van Gogh (1853-1890) pintou seus conhecidos quadros florais.</p>
+                <p>O diretor da pinacoteca, Axel Rüger, disse à imprensa que "uma descoberta desta magnitude nunca aconteceu na história deste museu. É uma raridade que se possa acrescentar uma nova pintura à obra de Van Gogh".</p>
+                <p>A pintura será exibida no dia 24 de setembro no museu holandês, disse a instituição.</p>
+                <p>Na época em que Van Gogh passou pela cidade francesa de Arles, que é na qual inscreve-se a nova descoberta, é para muitos especialistas "a culminação das conquistas artísticas" do pintor, segundo lembrou o museu em comunicado.</p>
+                <p>Durante a estadia em Arles, Van Gogh criou quadros como "Os Girassóis", "A Casa Amarela" e "O Quarto", que hoje são pontos de referência de sua extensa obra.</p>
+                <p>A atribuição do quadro a Van Gogh é resultado de dois anos de pesquisa nos quais os especialistas da pinacoteca Louis van Tilborgh e Teio Meedendorp analisaram o estilo, a técnica e o tipo de suporte da obra.</p>
+                <p>"Tudo indicavque se trata de um quadro de Van Gogh, estilística e tecnicamente, além de ter muitos paralelismos com outros quadros seus do verão de 1888", segundo os especialistas.</p>
+                <p>A investigação técnica confirmou que os pigmentos utilizados na pintura correspondem aos que Van Gogh usava em Arles, incluindo a descoloração tão típica da obra de Van Gogh e na qual casualmente a pinacoteca aprofunda na exposição "A oficina de Van Gogh", que pode ser visitada atualmente.</p>
+                <p>Os especialistas constataram, além disso, que o mesmo tipo de tela foi utilizada "pelo menos" em outro de seus quadros: "As Rochas", que se encontra no Museu de Artes de Houston, e tem uma "alta semelhança em termos de estilo" com a obra hoje apresentada.</p>
+                <p>Os investigadores também puderam constatar que o novo título pertenceu à coleção do irmão de Van Gogh, Theo, em 1890 e foi vendido em 1901.</p>
+                <p>Além disso, identificaram uma colina perto de Arles e próxima a Montmajour como o lugar que representa a paisagem do novo quadro.</p>
+                <p>Com umas medidas de 93,3 cm de altura por 73,3 cm de largura, "Pôr- do-Sol em Montmajour" também destaca-se, segundo o museu, por suas "relativamente grandes dimensões", o que aumenta a excepcionalidade, segundo a pinacoteca.</p>
+                <p>Duas cartas de Van Gogh datadas de 1888 fazem também uma "referência literal" ao quadro e nelas o artista se mostra descontente com o resultado, comentado que "não conseguiu" o efeito que queria.</p>
+                <p>"Van Gogh tinha grandes ambições com esta pintura, com a qual queria mostrar-se como um poeta entre os pintores de paisagens, mas se decepcionou porque sentia que não tinha conseguido resolver convincentemente alguns problemas", explicou a pinacoteca.</p>
+                <p>"O quadro faz parte de um grupo excepcional de pinturas nas quais  Van Gogh experimenta. Inclusive podemos dizer que é uma pintura de transição, porque a partir dela Van Gogh sente a necessidade de usar mais e mais camadas", segundo a opinião do especialista Van Tilborgh, envolvido nas análises desta descoberta. EFE</p>
+                <p>mr/ff</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

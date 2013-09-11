@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T144907+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18720266">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T144700+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18720266</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T144700+0000:18720266:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T144700+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T144700+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18720266.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Ex-juíza do TPI diz que intervenção militar na Síria só traria mais mortes</HeadLine>
+        <SubHeadLine>SÍRIA CONFLITO</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="sga/fk" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Distúrbios, conflitos e guerra-->
+          <Subject FormalName="16000000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="POL:POLITICA,CONFLITO" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Ex-juíza do TPI diz que intervenção militar na Síria só traria mais mortes</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="DCG" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Distúrbios, conflitos e guerra-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="16000000" tobject.subject.type="Distúrbios, conflitos e guerra" />
+                <!--POL:POLITICA;CONFLITO-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01011000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="CONFLITO" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Genebra" />
+                <doc-id id-string="18720266" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T144700+0000" />
+                <key-list>
+                  <keyword key="SÍRIA CONFLITO" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T144700+0000" edition.area="RIM BGE" item-length="00377" unit-of-measure="word" id="PB1068" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Ex-juíza do TPI diz que intervenção militar na Síria só traria mais mortes</hl1>
+                  <hl2>SÍRIA CONFLITO</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>sga/fk</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T144700+0000">20130909T144700+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>A ex-juíza internacional e integrante da comissão investigadora da ONU sobre a Síria, Carla del Ponte, afirmou nesta segunda-feira que uma intervenção militar no país árabe "só traria mais mortes" e, por isso, defendeu "uma solução política" ao conflito armado que se arrasta desde março de 2011.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Genebra, 9 set (EFE).- A ex-juíza internacional e integrante da comissão investigadora da ONU sobre a Síria, Carla del Ponte, afirmou nesta segunda-feira que uma intervenção militar no país árabe "só traria mais mortes" e, por isso, defendeu "uma solução política" ao conflito armado que se arrasta desde março de 2011.</p>
+                <p>"A negociação é a única solução possível ao povo sírio. Espero que essa definição chegue em breve porque já se passou tempo demais", assinalou a ex-juiza do Tribunal Penal Internacional para a Antiga Iugoslávia e Ruanda durante uma conferência em Genebra.</p>
+                <p>Carla denunciou que há uma lista "muito longa" de crimes de guerra e contra a humanidade. Evitando fazer uma dicotomia entre bons e maus, a ex-juíza ressaltou que as atrocidades são cometidas "por ambos os bandos".</p>
+                <p>"Em toda minha carreira, em nenhum outro conflito armado, eu vi métodos de tortura como os que estão sendo utilizados na Síria, nem no conflito dos Bálcãs", ressaltou Carla.</p>
+                <p>Em relação ao suposto uso de armas químicas contra civis nos arredores de Damasco no último dia 21 de agosto, Carla indicou que é preciso esperar os resultados da investigação da ONU e, caso esse ataque venha a ser confirmado, determinar quem são os responsáveis.</p>
+                <p>Há dois meses, ao assegurar que as forças rebeldes haviam utilizado gás sarin contra civis, Carla foi alvo de uma grande polêmica sobre esta questão, inclusive depois que tal afirmação acabou sendo desmentida pelo presidente da comissão investigadora.</p>
+                <p>A comissão citada publicará na próxima quarta-feira um novo relatório sobre o ocorrido na Síria, o qual será apresentado ao Conselho de Direitos Humanos da ONU na próxima segunda-feira e que se refere ao período entre meados de maio e julho.</p>
+                <p>Antes de encerrar seu discurso, a jurista suíça reconheceu sua "frustração" por não poder levar o caso da Síria ao Tribunal Penal Internacional, já que, ao não aparecer como um país signatário do Tratado de Roma - que criou este tribunal -, a única via é o consentimento do Conselho de Segurança da ONU, onde essa questão é barrada pelo veto da Rússia e China, aliados do regime sírio.</p>
+                <p>"O Conselho de Segurança é uma instituição política e, como tal, toma decisões políticas que nem sempre estão a favor da justiça internacional", declarou Clara. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

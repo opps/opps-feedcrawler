@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T194802+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18721417">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T194600+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18721417</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T194600+0000:18721417:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T194600+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T194600+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18721417.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Diante do ameaçado México, EUA podem se garantir na Copa no Brasil</HeadLine>
+        <SubHeadLine>FUTEBOL COPA 2014 (Prévia)</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="rm/dmm/gr/dr" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Esportes ; Futebol-->
+          <SubjectMatter FormalName="15054000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Esportes ; Eventos esportivos ; Copa do mundo-->
+          <SubjectDetail FormalName="15073018" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="DEP:ESPORTES,FUTEBOL;DEP:ESPORTES,POLIESPORTIVO" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="Prévia" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Diante do ameaçado México, EUA podem se garantir na Copa no Brasil</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="DEP" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="Prévia" />
+              <tobject tobject.type="News">
+                <!--Esportes;Futebol-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="15054000" tobject.subject.type="Esportes" tobject.subject.matter="Futebol" />
+                <!--Esportes;Eventos esportivos;Copa do mundo-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="15073018" tobject.subject.type="Esportes" tobject.subject.matter="Eventos esportivos" tobject.subject.detail="Copa do mundo" />
+                <!--DEP:ESPORTES;FUTEBOL-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F07001000" tobject.subject.type="DEP:ESPORTES" tobject.subject.matter="FUTEBOL" />
+                <!--DEP:ESPORTES;POLIESPORTIVO-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F07022000" tobject.subject.type="DEP:ESPORTES" tobject.subject.matter="POLIESPORTIVO" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Houston (EUA)" />
+                <doc-id id-string="18721417" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T194600+0000" />
+                <key-list>
+                  <keyword key="FUTEBOL COPA 2014 (Prévia)" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T194600+0000" edition.area="RIM BES" item-length="00449" unit-of-measure="word" id="PB1117" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Diante do ameaçado México, EUA podem se garantir na Copa no Brasil</hl1>
+                  <hl2>FUTEBOL COPA 2014 (Prévia)</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>rm/dmm/gr/dr</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T194600+0000">20130909T194600+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>Em segundo lugar nas Eliminatórias da Concacaf, os Estados Unidos poderão garantir nesta terça-feira sua sétima participação seguida em Copas do Mundo, mas para isso terá que levar a melhor no clássico regional contra o México, que se encontra com o sinal amarelo aceso e ameaçado de não se classificar.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Houston (EUA), 9 set (EFE).- Em segundo lugar nas Eliminatórias da Concacaf, os Estados Unidos poderão garantir nesta terça-feira sua sétima participação seguida em Copas do Mundo, mas para isso terá que levar a melhor no clássico regional contra o México, que se encontra com o sinal amarelo aceso e ameaçado de não se classificar.</p>
+                <p>Os EUA somam 13 pontos na classificatória, menos apenas que a Costa Rica, que tem 14. Os mexicanos, que perderam a invencibilidade justamente na última sexta-feira para Honduras, estão em quarto, posição que dá um lugar na repescagem contra a Nova Zelândia.</p>
+                <p>Por isso, o jogo no Crew Stadium, em Columbus (Ohio) ganhou contornos de decisão. E, se depender do retrospecto, os mexicanos já podem se preocupar, já que nas três vezes em que foram ao local, perderam por 2 a 0.</p>
+                <p>A delegação mexicana, que já se encontra em Columbus, se mostrou abalada, e nenhum jogador, dirigente ou membro da comissão técnica quis falar com a imprensa. A equipe fará o reconhecimento do gramado do Crew Stadium nesta segunda, e a expectativa é que ao menos o técnico Luis Fernando Tena conceda entrevista.</p>
+                <p>Apesar de ter sido campeão olímpico, José Manuel de la Torre ficou em baixa em seu país depois da derrota de virada em casa para a seleção hondurenha, que assumiu a terceira posição, com dez pontos, e foi demitido. Tena, seu substituto, vem escondendo o jogo, mas não deverá fazer grandes mudanças. O único desfalque é o volante Gerardo Torrado, suspenso.</p>
+                <p>Nos EUA, a derrota para a Costa Rica na última sexta representou não só a perda da liderança das Eliminatórias, mas também o fim de uma sequência de 12 vitórias. Nem por isso o técnico Jürgen Klinsmann vive qualquer tipo de pressão. Pouco contestado, o alemão quer que o time se mantenha ligado e respeite o adversário.</p>
+                <p>"O respeito que temos pelo México é sempre o mesmo, e nosso objetivo é chegar à partida em plenitude para conseguir o triunfo que nos garantiria no Brasil", declarou Klinsmann.</p>
+                <p>Klinsmann terá que fazer ajustes na equipe titular devido às ausências do lateral Matt Besler, o volante Geoff Cameron e o atacante Jozy Altidore, todos suspensos, e do meia Michael Bradley, machucado.</p>
+                <p>Assim como os EUA, a Costa Rica está a uma vitória do Mundial. No entanto, a missão da equipe do técnico Jorge Luis Pinto será mais fácil, já que a adversária será a Jamaica, lanterna das Eliminatórias. O duelo acontecerá em Kingston.</p>
+                <p>Em terceiro lugar, Honduras fará em Tegucigalpa um confronto direto com o Panamá, que aparece na quinta posição, com sete pontos, e quer manter vivo o sonho de ir à Copa pela primeira vez na história. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

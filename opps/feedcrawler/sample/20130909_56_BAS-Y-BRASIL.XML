@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T133914+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18720054">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T133700+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18720054</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T133700+0000:18720054:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T133700+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T133700+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18720054.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Petróleo WTI abre em baixa de 0,58%</HeadLine>
+        <SubHeadLine>PETRÓLEO TEXAS ABERTURA</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="rcf/ff" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Economia, negócios e finanças ; Energia e recursos ; Petróleo e gás-->
+          <SubjectDetail FormalName="04005004" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Economia, negócios e finanças ; Macroeconomia ; Mercado de matérias-primas-->
+          <SubjectDetail FormalName="04008024" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="ECO:ECONOMIA,AREAS-EMPRESAS,ENERGIA-MINERACAO;ECO:ECONOMIA,MERCADOS-FINANCAS,MATERIAS-PRIMAS" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Petróleo WTI abre em baixa de 0,58%</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="ECO" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Economia, negócios e finanças;Energia e recursos;Petróleo e gás-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="04005004" tobject.subject.type="Economia, negócios e finanças" tobject.subject.matter="Energia e recursos" tobject.subject.detail="Petróleo e gás" />
+                <!--Economia, negócios e finanças;Macroeconomia;Mercado de matérias-primas-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="04008024" tobject.subject.type="Economia, negócios e finanças" tobject.subject.matter="Macroeconomia" tobject.subject.detail="Mercado de matérias-primas" />
+                <!--ECO:ECONOMIA;AREAS-EMPRESAS;ENERGIA-MINERACAO-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F06003003" tobject.subject.type="ECO:ECONOMIA" tobject.subject.matter="AREAS-EMPRESAS" tobject.subject.detail="ENERGIA-MINERACAO" />
+                <!--ECO:ECONOMIA;MERCADOS-FINANCAS;MATERIAS-PRIMAS-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F06002005" tobject.subject.type="ECO:ECONOMIA" tobject.subject.matter="MERCADOS-FINANCAS" tobject.subject.detail="MATERIAS-PRIMAS" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Nova York" />
+                <doc-id id-string="18720054" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T133700+0000" />
+                <key-list>
+                  <keyword key="PETRÓLEO TEXAS ABERTURA" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T133700+0000" edition.area="RIM BGE" item-length="00037" unit-of-measure="word" id="PB1056" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Petróleo WTI abre em baixa de 0,58%</hl1>
+                  <hl2>PETRÓLEO TEXAS ABERTURA</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>rcf/ff</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T133700+0000">20130909T133700+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>Nova York, 9 set (EFE).- O Petróleo Intermediário do Texas (WTI, leve) para entrega em outubro abriu nesta segunda-feira em baixa de 0,58%, aos US$ 109,89 por barril na Bolsa Mercantil de Nova York (Nymex). EFE</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Nova York, 9 set (EFE).- O Petróleo Intermediário do Texas (WTI, leve) para entrega em outubro abriu nesta segunda-feira em baixa de 0,58%, aos US$ 109,89 por barril na Bolsa Mercantil de Nova York (Nymex). EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18720044">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T133500+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18720044</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T133500+0000:18720044:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T133500+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T133500+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="4" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18720044.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Rússia e Síria acreditam que ainda há possibilidades de um acordo político</HeadLine>
+        <SubHeadLine>SÍRIA CONFLITO RÚSSIA (Pauta)</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="(foto)" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Distúrbios, conflitos e guerra ; Guerra ; Intervenções militares internacionais-->
+          <SubjectDetail FormalName="16009002" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Distúrbios, conflitos e guerra ; Guerra ; Guerra civil-->
+          <SubjectDetail FormalName="16009001" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="POL:POLITICA,CONFLITO;POL:POLITICA,DEFESA" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Rússia e Síria acreditam que ainda há possibilidades de um acordo político</title>
+              <meta name="prioridad" content="U" />
+              <meta name="categoria" content="DCG" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Distúrbios, conflitos e guerra;Guerra;Intervenções militares internacionais-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="16009002" tobject.subject.type="Distúrbios, conflitos e guerra" tobject.subject.matter="Guerra" tobject.subject.detail="Intervenções militares internacionais" />
+                <!--Distúrbios, conflitos e guerra;Guerra;Guerra civil-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="16009001" tobject.subject.type="Distúrbios, conflitos e guerra" tobject.subject.matter="Guerra" tobject.subject.detail="Guerra civil" />
+                <!--POL:POLITICA;CONFLITO-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01011000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="CONFLITO" />
+                <!--POL:POLITICA;DEFESA-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01010000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="DEFESA" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Moscou" />
+                <doc-id id-string="18720044" />
+                <urgency ed-urg="3" />
+                <date.issue norm="20130909T133500+0000" />
+                <key-list>
+                  <keyword key="SÍRIA CONFLITO RÚSSIA (Pauta)" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T133500+0000" edition.area="RIM BGE" item-length="00591" unit-of-measure="word" id="PB1055" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Rússia e Síria acreditam que ainda há possibilidades de um acordo político</hl1>
+                  <hl2>SÍRIA CONFLITO RÚSSIA (Pauta)</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>(foto)</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T133500+0000">20130909T133500+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>Rússia e Síria manifestaram nesta segunda-feira a confiança em que, apesar da gravidade da situação, ainda há espaço para uma regra política ao conflito sírio, mas advertiram que uma intervenção militar desde o exterior poderia arruinar essa possibilidade.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Moscou, 9 set (EFE).- Rússia e Síria manifestaram nesta segunda-feira a confiança em que, apesar da gravidade da situação, ainda há espaço para uma regra política ao conflito sírio, mas advertiram que uma intervenção militar desde o exterior poderia arruinar essa possibilidade.</p>
+                <p>Assim disseram os ministros de Relações Exteriores russo, Sergei Lavrov, e sírio, Walid Muallen, após conversas em Moscou, um dia antes do presidente dos Estados Unidos, Barack Obama, se dirigir à população de seu país para explicar sua anunciada decisão de atacar alvos militares na Síria.</p>
+                <p>A mensagem de Obama coincidirá com o começo do debate no Congresso dos EUA sobre a decisão de lançar um ataque "limitado" contra alvos do regime do presidente sírio, Bashar al-Assad, em represália por um suposto ataque com armas químicas contra a população civil, que Washington considera demonstrado.</p>
+                <p>"Concordamos com passos práticos que vamos dar em contato com outros Estados a fim de dar uma oportunidade que se plasme uma regra política", disse Lavrov em entrevista coletiva conjunta com seu colega sírio.</p>
+                <p>O chefe da diplomacia russa acrescentou que, apesar "toda a gravidade da situação", Moscou e Damasco estão convencidos de que "ainda há possibilidades de uma regra política" ao conflito no país árabe.</p>
+                <p>Lavrov disse que a Rússia, nos últimos anos, manteve contatos com todos os grupos sírios sem exceção e que "continuará trabalhando para persuadí-los de que não há alternativa para uma conferência internacional de paz".</p>
+                <p>"Se nestes contatos entendermos que pode ser útil para a causa, não descartamos convidar a Moscou todos os que estão interessados na paz na Síria, os que estão interessados em uma regra política e rejeitam um roteiro militar", disse Lavrov.</p>
+                <p>Muallem, por sua vez, disse que "as possbilidades diplomáticas para uma regra política não estão esgotadas".</p>
+                <p>O ministro sírio disse também que o Governo de Damasco está diposto a voltar a receber a comissão de analistas da ONU que averiguou no terreno um "possível emprego de armas químicas".</p>
+                <p>O chanceler russo repetiu a tese de que são os grupos opositores sírios que usaram armas químicas a fim de culpar o regime de Assad e provocar uma intervenção militar exterior.</p>
+                <p>"Da minha maneira de ver, temos provas suficientes", disse Lavrov respondendo se Moscou tinha provas de que a oposição tenha utilizado esse tipo de armas.</p>
+                <p>Segundo o chanceler sírio, Damasco está disposto a comparecer "sem nenhum tipo de condições" a uma conferência internacional de paz para resolver mediante negociações o conflito que há dois anos assola a Síria.</p>
+                <p>"Mas se acontecer uma agressão, nossa posição mudará", advertiu Muallem.</p>
+                <p>O chefe da diplomacia síria entregou a Lavrov uma mensagem de Assad destinada ao presidente russo, Vladimir Putin, na qual agradece a postura do Kremlin frente ao conflito na Síria, em particular na reunião do G20 que foi realizada na semana passada em São Petersburgo, a antiga capital imperial russa.</p>
+                <p>Ao término dessa reunião, o chefe do Kremlin recalcou a oposição da Rússia a uma intervenção estrangeira na Síria e adiantou que ajudará o país árabe caso seja atacado desde o exterior.</p>
+                <p>"Vamos ajudar a Síria? Sim", disse Putin na entrevista coletiva final da cúpula do G20 ao responder uma pergunta sobre o que Moscou fará caso aconteça uma intervenção militar exterior na Síria.</p>
+                <p>"Já estamos ajudando. Fornecemos armas e cooperamos no terreno econômico", acrescentou o presidente russo.</p>
+                <p>Na entrevista coletiva de hoje, Lavrov expressou também a preocupação de Moscou pela sorte dos cidadãos russos que se encontram na Síria e cujas vidas poderiam ser ameaçadas caso aconteça um ataque dos EUA ao país árabe. EFE</p>
+                <p>sib/ff</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

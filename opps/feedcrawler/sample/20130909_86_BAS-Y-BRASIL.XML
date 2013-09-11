@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T174724+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18721036">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T174400+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18721036</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T174400+0000:18721036:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T174400+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T174400+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18721036.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Astrobiólogos acreditam ser possível encontrar restos de vida em Marte</HeadLine>
+        <SubHeadLine>R.UNIDO CIÊNCIA</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="gx/ff" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Ciência e tecnologia ; Ciências aplicadas ; Cosmologia-->
+          <SubjectDetail FormalName="13001003" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="CYT:CIENCIA-TECNOLOGIA,CIENCIA" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Astrobiólogos acreditam ser possível encontrar restos de vida em Marte</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="CYT" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Ciência e tecnologia;Ciências aplicadas;Cosmologia-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="13001003" tobject.subject.type="Ciência e tecnologia" tobject.subject.matter="Ciências aplicadas" tobject.subject.detail="Cosmologia" />
+                <!--CYT:CIENCIA-TECNOLOGIA;CIENCIA-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F05001000" tobject.subject.type="CYT:CIENCIA-TECNOLOGIA" tobject.subject.matter="CIENCIA" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Londres" />
+                <doc-id id-string="18721036" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T174400+0000" />
+                <key-list>
+                  <keyword key="R.UNIDO CIÊNCIA" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T174400+0000" edition.area="RIM BGE" item-length="00284" unit-of-measure="word" id="PB1096" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Astrobiólogos acreditam ser possível encontrar restos de vida em Marte</hl1>
+                  <hl2>R.UNIDO CIÊNCIA</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>gx/ff</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T174400+0000">20130909T174400+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>O planeta Marte poderia abrigar restos de vida microscópica, apesar das radiações e do ambientel hostil, segundo um trabalho apresentado nesta segunda-feira no Congresso Europeu de Ciência Planetária (EPSC, por sua sigla em inglês) realizado em Londres.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Londres, 9 set (EFE).- O planeta Marte poderia abrigar restos de vida microscópica, apesar das radiações e do ambientel hostil, segundo um trabalho apresentado nesta segunda-feira no Congresso Europeu de Ciência Planetária (EPSC, por sua sigla em inglês) realizado em Londres.</p>
+                <p>Os espectrômetros que o robô móvel que a Agência Espacial Europeia (ESA) levará acoplados quando for enviado a Marte em 2018 serão capazes de detectar as plantas do organismos biológicos que poderiam ser encontrados em solo marciano, segundo estes astrobiólogos.</p>
+                <p>O robô incluirá um aparelho similar aos que são utilizados para conhecer os segredos de obras de arte antigas e para detectar explosivos nos aeroportos.</p>
+                <p>Com ele, os pesquisadores esperam descobrir restos de microorganismos que tenham perdurado apesar dos altos níveis de radiação que imperam na superfície marciana.</p>
+                <p>Ao contrário da Terra, Marte não conta com uma atmosfera significativa nem com um campo magnético global, por isso que se encontra desprotegido perante as ondas e partículas que chegam desde o espaço exterior.</p>
+                <p>A radiação cósmica representa um problema para a saúde dos astronautas, mas também para a sobrevivência dos organismos mais simples e inclusive ameaça a conservação de restos biológicos antigos.</p>
+                <p>A espectroscopia que será utilizada pela ESA "é uma técnica versátil e extraordinariamente sensível que pode revelar detalhes do interior das rochas" assim como "detectar moléculas orgânicas e sinais de vida", afirmou Lewis Dartnell, investigador da universidade britânica de Leicester.</p>
+                <p>Os instrumentos que serão estudados na superfície marciana em 2018 permitirão detectar restos de carotenóides, pigmentos orgânicos que os microorganismos utilizam para se proteger contra as radiações hostis.</p>
+                <p>Os cientistas acham que os carotenóides nas rochas marcianas poderiam ser uma das criaturas que teriam deixado antigas formas de vida extraterrestres. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18721035">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T174400+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18721035</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T174400+0000:18721035:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T174400+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T174400+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18721035.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Suposta filha de Albert II abre novo pedido de reconhecimento de paternidade</HeadLine>
+        <SubHeadLine>BÉLGICA MONARQUIA</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="(foto)" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Política ; Governo ; Monarquia-->
+          <SubjectDetail FormalName="11006006" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Justiça-->
+          <Subject FormalName="02000000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="POL:POLITICA,MONARQUIA;TRI:JUSTICA-POLICIAIS" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Suposta filha de Albert II abre novo pedido de reconhecimento de paternidade</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="POL" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Política;Governo;Monarquia-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="11006006" tobject.subject.type="Política" tobject.subject.matter="Governo" tobject.subject.detail="Monarquia" />
+                <!--Justiça-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="02000000" tobject.subject.type="Justiça" />
+                <!--POL:POLITICA;MONARQUIA-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01005000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="MONARQUIA" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Bruxelas" />
+                <doc-id id-string="18721035" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T174400+0000" />
+                <key-list>
+                  <keyword key="BÉLGICA MONARQUIA" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T174400+0000" edition.area="RIM BGE" item-length="00322" unit-of-measure="word" id="PB1095" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Suposta filha de Albert II abre novo pedido de reconhecimento de paternidade</hl1>
+                  <hl2>BÉLGICA MONARQUIA</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>(foto)</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T174400+0000">20130909T174400+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>A suposta filha ilegítima do rei Albert II da Bélgica, Delphine Boël, apresentou nesta segunda-feira um novo processo perante um tribunal de Bruxelas para provar seu parentesco com o monarca, que se abdicou do trono no final de julho e, por consequência, perdeu a inviolabilidade da qual desfrutava.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Bruxelas, 9 set (EFE).- A suposta filha ilegítima do rei Albert II da Bélgica, Delphine Boël, apresentou nesta segunda-feira um novo processo perante um tribunal de Bruxelas para provar seu parentesco com o monarca, que se abdicou do trono no final de julho e, por consequência, perdeu a inviolabilidade da qual desfrutava.</p>
+                <p>O processo apresentado por Delphine tem uma dupla via: rebater a paternidade de Jacques Boël, até então seu pai legal, e conseguir o reconhecimento da paternidade de Alberto II.</p>
+                <p>O tribunal em questão fixou o dia 7 de julho do próximo ano como a data limite para troca de conclusões entre ambas as partes, que comparecerão perante o juiz já em setembro, segundo a agência "Belga".</p>
+                <p>A priori, a atitude do pai legal de Delphine será fundamental no processo, já que sua paternidade deve ser discutida antes do início do reconhecimento do ex-chefe de Estado.</p>
+                <p>Este novo procedimento leva em conta a perda da inviolabilidade do rei, fato que fez com que Delphine paralisasse outro processo que havia iniciado em junho, quando Albert II ainda não tinha se abdicado do trono.</p>
+                <p>Em sua primeira tentativa, a suposta filha ilegítima do monarca tinha pedido a realização de exames de DNA tanto para Albert como para seus filhos reconhecidos.</p>
+                <p>No domingo, o advogado do príncipe Laurent, o terceiro dos filhos do rei, assegurou que ele estaria disposto a realizar tal exame.</p>
+                <p>Albert II nunca reconheceu a paternidade de Delphine, nascida em 1968 e, supostamente, fruto de uma relação do rei com a baronesa Sybille Selys de Longchamps.</p>
+                <p>Sua existência veio à tona ainda em 1999, após a publicação de uma biografia não autorizada da rainha Paola.</p>
+                <p>Nas últimas semanas, Selys de Longchamps apoiou publicamente a decisão de sua filha e detalhou a relação que manteve durante anos com o rei, assegurando que Albert e a rainha Paola estiveram à beira do divórcio em duas ocasiões, em 1969 e 1976. EFE</p>
+                <p>mvs/fk</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

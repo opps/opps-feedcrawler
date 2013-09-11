@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T202056+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18721490">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T202000+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18721490</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T202000+0000:18721490:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T202000+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T202000+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18721490.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Jovens debatem papel da tecnologia na construção do futuro</HeadLine>
+        <SubHeadLine>JUVENTUDE CÚPULA</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="nda/apc/cd" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Política ; Organização internacional-->
+          <SubjectMatter FormalName="11028000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Economia, negócios e finanças ; Informática e novas tecnologias-->
+          <SubjectMatter FormalName="04003000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Política ; Diplomacia ; Reunião de cúpula-->
+          <SubjectDetail FormalName="11002001" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="POL:POLITICA,MULTILATERAL;ECO:ECONOMIA,AREAS-EMPRESAS,TELECOMUNICACOES;POL:POLITICA,EXTERNA" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Jovens debatem papel da tecnologia na construção do futuro</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="POL" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Política;Organização internacional-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="11028000" tobject.subject.type="Política" tobject.subject.matter="Organização internacional" />
+                <!--Economia, negócios e finanças;Informática e novas tecnologias-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="04003000" tobject.subject.type="Economia, negócios e finanças" tobject.subject.matter="Informática e novas tecnologias" />
+                <!--Política;Diplomacia;Reunião de cúpula-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="11002001" tobject.subject.type="Política" tobject.subject.matter="Diplomacia" tobject.subject.detail="Reunião de cúpula" />
+                <!--POL:POLITICA;MULTILATERAL-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01009000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="MULTILATERAL" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="San José" />
+                <doc-id id-string="18721490" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T202000+0000" />
+                <key-list>
+                  <keyword key="JUVENTUDE CÚPULA" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T202000+0000" edition.area="RIM BGE" item-length="00522" unit-of-measure="word" id="PB1127" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Jovens debatem papel da tecnologia na construção do futuro</hl1>
+                  <hl2>JUVENTUDE CÚPULA</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>nda/apc/cd</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T202000+0000">20130909T202000+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>Mais de 500 jovens de 60 países estão reunidos na Costa Rica para debater o papel das tecnologias de informação e comunicação (TIC) na construção do futuro, tema da "I Cúpula Mundial da Juventude BYND 2015" que começou nesta segunda-feira.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>San José, 9 set (EFE).- Mais de 500 jovens de 60 países estão reunidos na Costa Rica para debater o papel das tecnologias de informação e comunicação (TIC) na construção do futuro, tema da "I Cúpula Mundial da Juventude BYND 2015" que começou nesta segunda-feira.</p>
+                <p>Jovens entre 18 e 25 anos discutirão suas propostas para a elaboração dos novos Objetivos do Milênio em assuntos como ambiente, segurança, emprego, inovação e saúde.</p>
+                <p>A cúpula, organizada pela União Internacional de Telecomunicações (UIT), com o apoio das Nações Unidas, pretende fazer com que os jovens tenham uma voz ativa na formulação de soluções para enfrentar os desafios do planeta nas próximas décadas.</p>
+                <p>O enviado especial da ONU para a Juventude, Ahmed Alhendawi, destacou na abertura da reunião que devem ser criados 500 milhões de empregos para os jovens nos próximos 15 anos, o que torna ainda mais urgente aumentar o investimento nessa parcela da população.</p>
+                <p>Para o secretário-geral da UIT, Hamadoun Touré, as TICs serão uma ferramenta indispensável para enfrentar as demandas dos jovens e avançar rumo a uma "sociedade do conhecimento".</p>
+                <p>Segundo Touré, este momento é "crucial" para os jovens do planeta, que têm a oportunidade de serem ouvidos nos projetos de políticas que guiarão o futuro de seus países. "Precisamos escutar a juventude para encontrar soluções para seus problemas", afirmou.</p>
+                <p>O ministro de Educação da Costa Rica, Leonardo Garnier, disse que "o vínculo entre educação, juventude e tecnologia é a chave para romper com os círculos de pobreza" que afetam boa parte da população mundial.</p>
+                <p>Alhendawi chamou atenção para os desafios existentes na integração de mais jovens na nova "sociedade do conhecimento".</p>
+                <p>"Neste momento, dois terços da população do mundo ainda não estão conectados à internet; em 31 países o custo médio da banda larga representa a metade do salário das famílias e não há conteúdo suficiente na rede em todos os idiomas, o que limita o acesso de muitas pessoas", constatou.</p>
+                <p>O presidente do Conselho Econômico e Social da ONU, Néstor Osorio, ressaltou a importância da participação dos jovens no processo de revisão e reformulação dos Objetivos do Milênio que marcarão a pauta do planeta a partir de 2015.</p>
+                <p>"As TICs agora serão um tema transversal nos objetivos, pois em 2050 seremos nove bilhões de habitantes no planeta e as tecnologias serão uma ferramenta para suprir as novas necessidades", disse.</p>
+                <p>Participam da Cúpula a presidente da Costa Rica, Laura Chinchilla, o príncipe do Catar, xeque Abdullah Bin Mohammed Bin Saud Al Thani, e a primeira-dama da Nigéria, Patience Jonathan.</p>
+                <p>Os jovens participarão de oficinas, debates e discussões sobre o papel das tecnologias da informação. E será realizado um "Hackathon", um projeto para desenvolver protótipos de tecnologias inovadoras.</p>
+                <p>O encontro não é apenas presencial, através de uma plataforma de "crowdsourcing" (colaboração aberta em rede) jovens de todo o mundo poderão acompanhar as discussões e participar.</p>
+                <p>As conclusões da Cúpula serão incluídas em uma declaração coletiva que será apresentada na próxima Assembleia Geral da ONU pela presidente da Costa Rica como material para a elaboração de metas que guiarão a humanidade a partir de 2015, quando vencem os atuais Objetivos do Milênio. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

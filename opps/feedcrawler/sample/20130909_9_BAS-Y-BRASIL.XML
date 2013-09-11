@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T004437+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18718469">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T004200+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18718469</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T004200+0000:18718469:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T004200+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T004200+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18718469.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Governo mexicano anuncia reforma tributária que prevê aumento de arrecadação</HeadLine>
+        <SubHeadLine>MÉXICO ECONOMIA</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="(foto)" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Economia, negócios e finanças ; Macroeconomia-->
+          <SubjectMatter FormalName="04008000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Economia, negócios e finanças ; Macroeconomia ; Indicadores econômicos-->
+          <SubjectDetail FormalName="04008004" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="ECO:ECONOMIA,MACROECONOMIA;ECO:ECONOMIA,MACROECONOMIA,INDICADORES" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Governo mexicano anuncia reforma tributária que prevê aumento de arrecadação</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="ECO" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Economia, negócios e finanças;Macroeconomia-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="04008000" tobject.subject.type="Economia, negócios e finanças" tobject.subject.matter="Macroeconomia" />
+                <!--Economia, negócios e finanças;Macroeconomia;Indicadores econômicos-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="04008004" tobject.subject.type="Economia, negócios e finanças" tobject.subject.matter="Macroeconomia" tobject.subject.detail="Indicadores econômicos" />
+                <!--ECO:ECONOMIA;MACROECONOMIA-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F06001000" tobject.subject.type="ECO:ECONOMIA" tobject.subject.matter="MACROECONOMIA" />
+                <!--ECO:ECONOMIA;MACROECONOMIA;INDICADORES-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F06001002" tobject.subject.type="ECO:ECONOMIA" tobject.subject.matter="MACROECONOMIA" tobject.subject.detail="INDICADORES" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Cidade do México" />
+                <doc-id id-string="18718469" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T004200+0000" />
+                <key-list>
+                  <keyword key="MÉXICO ECONOMIA" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T004200+0000" edition.area="RIM BGE" item-length="00167" unit-of-measure="word" id="PB7083" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Governo mexicano anuncia reforma tributária que prevê aumento de arrecadação</hl1>
+                  <hl2>MÉXICO ECONOMIA</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>(foto)</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T004200+0000">20130909T004200+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>O Governo mexicano anunciou neste domingo uma proposta de reforma tributária que prevê grandes vantagens sociais e que calcula gerará no próximo ano um aumento da arrecadação de 1,4% do Produto Interno Bruto (PIB).</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Cidade do México, 8 set (EFE).- O Governo mexicano anunciou neste domingo uma proposta de reforma tributária que prevê grandes vantagens sociais e que calcula gerará no próximo ano um aumento da arrecadação de 1,4% do Produto Interno Bruto (PIB).</p>
+                <p>A reforma, anunciada pelo presidente Enrique Peña Nieto, será vinculada a um "programa de aceleração do crescimento econômico" que implicará corrigir as contas do Estado para elevar para 0,4% o déficit do gasto público este ano e 1,5% para 2014, acima do déficit 0 fixado pelo governante no começo de seu mandato.</p>
+                <p>Ao contrário do que tinha sido antecipado, Peña Nieto anunciou que não se aplicará o IVA para alimentos e remédios, e assinalou que a proposta do Governo procura eliminar o Imposto Empresarial a Taxa Única (IETU) e o imposto sobre depósitos com dinheiro.</p>
+                <p>No plano social, a proposta do Governo assume compromissos políticos prévios para fixar um seguro de desemprego e o acesso universal a uma pensão a partir dos 65 anos. EFE</p>
+                <p>ag/ma</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T193900+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18721400">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T193600+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18721400</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T193600+0000:18721400:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T193600+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T193600+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18721400.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Piñera: "quebra" de democracia por Allende não justifica violação de direitos</HeadLine>
+        <SubHeadLine>CHILE ANIVERSÁRIO GOLPE</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="(foto) (vídeo)" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Distúrbios, conflitos e guerra ; Golpe de estado-->
+          <SubjectMatter FormalName="16004000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Política ; Governo-->
+          <SubjectMatter FormalName="11006000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="POL:POLITICA,CONFLITO;POL:POLITICA,GOVERNO" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Piñera: "quebra" de democracia por Allende não justifica violação de direitos</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="DCG" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Distúrbios, conflitos e guerra;Golpe de estado-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="16004000" tobject.subject.type="Distúrbios, conflitos e guerra" tobject.subject.matter="Golpe de estado" />
+                <!--Política;Governo-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="11006000" tobject.subject.type="Política" tobject.subject.matter="Governo" />
+                <!--POL:POLITICA;CONFLITO-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01011000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="CONFLITO" />
+                <!--POL:POLITICA;GOVERNO-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01001000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="GOVERNO" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Santiago do Chile" />
+                <doc-id id-string="18721400" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T193600+0000" />
+                <key-list>
+                  <keyword key="CHILE ANIVERSÁRIO GOLPE" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T193600+0000" edition.area="RIM BGE" item-length="00690" unit-of-measure="word" id="PB1115" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Piñera: "quebra" de democracia por Allende não justifica violação de direitos</hl1>
+                  <hl2>CHILE ANIVERSÁRIO GOLPE</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>(foto) (vídeo)</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T193600+0000">20130909T193600+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>O presidente do Chile, Sebastián Piñera, afirmou nesta segunda-feira que o governo liderado por Salvador Allende "quebrou" a democracia no Chile, mas que isso não justifica a "inaceitável violação dos direitos humanos" durante a ditadura militar.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Santiago do Chile, 9 set (EFE).- O presidente do Chile, Sebastián Piñera, afirmou nesta segunda-feira que o governo liderado por Salvador Allende "quebrou" a democracia no Chile, mas que isso não justifica a "inaceitável violação dos direitos humanos" durante a ditadura militar.</p>
+                <p>"O governo da (coalizão partidária de Allende) Unidade Popular reiteradamente quebrou a legalidade e o estado de direito em nosso país e isso também deve ser lembrado", disse o presidente durante um ato oficial no Palácio de la Moneda às vésperas do 40º aniversário do golpe militar de Augusto Pinochet, em 11 de setembro de 1973.</p>
+                <p>Mas "nenhum dos fatos, causas, erros ou responsabilidades que levaram ao fim da nossa democracia justificam as inaceitáveis agressões à vida, integridade e dignidade das pessoas que ocorreram depois", discursou o ex-presidente.</p>
+                <p>"A dolorosa ruptura de nossa democracia foi o desenlace previsível de uma longa e penosa agonia dos valores republicanos e de um grave enfraquecimento de nosso estado de direito", prosseguiu Piñera.</p>
+                <p>O ato, realizado no mesmo lugar que há quatro décadas foi palco da morte de Allende, contou com a presença de autoridades políticas, militares e religiosas.</p>
+                <p>Nenhum político de oposição participou do evento. Eles organizaram uma homenagem às vítimas que teve como única oradora a ex-presidente e novamente candidata ao cargo Michelle Bachelet.</p>
+                <p>Piñera reconheceu que "os dolorosos fatos" que ocorreram há 40 anos "ainda dividem - às vezes profundamente - alguns setores da sociedade chilena".</p>
+                <p>"Infelizmente não podemos ressuscitar os mortos, nem recuperar os desaparecidos e devolvê-los às suas famílias, mas devemos fazer o que estiver ao nosso alcance para aliviar a dor e o sofrimento", em referência às reivindicações das famílias das vítimas.</p>
+                <p>O presidente chileno ainda afirmou "que quem tiver informação relevante têm a obrigação moral de entregá-la".</p>
+                <p>Durante o regime de Pinochet, 3.200 pessoas morreram e outras 1.200 ainda permanecem desaparecidas.</p>
+                <p>Ao relembrar o ambiente político e social no país às vésperas golpe, Piñera sustentou que "a rachadura da democracia e as más políticas públicas causaram um crescente caos político, econômico e social".</p>
+                <p>"Importantes setores da esquerda de nosso país proclamavam publicamente seu desprezo pela democracia existente e consideravam legítimo impor seu projeto de país mediante o uso da força e da violência", afirmou.</p>
+                <p>Piñera - primeiro presidente de direita eleito democraticamente e que votou contra a continuidade de Pinochet no poder - lamentou que "toda uma geração não quis, não soube ou não pôde proteger a democracia, o estado de direito e a convivência" e falou de "responsabilidades compartilhadas".</p>
+                <p>"Alguns querem crer que toda a responsabilidade recai em quem cometeu ou ordenou as violações aos direitos humanos. Esta posição é correta em matéria de responsabilidade penal, mas é parcial e insuficiente em relação a outros tipos de responsabilidades", opinou.</p>
+                <p>Para Piñera, "também são responsáveis aqueles que não respeitaram o estado de direito e promoveram a intolerância, o ódio e a violência".</p>
+                <p>Esta responsabilidade, acrescentou, "também atinge os que exerceram altos cargos no governo militar e que, tendo poder ou influência, sabendo dos fatos, poderiam evitar os abusos e não o fizeram".</p>
+                <p>Entre os presentes no ato estava o deputado de direita Alberto Cardemil, subsecretário do Interior no regime militar. No encerramento da cerimônia, ele declarou estar disposto a assumir as responsabilidades políticas, mas "não a aceitar que se deturpe a história".</p>
+                <p>Piñera também fez críticas a juízes e alguns meios de comunicação por não terem feito tudo o que poderiam para evitar que se violassem os direitos humanos.</p>
+                <p>"Ao Poder Judiciário, por mandato constitucional, correspondia garantir os direitos das pessoas, mas muitas vezes não o fez, como reconheceu recentemente a mais alta autoridade judicial, a Suprema Corte".</p>
+                <p>"Também alguns meios de comunicação se limitaram a entregar a versão oficial e nem sempre checaram e informaram com objetividade e verdade que exigiam os graves ataques aos direitos humanos", disse.</p>
+                <p>Por último, o presidente "reconheceu e agradeceu a atitude valente das pessoas e instituições que levantaram sua voz e fizeram um valioso trabalho em defesa dos direitos humanos" e citou "a Igreja Católica, os familiares e advogados das vítimas, as organizações de direitos humanos, alguns juízes e jornalistas e alguns países amigos". EFE</p>
+                <p>mf/cd/id</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18721397">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T193500+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18721397</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T193500+0000:18721397:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T193500+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T193500+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18721397.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Barril do Brent fecha em baixa de 2,05%</HeadLine>
+        <SubHeadLine>PETRÓLEO BRENT FECHAMENTO</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="gx/rsd" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Economia, negócios e finanças ; Energia e recursos ; Petróleo e gás-->
+          <SubjectDetail FormalName="04005004" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Economia, negócios e finanças ; Macroeconomia ; Indicadores econômicos-->
+          <SubjectDetail FormalName="04008004" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="ECO:ECONOMIA,AREAS-EMPRESAS,ENERGIA-MINERACAO;ECO:ECONOMIA,MACROECONOMIA,INDICADORES" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Barril do Brent fecha em baixa de 2,05%</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="ECO" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Economia, negócios e finanças;Energia e recursos;Petróleo e gás-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="04005004" tobject.subject.type="Economia, negócios e finanças" tobject.subject.matter="Energia e recursos" tobject.subject.detail="Petróleo e gás" />
+                <!--Economia, negócios e finanças;Macroeconomia;Indicadores econômicos-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="04008004" tobject.subject.type="Economia, negócios e finanças" tobject.subject.matter="Macroeconomia" tobject.subject.detail="Indicadores econômicos" />
+                <!--ECO:ECONOMIA;MACROECONOMIA;INDICADORES-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F06001002" tobject.subject.type="ECO:ECONOMIA" tobject.subject.matter="MACROECONOMIA" tobject.subject.detail="INDICADORES" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Londres" />
+                <doc-id id-string="18721397" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T193500+0000" />
+                <key-list>
+                  <keyword key="PETRÓLEO BRENT FECHAMENTO" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T193500+0000" edition.area="RIM BGE" item-length="00096" unit-of-measure="word" id="PB1114" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Barril do Brent fecha em baixa de 2,05%</hl1>
+                  <hl2>PETRÓLEO BRENT FECHAMENTO</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>gx/rsd</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T193500+0000">20130909T193500+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>O preço do barril de petróleo Brent para entrega em outubro fechou nesta segunda-feira em baixa de 2,05% no mercado de futuros de Londres, cotado a US$ 113,72.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Londres, 9 set (EFE).- O preço do barril de petróleo Brent para entrega em outubro fechou nesta segunda-feira em baixa de 2,05% no mercado de futuros de Londres, cotado a US$ 113,72.</p>
+                <p>O petróleo do Mar do Norte, de referência na Europa, encerrou o pregão US$ 2,40 abaixo do fechamento de sexta-feira passada, quando estava cotado a US$ 116,12.</p>
+                <p>Os investidores perderam posições no mercado de futuros de petróleo com o alívio da preocupação sobre a possibilidade que a provisão no Oriente Médio seja afetada por uma intervenção militar na Síria, segundo os analistas. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

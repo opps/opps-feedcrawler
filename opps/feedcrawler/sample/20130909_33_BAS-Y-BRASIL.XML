@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T081727+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18718882">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T081500+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18718882</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T081500+0000:18718882:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T081500+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T081500+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18718882.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>Vídeo provoca massacre de pelo menos 28 pessoas na Índia</HeadLine>
+        <SubHeadLine>ÍNDIA VIOLÊNCIA</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="amg/ma" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Justiça ; Crimes ; Ataque (geral)-->
+          <SubjectDetail FormalName="02001006" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Justiça ; Crimes-->
+          <SubjectMatter FormalName="02001000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="TRI:JUSTICA-POLICIAIS,POLICIAIS;POL:POLITICA,CONFLITO" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>Vídeo provoca massacre de pelo menos 28 pessoas na Índia</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="JEI" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Justiça;Crimes;Ataque (geral)-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="02001006" tobject.subject.type="Justiça" tobject.subject.matter="Crimes" tobject.subject.detail="Ataque (geral)" />
+                <!--Justiça;Crimes-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="02001000" tobject.subject.type="Justiça" tobject.subject.matter="Crimes" />
+                <!--TRI:JUSTICA-POLICIAIS;POLICIAIS-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F02003000" tobject.subject.type="TRI:JUSTICA-POLICIAIS" tobject.subject.matter="POLICIAIS" />
+                <!--POL:POLITICA;CONFLITO-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F01011000" tobject.subject.type="POL:POLITICA" tobject.subject.matter="CONFLITO" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Nova Délhi" />
+                <doc-id id-string="18718882" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T081500+0000" />
+                <key-list>
+                  <keyword key="ÍNDIA VIOLÊNCIA" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T081500+0000" edition.area="RIM BGE" item-length="00226" unit-of-measure="word" id="PB1016" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>Vídeo provoca massacre de pelo menos 28 pessoas na Índia</hl1>
+                  <hl2>ÍNDIA VIOLÊNCIA</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>amg/ma</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T081500+0000">20130909T081500+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>A difusão de um vídeo na internet provocou um massacre inter-religioso que no fim de semana tirou a vida de pelo menos 28 pessoas no distrito de Muzaffarnagar, no norte da Índia, informaram nesta segunda-feira as autoridades locais.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Nova Délhi, 9 set (EFE).- A difusão de um vídeo na internet provocou um massacre inter-religioso que no fim de semana tirou a vida de pelo menos 28 pessoas no distrito de Muzaffarnagar, no norte da Índia, informaram nesta segunda-feira as autoridades locais.</p>
+                <p>Fontes oficiais tinham cifrado esta manhã em 21 o número de mortos no massacre, mas o funcionário Arun Kumar, subdiretor da Polícia do estado de Uttar Pradesh (UP), onde fica o distrito de Muzaffarnagar, elevou ao meio-dia para 28 o número de mortos.</p>
+                <p>Kumar também aumentou para 90 o número de detidos pela Polícia na região, onde há dois dias foi decretado o toque de recolher e unidades militares patrulham para garantir a calma.</p>
+                <p>Segundo o secretário de Interior de UP, Kamal Saxena, o massacre foi desencadeado pela divulgação de um vídeo no qual aparece o suposto linchamento de dois homens que protegiam uma mulher que tinha sofrido assédio sexual em Kawal, uma cidade da região.</p>
+                <p>Saxena disse, no entanto, que o vídeo, que foi retirado da internet, é de dois anos atrás e não é certo que foi filmado em UP.</p>
+                <p>A difusão do vídeo, que as autoridades avaliam de "falso" e "proposital", foi o que suscitou no sábado os confrontos entre comunidades hindus e muçulmanas, nos quais se atacou uma mesquita e foram usados facões e armas de fogo. EFE</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>

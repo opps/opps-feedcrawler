@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewsML Version="1.2">
+  <!--NewsML documentation and last changes: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm.
+Documentacion NewsML y últimos cambios: http://www.efe.com/documentosefe/efenewsml/EfeNewsML.htm-->
+  <NewsEnvelope>
+    <SentFrom>
+      <Party FormalName="EFE">
+        <Property FormalName="Organization" Value="Agencia EFE" />
+      </Party>
+    </SentFrom>
+    <DateAndTime>20130909T184406+0000</DateAndTime>
+    <NewsProduct FormalName="Texto internacional en portugués" />
+  </NewsEnvelope>
+  <!--** SUGGESTION FOR DEVS: Use 'Duid' attribute to help you on XPath navigation.-->
+  <NewsItem Duid="text_18721227">
+    <Comment FormalName="EfeNewsMLVersion">1.0.1</Comment>
+    <Identification>
+      <NewsIdentifier>
+        <ProviderId>texto.efeservicios.com</ProviderId>
+        <!--Creation date.-->
+        <DateId>20130909T184200+0000</DateId>
+        <!--Id of the news for THIS format.-->
+        <NewsItemId>18721227</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <!--Usefull to check changes between versions on same news item. See NewsML documentation.-->
+        <PublicIdentifier>urn:newsml:texto.efeservicios.com:20130909T184200+0000:18721227:1</PublicIdentifier>
+      </NewsIdentifier>
+    </Identification>
+    <NewsManagement>
+      <NewsItemType FormalName="News" />
+      <!--Creation date.-->
+      <FirstCreated>20130909T184200+0000</FirstCreated>
+      <!--Last modification date.-->
+      <ThisRevisionCreated>20130909T184200+0000</ThisRevisionCreated>
+      <Status FormalName="Usable" />
+      <Urgency FormalName="5" />
+    </NewsManagement>
+    <NewsComponent Duid="text_18721227.text">
+      <Role FormalName="Main" />
+      <NewsLines>
+        <!--Title-->
+        <HeadLine>"Riddick 3" fatura US$ 18,7 milhões e lidera bilheterias nos EUA</HeadLine>
+        <SubHeadLine>EUA CINEMA</SubHeadLine>
+        <CopyrightLine>© EFE 2013. Está expresamente prohibida la redistribución y la redifusión de todo o parte de los contenidos de los servicios de Efe, sin previo y expreso consentimiento de la Agencia EFE S.A.</CopyrightLine>
+      </NewsLines>
+      <AdministrativeMetadata>
+        <Provider>
+          <Party FormalName="Agencia EFE" />
+        </Provider>
+        <Creator>
+          <Party FormalName="(vídeo)" />
+        </Creator>
+      </AdministrativeMetadata>
+      <DescriptiveMetadata>
+        <Language FormalName="pt-BR" />
+        <SubjectCode>
+          <!--Arte, cultura e espetáculos ; Cinema-->
+          <SubjectMatter FormalName="01005000" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <SubjectCode>
+          <!--Economia, negócios e finanças ; Meios de comunicação ; Cinema-->
+          <SubjectDetail FormalName="04010003" Scheme="IptcSubjectCodes" />
+        </SubjectCode>
+        <Property FormalName="Tesauro" Value="CUL:CULTURA-SHOWS,CINEMA;ECO:ECONOMIA,AREAS-EMPRESAS" />
+        <Property FormalName="EfePais" Value="" />
+        <Property FormalName="EfeRegional" Value="" />
+        <Property FormalName="EfeComplemento" Value="" />
+      </DescriptiveMetadata>
+      <ContentItem>
+        <MediaType FormalName="Text" />
+        <Format FormalName="NITF" />
+        <MimeType FormalName="text/vnd.IPTC.NITF" />
+        <DataContent>
+          <nitf version="-//IPTC//DTD NITF 3.2//EN" change.date="October 10, 2003" change.time="19:30" baselang="pt-BR">
+            <head>
+              <title>"Riddick 3" fatura US$ 18,7 milhões e lidera bilheterias nos EUA</title>
+              <meta name="prioridad" content="R" />
+              <meta name="categoria" content="ACE" />
+              <meta name="tabulacion" content="BT" />
+              <meta name="tabuladores" content="NO" />
+              <meta name="regional" content="" />
+              <meta name="complemento" content="" />
+              <tobject tobject.type="News">
+                <!--Arte, cultura e espetáculos;Cinema-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="01005000" tobject.subject.type="Arte, cultura e espetáculos" tobject.subject.matter="Cinema" />
+                <!--Economia, negócios e finanças;Meios de comunicação;Cinema-->
+                <tobject.subject tobject.subject.ipr="IPTC" tobject.subject.refnum="04010003" tobject.subject.type="Economia, negócios e finanças" tobject.subject.matter="Meios de comunicação" tobject.subject.detail="Cinema" />
+                <!--CUL:CULTURA-SHOWS;CINEMA-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F03001000" tobject.subject.type="CUL:CULTURA-SHOWS" tobject.subject.matter="CINEMA" />
+                <!--ECO:ECONOMIA;AREAS-EMPRESAS-->
+                <tobject.subject tobject.subject.ipr="EFE" tobject.subject.refnum="F06003000" tobject.subject.type="ECO:ECONOMIA" tobject.subject.matter="AREAS-EMPRESAS" />
+              </tobject>
+              <docdata management-status="usable">
+                <evloc city="Los Angeles (EUA)" />
+                <doc-id id-string="18721227" />
+                <urgency ed-urg="5" />
+                <date.issue norm="20130909T184200+0000" />
+                <key-list>
+                  <keyword key="EUA CINEMA" />
+                </key-list>
+              </docdata>
+              <pubdata date.publication="20130909T184200+0000" edition.area="RIM BGE" item-length="00479" unit-of-measure="word" id="PB1105" />
+            </head>
+            <body>
+              <body.head>
+                <hedline>
+                  <hl1>"Riddick 3" fatura US$ 18,7 milhões e lidera bilheterias nos EUA</hl1>
+                  <hl2>EUA CINEMA</hl2>
+                </hedline>
+                <rights>
+                  <rights.owner>Agencia EFE</rights.owner>
+                </rights>
+                <byline>(vídeo)</byline>
+                <distributor>Agencia EFE</distributor>
+                <dateline>
+                  <!--Creation date.-->
+                  <!--ATTENTION: Use "norm" attribute as datetime. The datetime inside tag "story.date" is a mistake but we maintain it to avoid errors in our customers.
+ATENCION: Use el atributo "norm" como fecha y hora. La fecha y hora presente en la etiqueta "story.date" es un error pero seguimos incluyéndolo para evitar errores en nuestros clientes.-->
+                  <story.date norm="20130909T184200+0000">20130909T184200+0000</story.date>
+                </dateline>
+                <abstract>
+                  <p>A estreia de "Riddick 3", o terceiro filme da saga galáctica protagonizada por Vin Diesel, dominou as bilheterias deste fim de semana nos Estados Unidos ao arrecadar US$ 18,7 milhões, informou nesta segunda-feira o portal especializado Box Office Mojo.</p>
+                </abstract>
+              </body.head>
+              <body.content>
+                <p>Los Angeles (EUA), 9 set (EFE).- A estreia de "Riddick 3", o terceiro filme da saga galáctica protagonizada por Vin Diesel, dominou as bilheterias deste fim de semana nos Estados Unidos ao arrecadar US$ 18,7 milhões, informou nesta segunda-feira o portal especializado Box Office Mojo.</p>
+                <p>Com tal arrecadação, o terceiro filme da saga, que conta com roteiro e direção assinada David Twohy, bate os números obtidos na estreia do original, "Eclipse Mortal", que arrecadou US$ 11,6 milhões em fevereiro de 2000.</p>
+                <p>No entanto, "Riddick 3", que contou com um orçamento de US$ 38 milhões, não repetiu o mesmo êxito do segundo filme da saga, "A Batalha de Riddick", que faturou US$ 24,3 milhões em junho de 2004.</p>
+                <p>Nesta nova trama, Riddick, o fugitivo mais procurado pelos caçadores de recompensa da galáxia, se vê forçado a alertar seus maiores inimigos para que o ajudem a escapar de um planeta desértico, embora estes apareçam com outras intenções.</p>
+                <p>No elenco, além do protagonista Vin Diesel, o filme ainda conta com Karl Urban, Katee Sackhoff, o ex-lutador profissional Dave Batista e o espanhol Jordi Mollà.</p>
+                <p>Em seu quarto fim de semana em cartaz, o filme "O Mordomo", de Lee Daniels, arrecadou US$ 8,9 milhões nos EUA - com um total de US$ 91,9 milhões - e se situou na segunda posição das bilheterias americanas.</p>
+                <p>O longa, que conta com um elenco majoritariamente afro-americano para narrar os fatos mais significativos do século XX através dos olhos de um mordomo que trabalhou na Casa Branca, conta com Forest Whitaker, Cuba Gooding Jr., Robin Williams, John Cusack e Terrence Howard no elenco, além dos cantores Lenny Kravitz e Mariah Carey.</p>
+                <p>No terceiro lugar das bilheterias americanas aparece o comediante mexicano Eugenio Derbez com "No se Aceptan Devoluciones", que arrecadou US$ 8,1 milhões.</p>
+                <p>Após comprovar a boa recepção que o filme obteve em sua estreia, a distribuidora Pantelion aumentou o número de cópias em sua segunda semana em cartaz (de 347 para 717) e elevou a arrecadação total, que já chega a US$ 20,3 milhões.</p>
+                <p>Na trama, Derbez interpreta Valentín, um solteirão, mulherengo e egoísta que é obrigado a mudar seu estilo de vida ao se deparar com a jovem Maggie (Loreto Peralta), filha que até então não conhecia e fruto de um de seus rápidos relacionamentos.</p>
+                <p>Na quarta posição se encontra a comédia "Família do Bagulho", que, após arrecadar US$ 123,8 milhões desde sua estreia no último mês, faturou US$ 7,9 milhões neste fim de semana.</p>
+                <p>Protagonizada por Jason Sudeikis e Jennifer Aniston, o filme acompanha as aventuras de um casal que, diante de sérios problemas econômicos, decidem se passar por marido e mulher como parte de um plano para trazer um grande carregamento de maconha do México.</p>
+                <p>Já a animação em 3D "Aviões", espécie de sequência do filme "Carros", arrecadou US$ 4,3 milhões e ficou na quinta posição das bilheterias dos EUA. EFE</p>
+                <p>mg/fk</p>
+              </body.content>
+            </body>
+          </nitf>
+        </DataContent>
+      </ContentItem>
+    </NewsComponent>
+  </NewsItem>
+</NewsML>
