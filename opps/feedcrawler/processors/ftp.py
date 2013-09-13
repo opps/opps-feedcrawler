@@ -12,8 +12,10 @@ from django.utils.text import slugify
 
 from .base import BaseProcessor
 from .efe import iptc
+from .category_efe import CATEGORY_EFE
 
 from opps.articles.models import Post
+from opps.channels.models import Channel
 
 
 class EFEXMLProcessor(BaseProcessor):
@@ -295,13 +297,28 @@ class EFEXMLProcessorAuto(EFEXMLProcessor):
 
     # match category X channel
 
+    def get_channel_by_slug(self, slug):
+        if not slug:
+            return
+        try:
+            return Channel.objects.filter(long_slug=slug)[0]
+        except:
+            return
+
     def create_post(self, entry):
+
+        channel_slug = CATEGORY_EFE.get(entry.entry_category_code)
+        channel = self.get_channel_by_slug(channel_slug)
+
+        self.verbose_print(channel_slug)
+        self.verbose_print(entry.entry_category_code)
+
         entry = entry
         post = Post(
             title=entry.entry_title,
             slug=slugify(entry.entry_title),
             content=entry.entry_content,
-            channel=entry.channel,
+            channel=channel or entry.channel,
             site=entry.site,
             user=entry.user,
             show_on_root_channel=True,
