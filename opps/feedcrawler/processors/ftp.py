@@ -208,7 +208,7 @@ class EFEXMLProcessor(BaseProcessor):
 
         exists = self.entry_model.objects.filter(slug=slug).exists()
         if exists:
-            continue
+            return
 
         try:
             db_entry, created = self.entry_model.objects.get_or_create(
