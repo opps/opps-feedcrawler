@@ -204,12 +204,18 @@ class EFEXMLProcessor(BaseProcessor):
         # working
         entry_title = unicode(data.get('headline'))
 
+        slug = slugify(self.feed.slug + "-" + entry_title[:100])
+
+        exists = self.entry_model.objects.filter(slug=slug).exists()
+        if exists:
+            continue
+
         try:
             db_entry, created = self.entry_model.objects.get_or_create(
                 entry_feed=self.feed,
                 channel=self.feed.get_channel(),
                 title=entry_title[:140],
-                slug=slugify(self.feed.slug + "-" + entry_title[:150]),
+                slug=slug,
                 entry_title=entry_title,
                 site=self.feed.site,
                 user=self.feed.user,

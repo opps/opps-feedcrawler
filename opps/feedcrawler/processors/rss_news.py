@@ -15,9 +15,11 @@ from django.utils import timezone
 from django.utils.text import slugify
 
 from .base import BaseProcessor
+from .category_brasil import CATEGORY_BRASIL
 
 from opps.articles.models import Post
-
+from opps.channels.models import Channel
+from opps.contrib.db_backend.postgres.base import DatabaseError
 logger = logging.getLogger()
 
 
@@ -38,6 +40,7 @@ class RSSProcessor(BaseProcessor):
         return self.parsed
 
     def update_feed(self):
+        print("updating feed")
         if hasattr(self.parsed, 'published_parsed'):
             published_time = datetime.fromtimestamp(
                 mktime(self.parsed.feed.published_parsed)
@@ -63,9 +66,9 @@ class RSSProcessor(BaseProcessor):
                 return
 
         if self.parsed.feed.title_detail.type == 'text/plain':
-            self.feed.title = html.escape(self.parsed.feed.title)
+            self.feed.title = html.escape(self.parsed.feed.title)[:150]
         else:
-            self.feed.title = self.parsed.feed.title
+            self.feed.title = self.parsed.feed.title[:150]
 
         self.feed.link = self.feed.link or self.parsed.feed.link
 
@@ -75,14 +78,19 @@ class RSSProcessor(BaseProcessor):
             self.feed.description = self.parsed.feed.description
 
         self.feed.last_polled_time = timezone.now()
-        self.feed.save()
+        try:
+            self.feed.save()
+        except Exception as e:
+            print str(e)
 
         if self.verbose:
             print("Feed object updated %s" % self.feed.last_polled_time)
 
+
         return len(self.parsed.entries)
 
     def create_entries(self):
+        print "creating entry"
         count = 0
         for i, entry in enumerate(self.parsed.entries):
             if i > self.max_entries_saved:
@@ -105,18 +113,29 @@ class RSSProcessor(BaseProcessor):
             else:
                 entry_title = entry.title
 
+            print "will create entry"
+
+            slug = slugify(self.feed.slug + "-" + entry_title[:100])
+
+            exists = self.entry_model.objects.filter(slug=slug).exists()
+            if exists:
+                continue
+
+
             db_entry, created = self.entry_model.objects.get_or_create(
                 entry_feed=self.feed,
                 entry_link=entry.link,
                 channel=self.feed.channel,
                 title=entry_title[:140],
-                slug=slugify(self.feed.slug + "-" + entry_title[:150]),
-                entry_title=entry_title,
+                slug=slug,
+                entry_title=entry_title[:140],
                 site=self.feed.site,
                 user=self.feed.user,
                 published=True,
                 show_on_root_channel=True
             )
+
+            print "created"
             if created:
                 if hasattr(entry, 'published_parsed'):
                     published_time = datetime.fromtimestamp(
@@ -177,15 +196,19 @@ class RSSProcessor(BaseProcessor):
                 db_entry.title = db_entry.entry_title[:140]
                 # db_entry.slug = slugify(self.feed.slug + "-" + entry_title[:150])
                 db_entry.headline = db_entry.entry_description
-                db_entry.short_title = db_entry.title
-                db_entry.hat = db_entry.title
+                # db_entry.short_title = db_entry.title
+                # db_entry.hat = db_entry.title
                 db_entry.save()
                 count += 1
 
                 if self.verbose:
                     print("Entry created %s" % db_entry.title)
 
-                self.create_post(db_entry)
+                try:
+                    self.verbose_print('creating post')
+                    self.create_post(db_entry)
+                except Exception as e:
+                    print(str(e))
 
         if self.verbose:
             print("%d entries created" % count)
@@ -205,32 +228,47 @@ class RSSProcessor(BaseProcessor):
         # fetch and parse the feed
 
         self.max_entries_saved = self.feed.max_entries or 1000
+        print "fetching"
         if not self.fetch():
             logger.warning("Feed cannot be parsed")
             return 0
 
+        print "updating"
         if not self.update_feed():
             logger.info("No entry returned")
             return 0
 
+        print "creating entries"
         created_count = self.create_entries()
         self.delete_old_entries()
         return created_count
 
+    def get_channel_by_slug(self, slug):
+        if not slug:
+            return
+
+        try:
+            return Channel.objects.filter(long_slug=slug)[0]
+        except:
+            return
+
     def create_post(self, entry):
         # match category X channel
+        channel_slug = CATEGORY_BRASIL.get(self.feed.link)
+        channel = self.get_channel_by_slug(channel_slug)
 
-        entry = entry
+
+
         post = Post(
             title=entry.entry_title,
             slug=slugify(entry.entry_title),
             content=entry.entry_content or entry.entry_description,
-            channel=entry.channel,
+            channel=channel or entry.channel,
             site=entry.site,
             user=entry.user,
             show_on_root_channel=True,
             published=True,
-            hat=entry.hat,
+            # hat=entry.hat,
         )
 
         if self.feed.group:
@@ -238,10 +276,12 @@ class RSSProcessor(BaseProcessor):
 
         try:
             post.save()
-        except:
-            post.slug = u"{0}-{1}".format(post.slug[:100],
-                                          random.getrandbits(32))
-            post.save()
+        except DatabaseError:
+            print "slug exists"
+            # post.slug = u"{0}-{1}".format(random.getrandbits(32),
+            #                               post.slug[:100])
+            # post.save()
+            return
 
         entry.post_created = True
         entry.save()

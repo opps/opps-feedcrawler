@@ -10,6 +10,9 @@ import logging
 logger = logging.getLogger()
 
 
+from django.db import transaction
+
+
 class Command(BaseCommand):
     args = 'none'
     help = 'run the feed processor for every published feed.'
@@ -48,20 +51,24 @@ class Command(BaseCommand):
             print('%d feeds to process' % (num_feeds))
 
         for i, feed in enumerate(feeds):
-            if verbose:
-                print(
-                    '(%d/%d) Processing Feed %s'
-                    % (i + 1, num_feeds, feed.title)
-                )
-
-            processor = feed.get_processor(verbose)
-            if processor:
+            with transaction.commit_manually():
                 if verbose:
-                    print("Processing: %s" % processor.__class__)
-                try:
-                    processor.process()
-                except Exception as e:
+                    print(
+                        '(%d/%d) Processing Feed %s'
+                        % (i + 1, num_feeds, feed.title)
+                    )
+
+                processor = feed.get_processor(verbose)
+                if processor:
                     if verbose:
-                        print str(e)
+                        print("Processing: %s" % processor.__class__)
+                    try:
+                        processor.process()
+                    except Exception as e:
+                        if verbose:
+                            print str(e)
+
+                transaction.commit()
+
 
         logger.info('Feedcrawler process_feeds completed successfully')

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import json
+from random import getrandbits
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ValidationError
@@ -106,8 +107,8 @@ class Feed(Publishable, Slugged):
     def entries(self):
         return self.entry_set.all()
 
-    def get_absolute_url(self):
-        return "/feed/{0}/{1}".format(self.channel.long_slug, self.slug)
+    # def get_absolute_url(self):
+    #     return "/feed/{0}/{1}".format(self.channel.long_slug, self.slug)
 
     def get_http_absolute_url(self):
         protocol, path = "http://{0}/{1}".format(
@@ -115,12 +116,16 @@ class Feed(Publishable, Slugged):
         return "{0}{1}/feed{2}".format(protocol, self.site, path)
 
     def get_processor(self, verbose=False):
-        processor = self.feed_type.processor
-        _module = '.'.join(processor.split('.')[:-1])
-        _processor = processor.split('.')[-1]
-        _temp = __import__(_module, globals(), locals(), [_processor], -1)
-        Processor = getattr(_temp, _processor)
-        return Processor(self, verbose=verbose)
+        try:
+            processor = self.feed_type.processor
+            _module = '.'.join(processor.split('.')[:-1])
+            _processor = processor.split('.')[-1]
+            _temp = __import__(_module, globals(), locals(), [_processor], -1)
+            Processor = getattr(_temp, _processor)
+            return Processor(self, verbose=verbose)
+        except Exception as e:
+            print str(e)
+            return
 
     def create_channel(self):
         try:
@@ -141,6 +146,15 @@ class Feed(Publishable, Slugged):
         return (self.channel or
                 Channel.objects.get_homepage(site=self.site) or
                 self.create_channel())
+
+
+    def save(self, *args, **kwargs):
+        if Feed.objects.filter(slug=self.slug).exists():
+            self.slug = u'{random}-{o.slug}'.format(
+                o=self, random=getrandbits(16)
+            )
+        super(Feed, self).save(*args, **kwargs)
+
 
 
 class Entry(Container):
