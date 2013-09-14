@@ -254,7 +254,7 @@ class RSSProcessor(BaseProcessor):
 
     def create_post(self, entry):
         # match category X channel
-        channel_slug = CATEGORY_BRASIL.get(self.feed.link)
+        channel_slug = CATEGORY_BRASIL.get(self.feed.source_url)
         channel = self.get_channel_by_slug(channel_slug)
 
 
