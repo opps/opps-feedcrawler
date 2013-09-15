@@ -123,7 +123,7 @@ class RSSProcessor(BaseProcessor):
             slug = slugify(self.feed.slug + "-" + entry_title[:100])
             exists = self.entry_model.objects.filter(slug=slug).exists()
             if exists:
-                slug = random.getrandbits(8) + "-" + slug
+                slug = str(random.getrandbits(8)) + "-" + slug
                 self.verbose_print("Entry slug exists")
 
             if hasattr(entry, 'published_parsed'):
