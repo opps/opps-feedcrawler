@@ -274,8 +274,11 @@ class RSSProcessor(BaseProcessor):
         if Post.objects.filter(channel=channel,
                                slug=slug,
                                site=entry.site).exists():
-            slug = str(random.getrandbits(8)) + "-" + slug
+            # slug = str(random.getrandbits(8)) + "-" + slug
             self.verbose_print("Post slug exists")
+
+            # do not create duplicates
+            return
 
 
         post = Post(
