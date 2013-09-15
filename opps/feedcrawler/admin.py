@@ -25,7 +25,7 @@ class GroupAdmin(admin.ModelAdmin):
 class FeedAdmin(PublishableAdmin):
     prepopulated_fields = {"slug": ("title",)}
     list_display = ['title', 'slug', 'source_url', 'feed_type', 'channel', 'group',
-                    'published_time', 'last_polled_time']
+                    'published_time', 'last_polled_time', 'published']
     list_filter = ['group', 'channel', 'feed_type']
     search_fields = ['link', 'title', 'slug', 'description']
     readonly_fields = ['published_time',

@@ -30,17 +30,13 @@ class RSSProcessor(BaseProcessor):
         if hasattr(self.parsed.feed, 'bozo_exception'):
             msg = "Malformed feed %s" % self.feed.source_url
             logger.warning(msg)
-            if self.verbose:
-                print(msg)
+            self.verbose_print(msg)
             return
-
-        if self.verbose:
-            print("Feed succesfully parsed")
-
+        self.verbose_print("Feed succesfully parsed")
         return self.parsed
 
     def update_feed(self):
-        print("updating feed")
+        self.verbose_print("updating feed")
         if hasattr(self.parsed, 'published_parsed'):
             published_time = datetime.fromtimestamp(
                 mktime(self.parsed.feed.published_parsed)
@@ -58,11 +54,11 @@ class RSSProcessor(BaseProcessor):
 
             self.feed.published_time = published_time
 
-        for attr in ['title', 'title_detail', 'link',
-                     'description', 'description_detail']:
+        for attr in ['title', 'title_detail', 'link']:
             if not hasattr(self.parsed.feed, attr):
                 msg = 'refresh_feeds. Feed "%s" has no %s'
                 logger.error(msg % (self.feed.source_url, attr))
+                self.verbose_print(msg % (self.feed.source_url, attr))
                 return
 
         if self.parsed.feed.title_detail.type == 'text/plain':
@@ -72,29 +68,35 @@ class RSSProcessor(BaseProcessor):
 
         self.feed.link = self.feed.link or self.parsed.feed.link
 
-        if self.parsed.feed.description_detail.type == 'text/plain':
-            self.feed.description = html.escape(self.parsed.feed.description)
-        else:
-            self.feed.description = self.parsed.feed.description
-
-        self.feed.last_polled_time = timezone.now()
         try:
-            self.feed.save()
-        except Exception as e:
-            print str(e)
+            if self.parsed.feed.description_detail.type == 'text/plain':
+                self.feed.description = html.escape(self.parsed.feed.description)
+            else:
+                self.feed.description = self.parsed.feed.description
+        except:
+            pass
 
-        if self.verbose:
-            print("Feed object updated %s" % self.feed.last_polled_time)
+        self.feed.last_polled_time = datetime.now()
 
+        self.feed.save()
+
+        self.verbose_print("Feed obj updated %s" % self.feed.last_polled_time)
 
         return len(self.parsed.entries)
 
     def create_entries(self):
-        print "creating entry"
+        self.verbose_print("creating entry")
         count = 0
         for i, entry in enumerate(self.parsed.entries):
+
+            e_id = getattr(entry, 'id', getattr(entry, 'guid', None))
+            if self.log_created(e_id):
+                self.verbose_print("Already processed")
+                continue
+
             if i > self.max_entries_saved:
                 break
+
             missing_attr = False
             for attr in ['title', 'title_detail', 'link', 'description']:
                 if not hasattr(entry, attr):
@@ -113,46 +115,59 @@ class RSSProcessor(BaseProcessor):
             else:
                 entry_title = entry.title
 
-            print "will create entry"
+            if not entry_title:
+                entry_title = ""
+
+            self.verbose_print("will create entry")
 
             slug = slugify(self.feed.slug + "-" + entry_title[:100])
-
             exists = self.entry_model.objects.filter(slug=slug).exists()
             if exists:
-                continue
+                slug = random.getrandbits(8) + "-" + slug
+                self.verbose_print("Entry slug exists")
 
+            if hasattr(entry, 'published_parsed'):
+                published_time = datetime.fromtimestamp(
+                    mktime(entry.published_parsed)
+                )
+
+                published_time = pytz.timezone(
+                    settings.TIME_ZONE
+                ).localize(
+                    published_time,
+                    is_dst=None
+                )
+
+                now = datetime.now()
+
+                if published_time.date() > now.date():
+                    self.verbose_print("Entry date is > now")
+                    self.verbose_print(published_time)
+                    self.verbose_print(now)
+                    published_time = now
+                elif published_time.date() < now.date():
+                    self.verbose_print(
+                        "Entry time is in the past, skipping: %s - %s"
+                        % ( published_time.date(), now.date())
+                    )
+                    continue
 
             db_entry, created = self.entry_model.objects.get_or_create(
                 entry_feed=self.feed,
                 entry_link=entry.link,
                 channel=self.feed.channel,
-                title=entry_title[:140],
-                slug=slug,
-                entry_title=entry_title[:140],
+                title=entry_title[:150],
+                slug=slug[:150],
+                entry_title=entry_title[:150],
                 site=self.feed.site,
                 user=self.feed.user,
                 published=True,
                 show_on_root_channel=True
             )
 
-            print "created"
+            self.verbose_print("Entry found or created!!!")
             if created:
                 if hasattr(entry, 'published_parsed'):
-                    published_time = datetime.fromtimestamp(
-                        mktime(entry.published_parsed)
-                    )
-
-                    published_time = pytz.timezone(
-                        settings.TIME_ZONE
-                    ).localize(
-                        published_time,
-                        is_dst=None
-                    )
-
-                    now = timezone.now()
-
-                    if published_time > now:
-                        published_time = now
                     db_entry.entry_published_time = published_time
 
                 # Lots of entries are missing description_detail attributes.
@@ -175,7 +190,7 @@ class RSSProcessor(BaseProcessor):
                     elif hasattr(entry, 'content'):
                         db_entry.entry_content = html.escape(content.value)
                 except Exception, e:
-                    print str(e)
+                    self.verbose_print(str(e))
                     msg = 'Feedcrawler refresh_feeds. Entry "%s" content error'
                     logger.warning(msg % (entry.link))
 
@@ -188,30 +203,27 @@ class RSSProcessor(BaseProcessor):
                     db_entry.entry_json = entry_source
                     pass
                 except Exception, e:
-                    print str(e)
+                    self.verbose_print(str(e))
                     msg = 'Feedcrawler refresh_feeds. Entry "%s" json error'
                     logger.warning(msg % (entry.link))
 
                 # fill Article properties
-                db_entry.title = db_entry.entry_title[:140]
-                # db_entry.slug = slugify(self.feed.slug + "-" + entry_title[:150])
                 db_entry.headline = db_entry.entry_description
-                # db_entry.short_title = db_entry.title
-                # db_entry.hat = db_entry.title
                 db_entry.save()
                 count += 1
 
                 if self.verbose:
-                    print("Entry created %s" % db_entry.title)
+                    self.verbose_print("Entry fully created %s" % db_entry.title)
+                    self.record_log(e_id)
 
                 try:
                     self.verbose_print('creating post')
                     self.create_post(db_entry)
                 except Exception as e:
-                    print(str(e))
+                    self.verbose_print(str(e))
 
-        if self.verbose:
-            print("%d entries created" % count)
+
+        self.verbose_print("%d entries created" % count)
         return count
 
     def delete_old_entries(self):
@@ -222,23 +234,23 @@ class RSSProcessor(BaseProcessor):
             entry.delete()
 
         if self.verbose:
-            print("%d entries deleted" % len(entries))
+            self.verbose_print("%d entries deleted" % len(entries))
 
     def process(self):
         # fetch and parse the feed
 
         self.max_entries_saved = self.feed.max_entries or 1000
-        print "fetching"
+        self.verbose_print("fetching")
         if not self.fetch():
             logger.warning("Feed cannot be parsed")
             return 0
 
-        print "updating"
+        self.verbose_print("updating")
         if not self.update_feed():
             logger.info("No entry returned")
             return 0
 
-        print "creating entries"
+        self.verbose_print("creating entries")
         created_count = self.create_entries()
         self.delete_old_entries()
         return created_count
@@ -255,15 +267,22 @@ class RSSProcessor(BaseProcessor):
     def create_post(self, entry):
         # match category X channel
         channel_slug = CATEGORY_BRASIL.get(self.feed.source_url)
-        channel = self.get_channel_by_slug(channel_slug)
+        channel = self.get_channel_by_slug(channel_slug) or entry.channel
+        self.verbose_print(channel_slug)
 
+        slug = slugify(entry.entry_title)
+        if Post.objects.filter(channel=channel,
+                               slug=slug,
+                               site=entry.site).exists():
+            slug = str(random.getrandbits(8)) + "-" + slug
+            self.verbose_print("Post slug exists")
 
 
         post = Post(
-            title=entry.entry_title,
-            slug=slugify(entry.entry_title),
+            title=entry.entry_title[:150],
+            slug=slug[:150],
             content=entry.entry_content or entry.entry_description,
-            channel=channel or entry.channel,
+            channel=channel,
             site=entry.site,
             user=entry.user,
             show_on_root_channel=True,
@@ -274,18 +293,12 @@ class RSSProcessor(BaseProcessor):
         if self.feed.group:
             post.source = self.feed.group.name
 
-        try:
-            post.save()
-        except DatabaseError:
-            print "slug exists"
-            # post.slug = u"{0}-{1}".format(random.getrandbits(32),
-            #                               post.slug[:100])
-            # post.save()
-            return
+
+        post.save()
 
         entry.post_created = True
         entry.save()
 
-        self.verbose_print(u"Post {p.id}{p.title} created".format(p=post))
+        self.verbose_print(u"Post {p.id}- {p.title} - {p.slug} created".format(p=post))
 
         return post

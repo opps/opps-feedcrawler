@@ -149,7 +149,12 @@ class Feed(Publishable, Slugged):
 
 
     def save(self, *args, **kwargs):
-        if Feed.objects.filter(slug=self.slug).exists():
+        exclude = {}
+        filters = dict(slug=self.slug)
+        if self.pk is not None:
+            exclude = dict(pk=self.pk)
+        if Feed.objects.filter(**filters).exclude(**exclude).exists():
+            # print("exists creating a new slug")
             self.slug = u'{random}-{o.slug}'.format(
                 o=self, random=getrandbits(16)
             )

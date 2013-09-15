@@ -22,3 +22,34 @@ class BaseProcessor(object):
     def verbose_print(self, s):
         if self.verbose:
             print(s)
+
+    def record_log(self, s):
+        if not s:
+            return
+        if not isinstance(s, (str, unicode)):
+            s = unicode(s)
+        try:
+            self.log_model.objects.create(
+                feed=self.feed,
+                type="created",
+                text=s[:255]
+            )
+            self.verbose_print("Process log created")
+        except:
+            self.verbose_print("Cant create log")
+
+    def log_created(self, s):
+        if not s:
+            return
+        if not isinstance(s, (str, unicode)):
+            s = unicode(s)
+        try:
+            return self.log_model.objects.filter(
+                type="created",
+                text=s[:255],
+                feed=self.feed
+            ).exists()
+        except Exception as e:
+            self.verbose_print(str(e))
+            self.verbose_print("Cant check if log is created")
+            return

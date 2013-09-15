@@ -45,10 +45,8 @@ class EFEXMLProcessor(BaseProcessor):
 
         self.verbose_print("-" * 78)
 
-        if self.log_model.objects.filter(type="created", text=s,
-                                         feed=self.feed).exists():
-
-            self.verbose_print("%s already exists, skipping." % s)
+        if self.log_created(s):
+            self.verbose_print("%s already processed, skipping." % s)
             return
 
         s = s.strip()
@@ -100,7 +98,7 @@ class EFEXMLProcessor(BaseProcessor):
 
         data = self.parse_xml(f.name)
         data = self.categorize(data)
-        self.verbose_print(str(data))
+        # self.verbose_print(str(data))
 
         f.close()
 
@@ -202,21 +200,22 @@ class EFEXMLProcessor(BaseProcessor):
             return
 
         # working
-        entry_title = unicode(data.get('headline'))
+        entry_title = unicode(data.get('headline', ''))
 
         slug = slugify(self.feed.slug + "-" + entry_title[:100])
 
         exists = self.entry_model.objects.filter(slug=slug).exists()
         if exists:
-            return
+            slug = str(random.getrandbits(8)) + "-" + slug
+            self.verbose_print("Entry slug exists")
 
         try:
             db_entry, created = self.entry_model.objects.get_or_create(
                 entry_feed=self.feed,
                 channel=self.feed.get_channel(),
-                title=entry_title[:140],
-                slug=slug,
-                entry_title=entry_title,
+                title=entry_title[:150],
+                slug=slug[:150],
+                entry_title=entry_title[:150],
                 site=self.feed.site,
                 user=self.feed.user,
                 published=self.feed.publish_entries,
@@ -268,14 +267,6 @@ class EFEXMLProcessor(BaseProcessor):
 
         return data
 
-    def record_log(self, s):
-        self.log_model.objects.create(
-            feed=self.feed,
-            type="created",
-            text=s
-        )
-        self.verbose_print("Process log created")
-
     def process(self):
         self.connect()
         self.ftp.cwd(self.feed.source_root_folder)
@@ -283,6 +274,9 @@ class EFEXMLProcessor(BaseProcessor):
 
         self.count = 0
         self.ftp.retrlines('NLST', self.process_file)
+
+        self.feed.last_polled_time = datetime.now()
+        self.feed.save()
 
 
     def hook_not_found(self, *args, **kwargs):
@@ -314,17 +308,23 @@ class EFEXMLProcessorAuto(EFEXMLProcessor):
     def create_post(self, entry):
 
         channel_slug = CATEGORY_EFE.get(entry.entry_category_code)
-        channel = self.get_channel_by_slug(channel_slug)
+        channel = self.get_channel_by_slug(channel_slug) or entry.channel
 
         self.verbose_print(channel_slug)
         self.verbose_print(entry.entry_category_code)
 
-        entry = entry
+        slug = slugify(entry.entry_title)
+        if Post.objects.filter(channel=channel,
+                               slug=slug,
+                               site=entry.site).exists():
+            slug = str(random.getrandbits(8)) + "-" + slug
+            self.verbose_print("Post slug exists")
+
         post = Post(
-            title=entry.entry_title,
-            slug=slugify(entry.entry_title),
+            title=entry.entry_title[:150],
+            slug=slug[:150],
             content=entry.entry_content,
-            channel=channel or entry.channel,
+            channel=channel,
             site=entry.site,
             user=entry.user,
             show_on_root_channel=True,
@@ -335,17 +335,13 @@ class EFEXMLProcessorAuto(EFEXMLProcessor):
         if self.feed.group:
             post.source = self.feed.group.name
 
-        try:
-            post.save()
-        except:
-            post.slug = u"{0}-{1}".format(post.slug[:100],
-                                          random.getrandbits(32))
-            post.save()
+
+        post.save()
 
         entry.post_created = True
         entry.save()
 
-        self.verbose_print(u"Post {p.id}{p.title} created".format(p=post))
+        self.verbose_print(u"Post {p.id}- {p.title} - {p.slug} created".format(p=post))
 
         return post
 
