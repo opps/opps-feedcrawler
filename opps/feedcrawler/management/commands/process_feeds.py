@@ -67,8 +67,12 @@ class Command(BaseCommand):
                     except Exception as e:
                         if verbose:
                             print str(e)
-
-                transaction.commit()
+                
+                try:
+                    transaction.commit()
+                except Exception as e:
+                    msg = u"{f.title} - {msg}".format(f=feed, msg=str(e))
+                    logger.warning(msg)
 
 
         logger.info('Feedcrawler process_feeds completed successfully')
