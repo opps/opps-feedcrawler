@@ -351,16 +351,3 @@ class EFEXMLProcessorAuto(EFEXMLProcessor):
 # NLST retrieves a list of file names.
 # On some servers, MLSD retrieves a machine readable list of files and information
 # about those files
-
-
-{'story_data': '20130712T192900+0000',
- 'body': u'<p>Montevid\xe9u, 12 jul (EFE).- Os pa\xedses do Mercosul decidiram nesta sexta-feira em sua c\xfapula semestral no Uruguai revogar a partir do dia 15 de agosto a suspens\xe3o do Paraguai, uma vez que Horacio Cartes assuma a presid\xeancia do pa\xeds.</p>\n<p>Ap\xf3s "avaliar positivamente" a realiza\xe7\xe3o das elei\xe7\xf5es gerais no Paraguai no \xfaltimo dia 21 de abril, os presidentes de Brasil, Dilma Rousseff; Argentina, Cristina Kirchner; Uruguai, Jos\xe9 Mujica; e Venezuela, Nicol\xe1s Maduro, decidiram "cessar" a suspens\xe3o imposta no dia 29 de junho de 2012 devido \xe0 cassa\xe7\xe3o por parte do Parlamento paraguaio do ent\xe3o presidente Fernando Lugo.</p>\n<p>A partir da posse do novo governo paraguaio "ser\xe3o considerados cumpridos" os requisitos estabelecidos no artigo 7 do Protocolo de Ushuaia sobre o compromisso democr\xe1tico.</p>\n<p>A partir do pr\xf3ximo m\xeas, o Paraguai "reassumir\xe1 plenamente seu direito de participar dos \xf3rg\xe3os do Mercosul e das delibera\xe7\xf5es", informa a declara\xe7\xe3o dos l\xedderes.</p>\n<p>As autoridades do Paraguai, o quinto integrante do Mercado Comum do Sul, n\xe3o participam da reuni\xe3o. EFE</p>\n<p>jf/rsd</p>',
- 'item_len': '00166',
- 'iptc_matter': 'Organismos internacionais',
- 'headline': u'Mercosul revogar\xe1 suspens\xe3o do Paraguai a partir de 15 de agosto',
- 'iptc_code': '11014000',
- 'iptc_type': u'Pol\xedtica',
- 'subheadline': u'MERCOSUL C\xdaPULA',
- 'owner': 'Agencia EFE',
- 'pub_date': '20130712T192900+0000',
- 'abstract': u'Os pa\xedses do Mercosul decidiram nesta sexta-feira em sua c\xfapula semestral no Uruguai revogar a partir do dia 15 de agosto a suspens\xe3o do Paraguai, uma vez que Horacio Cartes assuma a presid\xeancia do pa\xeds.'}
