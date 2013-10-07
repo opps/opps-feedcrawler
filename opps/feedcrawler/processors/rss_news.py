@@ -161,7 +161,7 @@ class RSSProcessor(BaseProcessor):
                 entry_title=entry_title[:150],
                 site=self.feed.site,
                 user=self.feed.user,
-                published=True,
+                published=self.feed.publish_entries,
                 show_on_root_channel=True
             )
 
