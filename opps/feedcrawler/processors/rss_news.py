@@ -162,7 +162,7 @@ class RSSProcessor(BaseProcessor):
                 site=self.feed.site,
                 user=self.feed.user,
                 published=self.feed.publish_entries,
-                show_on_root_channel=True
+                show_on_root_channel=False
             )
 
             self.verbose_print("Entry found or created!!!")
