@@ -332,6 +332,8 @@ class EFEXMLProcessorAuto(EFEXMLProcessor):
             show_on_root_channel=True,
             published=True,
             hat=entry.hat,
+            date_insert=entry.entry_published_time,
+            date_available=entry.entry_published_time
         )
 
         if self.feed.group:
