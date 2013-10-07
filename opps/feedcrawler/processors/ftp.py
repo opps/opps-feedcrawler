@@ -7,6 +7,7 @@ from ftplib import FTP
 from tempfile import NamedTemporaryFile
 
 from datetime import datetime
+from dateutil.parser import parse
 
 from django.utils.text import slugify
 
@@ -186,7 +187,11 @@ class EFEXMLProcessor(BaseProcessor):
     def parse_dt(self, s):
         self.verbose_print("REceived to parse_dt %s" % s)
         try:
-            new_s = datetime.strptime(s[:8], "%Y%m%d")
+            try:
+                new_s = parse(s)
+            except:
+                new_s = datetime.strptime(s[:8], "%Y%m%d")
+
             self.verbose_print("parsed to %s" % new_s)
             return new_s
         except Exception as e:
