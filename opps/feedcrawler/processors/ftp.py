@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 from ftplib import FTP
 from tempfile import NamedTemporaryFile
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from dateutil.parser import parse
 
 from django.utils.text import slugify
@@ -17,6 +17,9 @@ from .category_efe import CATEGORY_EFE
 
 from opps.articles.models import Post
 from opps.channels.models import Channel
+
+
+TZ_DELTA = timedelta(hours=3)
 
 
 class EFEXMLProcessor(BaseProcessor):
@@ -188,7 +191,7 @@ class EFEXMLProcessor(BaseProcessor):
         self.verbose_print("REceived to parse_dt %s" % s)
         try:
             try:
-                new_s = parse(s)
+                new_s = parse(s) - TZ_DELTA
             except:
                 new_s = datetime.strptime(s[:8], "%Y%m%d")
 
