@@ -6,7 +6,7 @@ import pytz
 import json
 # import uuid
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from time import mktime
 
 from django.conf import settings
@@ -21,6 +21,9 @@ from opps.articles.models import Post
 from opps.channels.models import Channel
 from opps.contrib.db_backend.postgres.base import DatabaseError
 logger = logging.getLogger()
+
+
+TZ_DELTA = timedelta(hours=3)
 
 
 class RSSProcessor(BaseProcessor):
@@ -138,6 +141,9 @@ class RSSProcessor(BaseProcessor):
                     is_dst=None
                 )
 
+                # TODO: apply timezone dynamically
+                published_time = published_time - TZ_DELTA
+                
                 now = datetime.now()
 
                 if published_time.date() > now.date():
