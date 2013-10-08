@@ -312,7 +312,16 @@ class EFEXMLProcessorAuto(EFEXMLProcessor):
 
     def create_post(self, entry):
 
-        channel_slug = CATEGORY_EFE.get(entry.entry_category_code)
+        channel_slug = CATEGORY_EFE.get(
+            str(entry.entry_category_code).strip().zfill(8)
+        )
+
+        # log for debug
+        if not channel_slug:
+            open("/tmp/debug_feeds.log", "a").write(
+                "{e.id} - {e.entry_category_code} not match category_efe \n".format(e=entry)
+            )
+            
         channel = self.get_channel_by_slug(channel_slug) or entry.channel
 
         self.verbose_print(channel_slug)
