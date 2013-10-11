@@ -137,7 +137,7 @@ class RSSProcessor(BaseProcessor):
 
                 # TODO: apply timezone dynamically
                 published_time = published_time - TZ_DELTA
-                
+
                 now = datetime.now()
 
                 if published_time.date() > now.date():
@@ -156,14 +156,14 @@ class RSSProcessor(BaseProcessor):
                 continue
 
             pub_time_str = published_time.strftime("%Y-%m-%d")
-            
+
             slug = slugify(self.feed.slug + "-" + entry_title[:100] + pub_time_str)
             exists = self.entry_model.objects.filter(slug=slug).exists()
             if exists:
                 #slug = str(random.getrandbits(8)) + "-" + slug
                 self.verbose_print("Entry slug exists, skipping")
                 continue
-                    
+
             db_entry, created = self.entry_model.objects.get_or_create(
                 entry_feed=self.feed,
                 entry_link=entry.link,
