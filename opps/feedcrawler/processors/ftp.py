@@ -100,20 +100,25 @@ class EFEXMLProcessor(BaseProcessor):
             f.close()
             return
 
-        data = self.parse_xml(f.name)
-        data = self.categorize(data)
-        # self.verbose_print(str(data))
 
-        f.close()
+        news = self.parse_xml(f.name)
+        created = None
 
-        created = self.create_entry(data)
+        for data in news:
+            data = self.categorize(data)
+            # self.verbose_print(str(data))
+            created = self.create_entry(data)
+
         if created:
             self.record_log(s)
         else:
-            self.verbose_print("Entry not created")
+            self.verbose_print("Entries not created")
+
+        f.close()
 
     def parse_xml(self, filename):
-        data = {}
+        news = []
+
 
         try:
             tree = ET.parse(filename)
@@ -121,71 +126,74 @@ class EFEXMLProcessor(BaseProcessor):
         except:
             return
 
-        # TODO: NewsItem can be multiple items
 
-        try:
-            data['headline'] = root.find(
-                './NewsItem/NewsComponent/NewsLines/HeadLine').text
-            data['subheadline'] = root.find(
-                './NewsItem/NewsComponent/NewsLines/SubHeadLine').text
-        except:
-            pass
+        for item in root.findall('./NewsItem'):
+            data = {}
 
-        try:
-            tobject_attrib = root.find(
-                './NewsItem/NewsComponent/ContentItem/'
-                'DataContent/nitf/head/tobject/tobject.subject')
-            data['iptc_code'] = tobject_attrib.get('tobject.subject.refnum')
-            data['iptc_matter'] = tobject_attrib.get('tobject.subject.matter')
-            data['iptc_type'] = tobject_attrib.get('tobject.subject.type')
-        except:
-            pass
+            try:
+                data['headline'] = item.find(
+                    './NewsComponent/NewsLines/HeadLine').text
+                data['subheadline'] = item.find(
+                    './NewsComponent/NewsLines/SubHeadLine').text
+            except:
+                pass
 
-        try:
-            pub_data_attrib = root.find(
-                './NewsItem/NewsComponent/ContentItem/'
-                'DataContent/nitf/head/pubdata')
-            data['pub_date'] = pub_data_attrib.get('date.publication')
-            data['item_len'] = pub_data_attrib.get('item-length')
-        except:
-            pass
+            try:
+                tobject_attrib = item.find(
+                    './NewsComponent/ContentItem/'
+                    'DataContent/nitf/head/tobject/tobject.subject')
+                data['iptc_code'] = tobject_attrib.get('tobject.subject.refnum')
+                data['iptc_matter'] = tobject_attrib.get('tobject.subject.matter')
+                data['iptc_type'] = tobject_attrib.get('tobject.subject.type')
+            except:
+                pass
 
-        try:
-            data['abstract'] = root.find(
-                './NewsItem/NewsComponent/ContentItem'
-                '/DataContent/nitf/body/body.head/abstract/').text
-        except:
-            pass
+            try:
+                pub_data_attrib = item.find(
+                    './NewsComponent/ContentItem/'
+                    'DataContent/nitf/head/pubdata')
+                data['pub_date'] = pub_data_attrib.get('date.publication')
+                data['item_len'] = pub_data_attrib.get('item-length')
+            except:
+                pass
 
-        try:
-            data['owner'] = root.find(
-                './NewsItem/NewsComponent/ContentItem/DataContent/nitf/'
-                'body/body.head/rights/').text
-        except:
-            pass
+            try:
+                data['abstract'] = item.find(
+                    './NewsComponent/ContentItem'
+                    '/DataContent/nitf/body/body.head/abstract/').text
+            except:
+                pass
 
-        try:
-            data['story_data'] = root.find(
-                './NewsItem/NewsComponent/ContentItem/DataContent/nitf/'
-                'body/body.head/dateline/story.date').get('norm')
-        except:
-            pass
+            try:
+                data['owner'] = item.find(
+                    './NewsComponent/ContentItem/DataContent/nitf/'
+                    'body/body.head/rights/').text
+            except:
+                pass
 
-        try:
-            body = root.find(
-                './NewsItem/NewsComponent/ContentItem/DataContent/nitf/'
-                'body/body.content')
-            data['body'] = u"\n".join(
-                u"<p>{0}</p>".format(p.text) for p in body)
-        except:
-            pass
+            try:
+                data['story_data'] = item.find(
+                    './NewsComponent/ContentItem/DataContent/nitf/'
+                    'body/body.head/dateline/story.date').get('norm')
+            except:
+                pass
 
-        if not all([data.get('body'), data.get('headline')]):
-            self.verbose_print(
-                "Data does not have body and headline %s" % str(data))
-            return
+            try:
+                body = item.find(
+                    './NewsComponent/ContentItem/DataContent/nitf/'
+                    'body/body.content')
+                data['body'] = u"\n".join(
+                    u"<p>{0}</p>".format(p.text) for p in body)
+            except:
+                pass
 
-        return data
+            if not all([data.get('body'), data.get('headline')]):
+                self.verbose_print(
+                    "Data does not have body and headline %s" % str(data))
+            else:
+                news.append(data)
+
+        return news
 
     def parse_dt(self, s):
         self.verbose_print("REceived to parse_dt %s" % s)
@@ -207,15 +215,27 @@ class EFEXMLProcessor(BaseProcessor):
             self.verbose_print("data is null")
             return
 
+        pub_time = self.parse_dt(
+            data.get('pub_date', data.get('story_data', None))
+        )
+
+        if pub_time:
+            pub_time_str = pub_time.strftime("%Y-%m-%d")
+        else:
+            pub_time_str = ""
+
         # working
         entry_title = unicode(data.get('headline', ''))
 
-        slug = slugify(self.feed.slug + "-" + entry_title[:100])
+        # slug generated as
+        # feed-name-news-title-2013-01-01
+        slug = slugify(self.feed.slug + "-" + entry_title[:100] + pub_time_str)
 
         exists = self.entry_model.objects.filter(slug=slug).exists()
         if exists:
-            slug = str(random.getrandbits(8)) + "-" + slug
-            self.verbose_print("Entry slug exists")
+            #slug = str(random.getrandbits(8)) + "-" + slug
+            self.verbose_print("Entry slug exists, skipping")
+            return
 
         try:
             db_entry, created = self.entry_model.objects.get_or_create(
@@ -235,9 +255,7 @@ class EFEXMLProcessor(BaseProcessor):
             db_entry.hat = unicode(data.get('subheadline', ''))
             db_entry.entry_category_code = unicode(data.get('iptc_code', ''))
 
-            db_entry.entry_published_time = self.parse_dt(
-                data.get('pub_date', data.get('story_data', None))
-            )
+            db_entry.entry_published_time = pub_time
 
             try:
                 db_entry.entry_json = json.dumps(data)
@@ -248,6 +266,7 @@ class EFEXMLProcessor(BaseProcessor):
             db_entry.save()
             self.verbose_print("Entry saved: %s" % db_entry.pk)
 
+            db_entry.pub_time_str = pub_time_str
             self.run_hooks(db_entry)
 
             return db_entry.pk
@@ -324,13 +343,13 @@ class EFEXMLProcessorAuto(EFEXMLProcessor):
             open("/tmp/debug_feeds.log", "a").write(
                 "{e.id} - {e.entry_category_code} not match category_efe \n".format(e=entry)
             )
-            
+
         channel = self.get_channel_by_slug(channel_slug) or entry.channel
 
         self.verbose_print(channel_slug)
         self.verbose_print(entry.entry_category_code)
 
-        slug = slugify(entry.entry_title)
+        slug = slugify(entry.entry_title + "-" + entry.pub_time_str)[:150]
         if Post.objects.filter(channel=channel,
                                slug=slug,
                                site=entry.site).exists():
@@ -341,7 +360,7 @@ class EFEXMLProcessorAuto(EFEXMLProcessor):
 
         post = Post(
             title=entry.entry_title[:150],
-            slug=slug[:150],
+            slug=slug,
             content=entry.entry_content,
             channel=channel,
             site=entry.site,
