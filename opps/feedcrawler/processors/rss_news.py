@@ -123,12 +123,6 @@ class RSSProcessor(BaseProcessor):
 
             self.verbose_print("will create entry")
 
-            slug = slugify(self.feed.slug + "-" + entry_title[:100])
-            exists = self.entry_model.objects.filter(slug=slug).exists()
-            if exists:
-                slug = str(random.getrandbits(8)) + "-" + slug
-                self.verbose_print("Entry slug exists")
-
             if hasattr(entry, 'published_parsed'):
                 published_time = datetime.fromtimestamp(
                     mktime(entry.published_parsed)
@@ -158,10 +152,22 @@ class RSSProcessor(BaseProcessor):
                     )
                     continue
 
+            if not published_time:
+                continue
+
+            pub_time_str = published_time.strftime("%Y-%m-%d")
+            
+            slug = slugify(self.feed.slug + "-" + entry_title[:100] + pub_time_str)
+            exists = self.entry_model.objects.filter(slug=slug).exists()
+            if exists:
+                #slug = str(random.getrandbits(8)) + "-" + slug
+                self.verbose_print("Entry slug exists, skipping")
+                continue
+                    
             db_entry, created = self.entry_model.objects.get_or_create(
                 entry_feed=self.feed,
                 entry_link=entry.link,
-                channel=self.feed.channel,
+                channel=self.feed.get_channel(),
                 title=entry_title[:150],
                 slug=slug[:150],
                 entry_title=entry_title[:150],
@@ -224,6 +230,7 @@ class RSSProcessor(BaseProcessor):
 
                 try:
                     self.verbose_print('creating post')
+                    db_entry.pub_time_str = pub_time_str
                     self.create_post(db_entry)
                 except Exception as e:
                     self.verbose_print(str(e))
@@ -276,20 +283,19 @@ class RSSProcessor(BaseProcessor):
         channel = self.get_channel_by_slug(channel_slug) or entry.channel
         self.verbose_print(channel_slug)
 
-        slug = slugify(entry.entry_title)
+        slug = slugify(entry.entry_title + "-" + entry.pub_time_str)[:150]
         if Post.objects.filter(channel=channel,
                                slug=slug,
                                site=entry.site).exists():
             # slug = str(random.getrandbits(8)) + "-" + slug
             self.verbose_print("Post slug exists")
-
             # do not create duplicates
             return
 
 
         post = Post(
             title=entry.entry_title[:150],
-            slug=slug[:150],
+            slug=slug,
             content=entry.entry_content or entry.entry_description,
             channel=channel,
             site=entry.site,
@@ -303,7 +309,6 @@ class RSSProcessor(BaseProcessor):
 
         if self.feed.group:
             post.source = self.feed.group.name
-
 
         post.save()
 
