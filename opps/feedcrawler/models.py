@@ -85,6 +85,13 @@ class Feed(Publishable, Slugged):
         related_name='feed_image'
     )
 
+    interval = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+        default=20,
+        help_text=_(u'interval in minutes (celery only)')
+    )
+
     class Meta:
         ordering = ['title']
         verbose_name = _(u'Feed')
@@ -147,7 +154,6 @@ class Feed(Publishable, Slugged):
                 Channel.objects.get_homepage(site=self.site) or
                 self.create_channel())
 
-
     def save(self, *args, **kwargs):
         exclude = {}
         filters = dict(slug=self.slug)
@@ -159,7 +165,6 @@ class Feed(Publishable, Slugged):
                 o=self, random=getrandbits(16)
             )
         super(Feed, self).save(*args, **kwargs)
-
 
 
 class Entry(Container):

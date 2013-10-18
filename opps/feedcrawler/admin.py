@@ -38,6 +38,7 @@ class FeedAdmin(PublishableAdmin):
                        ('slug',),
                        ('group',),
                        ('feed_type',),
+                       ('interval',),
                        ('link',),
                        ('description',),
                        ('published_time', 'last_polled_time',),
