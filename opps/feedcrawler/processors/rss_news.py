@@ -11,7 +11,7 @@ from time import mktime
 
 from django.conf import settings
 from django.utils import html
-from django.utils import timezone
+
 from django.utils.text import slugify
 
 from .base import BaseProcessor
@@ -19,7 +19,7 @@ from .category_brasil import CATEGORY_BRASIL
 
 from opps.articles.models import Post
 from opps.channels.models import Channel
-from opps.contrib.db_backend.postgres.base import DatabaseError
+
 logger = logging.getLogger()
 
 
@@ -165,7 +165,7 @@ class RSSProcessor(BaseProcessor):
                 continue
 
             try:
-                tags = ",".join([slugify(tag.term) for tag in entry.tags])
+                tags = ",".join([tag.term for tag in entry.tags])
             except:
                 tags = None
 

@@ -152,7 +152,7 @@ class EFEXMLProcessor(BaseProcessor):
                     './NewsComponent/ContentItem/'
                     'DataContent/nitf/head/docdata/key-list/keyword')
                 tags = tags_attr.get('key')
-                data['tags'] = [slugify(tag) for tag in tags.split()]
+                data['tags'] = [tag.lower() for tag in tags.split()]
                 self.verbose_print(data.get('tags'))
             except Exception as e:
                 self.verbose_print("error tog et tags %s" % str(e))
