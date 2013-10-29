@@ -164,6 +164,11 @@ class RSSProcessor(BaseProcessor):
                 self.verbose_print("Entry slug exists, skipping")
                 continue
 
+            try:
+                tags = ",".join([slugify(tag.term) for tag in entry.tags])
+            except:
+                tags = None
+
             db_entry, created = self.entry_model.objects.get_or_create(
                 entry_feed=self.feed,
                 entry_link=entry.link,
@@ -174,7 +179,8 @@ class RSSProcessor(BaseProcessor):
                 site=self.feed.site,
                 user=self.feed.user,
                 published=self.feed.publish_entries,
-                show_on_root_channel=False
+                show_on_root_channel=False,
+                tags=tags
             )
 
             self.verbose_print("Entry found or created!!!")
@@ -303,6 +309,7 @@ class RSSProcessor(BaseProcessor):
             show_on_root_channel=True,
             published=True,
             # hat=entry.hat,
+            tags=entry.tags,
             date_insert=entry.entry_published_time,
             date_available=entry.entry_published_time
         )

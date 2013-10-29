@@ -1,5 +1,5 @@
 #coding: utf-8
-import random
+#import random
 import urllib
 import json
 import xml.etree.ElementTree as ET
@@ -119,7 +119,6 @@ class EFEXMLProcessor(BaseProcessor):
     def parse_xml(self, filename):
         news = []
 
-
         try:
             tree = ET.parse(filename)
             root = tree.getroot()
@@ -146,6 +145,17 @@ class EFEXMLProcessor(BaseProcessor):
                 data['iptc_matter'] = tobject_attrib.get('tobject.subject.matter')
                 data['iptc_type'] = tobject_attrib.get('tobject.subject.type')
             except:
+                pass
+
+            try:
+                tags_attr =  item.find(
+                    './NewsComponent/ContentItem/'
+                    'DataContent/nitf/head/docdata/key-list/keyword')
+                tags = tags_attr.get('key')
+                data['tags'] = [slugify(tag) for tag in tags.split()]
+                self.verbose_print(data.get('tags'))
+            except Exception as e:
+                self.verbose_print("error tog et tags %s" % str(e))
                 pass
 
             try:
@@ -196,7 +206,7 @@ class EFEXMLProcessor(BaseProcessor):
         return news
 
     def parse_dt(self, s):
-        self.verbose_print("REceived to parse_dt %s" % s)
+        self.verbose_print("Received to parse_dt %s" % s)
         try:
             try:
                 new_s = parse(s) - TZ_DELTA
@@ -206,7 +216,7 @@ class EFEXMLProcessor(BaseProcessor):
             self.verbose_print("parsed to %s" % new_s)
             return new_s
         except Exception as e:
-            self.verbose_print("CAnt parse dt")
+            self.verbose_print("Cannot parse dt")
             self.verbose_print(str(e))
             return
 
@@ -238,6 +248,13 @@ class EFEXMLProcessor(BaseProcessor):
             return
 
         try:
+            tags = ",".join(data.get('tags'))
+        except:
+            tags = None
+
+        self.verbose_print(tags)
+
+        try:
             db_entry, created = self.entry_model.objects.get_or_create(
                 entry_feed=self.feed,
                 channel=self.feed.get_channel(),
@@ -247,7 +264,8 @@ class EFEXMLProcessor(BaseProcessor):
                 site=self.feed.site,
                 user=self.feed.user,
                 published=self.feed.publish_entries,
-                show_on_root_channel=False
+                show_on_root_channel=False,
+                tags=tags
             )
             db_entry.entry_description = unicode(data.get('abstract', ''))
             db_entry.entry_content = unicode(data.get('body', ''))
@@ -297,7 +315,8 @@ class EFEXMLProcessor(BaseProcessor):
     def process(self):
         self.connect()
         self.ftp.cwd(self.feed.source_root_folder)
-        self.verbose_print("Root folder changed to: %s" % self.feed.source_root_folder)
+        self.verbose_print(
+            "Root folder changed to: %s" % self.feed.source_root_folder)
 
         self.count = 0
         self.ftp.retrlines('NLST', self.process_file)
@@ -340,8 +359,9 @@ class EFEXMLProcessorAuto(EFEXMLProcessor):
 
         # log for debug
         if not channel_slug:
+            msg = "{e.id} - {e.entry_category_code} not match category_efe \n"
             open("/tmp/debug_feeds.log", "a").write(
-                "{e.id} - {e.entry_category_code} not match category_efe \n".format(e=entry)
+                msg.format(e=entry)
             )
 
         channel = self.get_channel_by_slug(channel_slug) or entry.channel
@@ -368,6 +388,7 @@ class EFEXMLProcessorAuto(EFEXMLProcessor):
             show_on_root_channel=True,
             published=True,
             hat=entry.hat,
+            tags=entry.tags,
             date_insert=entry.entry_published_time,
             date_available=entry.entry_published_time
         )
@@ -375,9 +396,9 @@ class EFEXMLProcessorAuto(EFEXMLProcessor):
         if self.feed.group:
             post.source = self.feed.group.name
 
-
         post.save()
 
+        self.verbose_print(post.tags)
         entry.post_created = True
         entry.save()
 
