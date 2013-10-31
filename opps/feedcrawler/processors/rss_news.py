@@ -23,7 +23,7 @@ from opps.channels.models import Channel
 logger = logging.getLogger()
 
 
-TZ_DELTA = timedelta(hours=3)
+TZ_DELTA = timedelta(hours=getattr(settings, "TZ_DELTA", 2))
 
 
 class RSSProcessor(BaseProcessor):

@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 from dateutil.parser import parse
 
 from django.utils.text import slugify
-
+from django.conf import settings
 from .base import BaseProcessor
 from .efe import iptc
 from .category_efe import CATEGORY_EFE
@@ -19,7 +19,7 @@ from opps.articles.models import Post
 from opps.channels.models import Channel
 
 
-TZ_DELTA = timedelta(hours=3)
+TZ_DELTA = timedelta(hours=getattr(settings, "TZ_DELTA", 2))
 
 
 class EFEXMLProcessor(BaseProcessor):
