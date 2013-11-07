@@ -1,5 +1,4 @@
 #coding: utf-8
-import random
 import feedparser
 import logging
 import pytz
@@ -219,7 +218,7 @@ class RSSProcessor(BaseProcessor):
                             if isinstance(v, allowed)}
                     )
                     db_entry.entry_json = entry_source
-                    pass
+
                 except Exception, e:
                     self.verbose_print(str(e))
                     msg = 'Feedcrawler refresh_feeds. Entry "%s" json error'
