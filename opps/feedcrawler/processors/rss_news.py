@@ -1,14 +1,14 @@
 #coding: utf-8
 import feedparser
 import logging
-import pytz
+#import pytz
 import json
 # import uuid
 
 from datetime import datetime, timedelta
 from time import mktime
 
-from django.conf import settings
+#from django.conf import settings
 from django.utils import html
 
 from django.utils.text import slugify
@@ -22,7 +22,8 @@ from opps.channels.models import Channel
 logger = logging.getLogger()
 
 
-TZ_DELTA = timedelta(hours=getattr(settings, "TZ_DELTA", 2))
+# Agencia Brasil has a different rule for timezones
+TZ_DELTA = timedelta(hours=3)
 
 
 class RSSProcessor(BaseProcessor):
@@ -43,12 +44,13 @@ class RSSProcessor(BaseProcessor):
             published_time = datetime.fromtimestamp(
                 mktime(self.parsed.feed.published_parsed)
             )
-            published_time = pytz.timezone(
-                settings.TIME_ZONE
-            ).localize(
-                published_time,
-                is_dst=None
-            )
+            published_time = published_time - TZ_DELTA
+            # published_time = pytz.timezone(
+            #     settings.TIME_ZONE
+            # ).localize(
+            #     published_time,
+            #     is_dst=None
+            #)
 
             if (self.feed.published_time and
                     self.feed.published_time >= published_time):
@@ -127,16 +129,16 @@ class RSSProcessor(BaseProcessor):
                     mktime(entry.published_parsed)
                 )
 
-                published_time = pytz.timezone(
-                    settings.TIME_ZONE
-                ).localize(
-                    published_time,
-                    is_dst=None
-                )
+                # published_time = pytz.timezone(
+                #     settings.TIME_ZONE
+                # ).localize(
+                #     published_time,
+                #     is_dst=None
+                # )
 
-                # TODO: apply timezone dynamically
                 published_time = published_time - TZ_DELTA
-
+                #print published_time
+                #print entry_title
                 now = datetime.now()
 
                 if published_time.date() > now.date():
