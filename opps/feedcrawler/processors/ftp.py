@@ -265,7 +265,7 @@ class EFEXMLProcessor(BaseProcessor):
                 user=self.feed.user,
                 published=self.feed.publish_entries,
                 show_on_root_channel=False,
-                tags=tags
+                tags=unicode(tags)
             )
             db_entry.entry_description = unicode(data.get('abstract', ''))
             db_entry.entry_content = unicode(data.get('body', ''))
