@@ -10,6 +10,7 @@ from time import mktime
 
 #from django.conf import settings
 from django.utils import html
+from django.template.defaultfilters import striptags
 
 from django.utils.text import slugify
 
@@ -64,14 +65,12 @@ class RSSProcessor(BaseProcessor):
                 logger.error(msg % (self.feed.source_url, attr))
                 self.verbose_print(msg % (self.feed.source_url, attr))
                 return
-
         if self.parsed.feed.title_detail.type == 'text/plain':
-            self.feed.title = html.escape(self.parsed.feed.title)[:150]
+            self.feed.title = striptags(self.parsed.feed.title)[:150]
         else:
             self.feed.title = self.parsed.feed.title[:150]
 
         self.feed.link = self.feed.link or self.parsed.feed.link
-
         try:
             if self.parsed.feed.description_detail.type == 'text/plain':
                 self.feed.description = html.escape(self.parsed.feed.description)
@@ -174,7 +173,7 @@ class RSSProcessor(BaseProcessor):
                 entry_feed=self.feed,
                 entry_link=entry.link,
                 channel=self.feed.get_channel(),
-                title=entry_title[:150],
+                title=entry_title[:150].replace('&quot;', '"'),
                 slug=slug[:150],
                 entry_title=entry_title[:150],
                 site=self.feed.site,
