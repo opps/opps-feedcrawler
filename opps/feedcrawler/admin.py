@@ -81,8 +81,9 @@ class EntryAdmin(PublishableAdmin):
     readonly_fields = ['entry_link', 'entry_title', 'entry_description',
                        'entry_published_time', 'entry_feed', 'entry_content',
                        'entry_pulled_time', 'entry_category',
-                       'entry_category_code', 'content_as_html', 'description_as_html']
-    raw_id_fields = ('channel',)
+                       'entry_category_code', 'content_as_html',
+                       'description_as_html', 'image_thumb']
+    raw_id_fields = ('channel', 'main_image')
     fieldsets = (
         (None, {
             'fields': (('site',),
@@ -100,7 +101,9 @@ class EntryAdmin(PublishableAdmin):
                        'entry_json',
                        'published',
                        'date_available',
-                       'show_on_root_channel'
+                       'show_on_root_channel',
+                       'main_image',
+                       'image_thumb'
                        )
         }),
     )

@@ -10,6 +10,7 @@ from django.utils import timezone
 from opps.core.models import Publishable, Slugged
 from opps.containers.models import Container
 from opps.channels.models import Channel
+from opps.images.models import Image
 
 RSS_PROCESSOR = 'opps.feedcrawler.processors.rss.RSSProcessor'
 RSS_ACTIONS = 'opps.feedcrawler.actions.rss.RSSActions'
@@ -186,6 +187,21 @@ class Entry(Container):
                                            null=True)
 
     post_created = models.BooleanField(_(u"Post created"), default=False)
+
+    def define_main_image(self, archive_link, save=False, *args, **kwargs):
+        image = Image(
+            title=u"{0}-{1}".format(self.title, self.id),
+            slug=u"{0}-{1}".format(self.slug, self.id),
+            user=self.user,
+            site=self.site,
+            archive_link=archive_link,
+            **kwargs
+        )
+        image.save()
+        self.main_image = image
+        if save:
+            self.save()
+        return image
 
     class Meta:
         ordering = ['-entry_published_time']

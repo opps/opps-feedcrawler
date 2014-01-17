@@ -115,6 +115,16 @@ class RSSProcessor(BaseProcessor):
                 show_on_root_channel=True
             )
             if created:
+                if hasattr(entry, 'links'):
+                    links = [
+                        item for item in entry.links
+                        if item.get('rel') == 'enclosure'
+                    ]
+                    for link in links:
+                        if link.get('type', '').startswith('image'):
+                            url = link.get('href')
+                            db_entry.define_main_image(archive_link=url)
+
                 if hasattr(entry, 'published_parsed'):
                     published_time = datetime.fromtimestamp(
                         mktime(entry.published_parsed)
