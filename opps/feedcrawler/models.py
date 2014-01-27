@@ -11,6 +11,8 @@ from opps.core.models import Publishable, Slugged
 from opps.containers.models import Container
 from opps.channels.models import Channel
 from opps.images.models import Image
+from opps.utils.text import unescape
+
 
 RSS_PROCESSOR = 'opps.feedcrawler.processors.rss.RSSProcessor'
 RSS_ACTIONS = 'opps.feedcrawler.actions.rss.RSSActions'
@@ -157,6 +159,7 @@ class Feed(Publishable, Slugged):
 
     def save(self, *args, **kwargs):
         exclude = {}
+        self.title = unescape(self.title)
         filters = dict(slug=self.slug)
         if self.pk is not None:
             exclude = dict(pk=self.pk)
@@ -187,6 +190,11 @@ class Entry(Container):
                                            null=True)
 
     post_created = models.BooleanField(_(u"Post created"), default=False)
+
+    def save(self, *args, **kwargs):
+        self.title = unescape(self.title)
+        self.hat = unescape(self.hat)
+        super(Entry, self).save(*args, **kwargs)
 
     def define_main_image(self, archive_link, save=False, *args, **kwargs):
         image = Image(
