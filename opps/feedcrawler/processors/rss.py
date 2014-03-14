@@ -103,16 +103,18 @@ class RSSProcessor(BaseProcessor):
                 entry_title = entry.title
 
             db_entry, created = self.entry_model.objects.get_or_create(
-                entry_feed=self.feed,
-                entry_link=entry.link,
-                channel=self.feed.channel,
-                title=entry_title[:140],
-                slug=slugify(self.feed.slug + "-" + entry_title[:150]),
-                entry_title=entry_title,
                 site=self.feed.site,
-                user=self.feed.user,
-                published=True,
-                show_on_root_channel=True
+                slug=slugify(self.feed.slug + "-" + entry_title[:150]),
+                defaults=dict(
+                    entry_feed=self.feed,
+                    entry_link=entry.link,
+                    channel=self.feed.channel,
+                    title=entry_title[:140],
+                    entry_title=entry_title,
+                    user=self.feed.user,
+                    published=True,
+                    show_on_root_channel=True
+                )
             )
             if created:
                 if hasattr(entry, 'links'):
