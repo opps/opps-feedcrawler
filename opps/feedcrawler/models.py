@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import json
 from random import getrandbits
@@ -189,6 +188,7 @@ class Entry(Container):
     entry_category_code = models.CharField(max_length=255, blank=True,
                                            null=True)
 
+    entry_original_id = models.PositiveIntegerField(blank=True, null=True)
     post_created = models.BooleanField(_(u"Post created"), default=False)
 
     def save(self, *args, **kwargs):
