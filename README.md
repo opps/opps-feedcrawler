@@ -72,6 +72,8 @@ feedcrawler provides a **BaseProcessor** class for you to extend and you have to
 
 The processor above will be executed by management command **manage.py process_feeds -f feed_slug** also you can put this command to run on **cron** or **celery**
 
+##### OPPS_FEEDCRAWLER_USE_TITLE_KEY
+if use `opps-feedcrawler < 0.2.1` uses `OPPS_FEEDCRAWLER_USE_TITLE_KEY = True` for compatibility.
 
 
 Actions API
