@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+#coding: utf-8
 import feedparser
 import logging
 import pytz
@@ -16,9 +16,6 @@ from django.utils.text import slugify
 from .base import BaseProcessor
 
 logger = logging.getLogger()
-
-OPPS_FEEDCRAWLER_USE_TITLE_KEY = getattr(
-    settings, 'OPPS_FEEDCRAWLER_USE_TITLE_KEY', False)
 
 
 class RSSProcessor(BaseProcessor):
@@ -105,54 +102,20 @@ class RSSProcessor(BaseProcessor):
             else:
                 entry_title = entry.title
 
-            if OPPS_FEEDCRAWLER_USE_TITLE_KEY:
-                db_entry, created = self.entry_model.objects.get_or_create(
-                    site=self.feed.site,
-                    slug=slugify(self.feed.slug + "-" + entry_title[:150]),
-                    defaults=dict(
-                        entry_feed=self.feed,
-                        entry_link=entry.link,
-                        channel=self.feed.channel,
-                        title=entry_title[:140],
-                        entry_title=entry_title,
-                        user=self.feed.user,
-                        published=True,
-                        show_on_root_channel=True
-                    )
+            db_entry, created = self.entry_model.objects.get_or_create(
+                site=self.feed.site,
+                slug=slugify(self.feed.slug + "-" + entry_title[:150]),
+                defaults=dict(
+                    entry_feed=self.feed,
+                    entry_link=entry.link,
+                    channel=self.feed.channel,
+                    title=entry_title[:140],
+                    entry_title=entry_title,
+                    user=self.feed.user,
+                    published=True,
+                    show_on_root_channel=True
                 )
-            else:
-                try:
-                    db_entry = self.entry_model.objects.get(
-                        entry_original_id=entry.id)
-                    created = True
-                except:
-                    db_entry, created = self.entry_model.objects.get_or_create(
-                        site=self.feed.site,
-                        defaults=dict(
-                            entry_feed=self.feed,
-                            channel=self.feed.channel,
-                            user=self.feed.user,
-                            title=entry_title[:140],
-                            entry_original_id=entry.id,
-                            published=True,
-                            show_on_root_channel=True
-                        )
-                    )
-                try:
-                    db_entry.site = self.feed.site,
-                    db_entry.title = entry_title[:140]
-                    db_entry.entry_title = entry_title
-                    db_entry.slug = slugify(
-                        self.feed.slug + "-" + entry_title[:150]),
-                    db_entry.user = self.feed.user
-                    db_entry.channel = self.feed.channel
-                    db_entry.save()
-                except Exception, e:
-                    created = False
-                    # logging
-                    print str(e)
-                    msg = 'Feedcrawler refresh_feeds. Entry "%s" content error'
-                    logger.warning(msg % (entry.link))
+            )
             if created:
                 if hasattr(entry, 'links'):
                     links = [
@@ -221,6 +184,7 @@ class RSSProcessor(BaseProcessor):
 
                 # fill Article properties
                 db_entry.title = db_entry.entry_title[:140]
+                # db_entry.slug = slugify(self.feed.slug + "-" + entry_title[:150])
                 db_entry.headline = db_entry.entry_description
                 db_entry.short_title = db_entry.title
                 db_entry.hat = db_entry.title
