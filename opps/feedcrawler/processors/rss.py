@@ -1,9 +1,8 @@
-#coding: utf-8
+# -*- coding:utf-8 -*-
 import feedparser
 import logging
 import pytz
 import json
-# import uuid
 
 from datetime import datetime
 from time import mktime
@@ -184,7 +183,6 @@ class RSSProcessor(BaseProcessor):
 
                 # fill Article properties
                 db_entry.title = db_entry.entry_title[:140]
-                # db_entry.slug = slugify(self.feed.slug + "-" + entry_title[:150])
                 db_entry.headline = db_entry.entry_description
                 db_entry.short_title = db_entry.title
                 db_entry.hat = db_entry.title
