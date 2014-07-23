@@ -341,6 +341,8 @@ class EFEXMLProcessorAuto(EFEXMLProcessor):
 
     hooks = ['create_post']
 
+    verbose = True
+
     # match category X channel
 
     def get_channel_by_slug(self, slug):
