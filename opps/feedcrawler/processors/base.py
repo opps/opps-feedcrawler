@@ -1,6 +1,9 @@
 # coding: utf-8
 
+import logging
 from opps.feedcrawler.models import Entry, ProcessLog
+
+logger = logging.getLogger()
 
 
 class BaseProcessor(object):
@@ -20,6 +23,7 @@ class BaseProcessor(object):
         return self.process()
 
     def verbose_print(self, s):
+        logger.info(s)
         if self.verbose:
             print(s)
 
