@@ -8,11 +8,11 @@ from opps import feedcrawler
 
 install_requires = ["opps"]
 
-classifiers = ["Development Status :: 4 - Beta",
+classifiers = ["Development Status :: 5 - Production/Stable",
                "Intended Audience :: Developers",
                "License :: OSI Approved :: MIT License",
                "Operating System :: OS Independent",
-               "Framework :: Django",
+               "Framework :: Opps",
                'Programming Language :: Python',
                "Programming Language :: Python :: 2.7",
                "Operating System :: OS Independent",
@@ -31,7 +31,7 @@ setup(
     description=feedcrawler.__description__,
     long_description=long_description,
     classifiers=classifiers,
-    keywords='poll opps cms django apps magazines websites',
+    keywords='rss parser opps cms django apps magazines websites',
     author=feedcrawler.__author__,
     author_email=feedcrawler.__email__,
     url='http://oppsproject.org',
