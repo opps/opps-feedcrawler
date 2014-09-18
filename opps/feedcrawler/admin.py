@@ -24,8 +24,8 @@ class GroupAdmin(admin.ModelAdmin):
 @apply_opps_rules('feedcrawler')
 class FeedAdmin(PublishableAdmin):
     prepopulated_fields = {"slug": ("title",)}
-    list_display = ['title', 'slug', 'source_url', 'feed_type', 'channel', 'group',
-                    'published_time', 'last_polled_time', 'published']
+    list_display = ['title', 'slug', 'source_url', 'feed_type', 'channel',
+                    'group', 'published_time', 'last_polled_time', 'published']
     list_filter = ['group', 'channel', 'feed_type']
     search_fields = ['link', 'title', 'slug', 'description']
     readonly_fields = ['published_time',
@@ -107,7 +107,6 @@ class EntryAdmin(PublishableAdmin):
                        )
         }),
     )
-
 
     def content_as_html(self, obj, *args, **kwargs):
         return obj.entry_content

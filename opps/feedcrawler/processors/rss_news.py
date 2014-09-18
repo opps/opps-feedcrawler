@@ -1,14 +1,12 @@
-#coding: utf-8
+# -*- coding: utf-8 -*-
+
 import feedparser
 import logging
-#import pytz
 import json
-# import uuid
 
 from datetime import datetime, timedelta
 from time import mktime
 
-#from django.conf import settings
 from django.utils import html
 from django.template.defaultfilters import striptags
 
@@ -46,12 +44,6 @@ class RSSProcessor(BaseProcessor):
                 mktime(self.parsed.feed.published_parsed)
             )
             published_time = published_time - TZ_DELTA
-            # published_time = pytz.timezone(
-            #     settings.TIME_ZONE
-            # ).localize(
-            #     published_time,
-            #     is_dst=None
-            #)
 
             if (self.feed.published_time and
                     self.feed.published_time >= published_time):
@@ -73,7 +65,8 @@ class RSSProcessor(BaseProcessor):
         self.feed.link = self.feed.link or self.parsed.feed.link
         try:
             if self.parsed.feed.description_detail.type == 'text/plain':
-                self.feed.description = html.escape(self.parsed.feed.description)
+                self.feed.description = \
+                    html.escape(self.parsed.feed.description)
             else:
                 self.feed.description = self.parsed.feed.description
         except:
@@ -136,8 +129,6 @@ class RSSProcessor(BaseProcessor):
                 # )
 
                 published_time = published_time - TZ_DELTA
-                #print published_time
-                #print entry_title
                 now = datetime.now()
 
                 if published_time.date() > now.date():
@@ -148,7 +139,7 @@ class RSSProcessor(BaseProcessor):
                 elif published_time.date() < now.date():
                     self.verbose_print(
                         "Entry time is in the past, skipping: %s - %s"
-                        % ( published_time.date(), now.date())
+                        % (published_time.date(), now.date())
                     )
                     continue
 
@@ -157,10 +148,10 @@ class RSSProcessor(BaseProcessor):
 
             pub_time_str = published_time.strftime("%Y-%m-%d")
 
-            slug = slugify(self.feed.slug + "-" + entry_title[:100] + pub_time_str)
+            slug = slugify(
+                self.feed.slug + "-" + entry_title[:100] + pub_time_str)
             exists = self.entry_model.objects.filter(slug=slug).exists()
             if exists:
-                #slug = str(random.getrandbits(8)) + "-" + slug
                 self.verbose_print("Entry slug exists, skipping")
                 continue
 
@@ -231,7 +222,8 @@ class RSSProcessor(BaseProcessor):
                 count += 1
 
                 if self.verbose:
-                    self.verbose_print("Entry fully created %s" % db_entry.title)
+                    self.verbose_print(
+                        "Entry fully created %s" % db_entry.title)
                     self.record_log(e_id)
 
                 try:
@@ -240,8 +232,6 @@ class RSSProcessor(BaseProcessor):
                     self.create_post(db_entry)
                 except Exception as e:
                     self.verbose_print(str(e))
-
-
         self.verbose_print("%d entries created" % count)
         return count
 
@@ -298,7 +288,6 @@ class RSSProcessor(BaseProcessor):
             # do not create duplicates
             return
 
-
         post = Post(
             title=entry.entry_title[:150],
             slug=slug,
@@ -322,6 +311,7 @@ class RSSProcessor(BaseProcessor):
         entry.post_created = True
         entry.save()
 
-        self.verbose_print(u"Post {p.id}- {p.title} - {p.slug} created".format(p=post))
+        self.verbose_print(
+            "Post {p.id}- {p.title} - {p.slug} created".format(p=post))
 
         return post
