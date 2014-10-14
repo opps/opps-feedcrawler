@@ -296,7 +296,7 @@ class RSSProcessor(BaseProcessor):
             site=entry.site,
             user=entry.user,
             show_on_root_channel=True,
-            published=True,
+            published=self.feed.publish_entries,
             # hat=entry.hat,
             tags=entry.tags,
             date_insert=entry.entry_published_time,
