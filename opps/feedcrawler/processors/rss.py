@@ -78,6 +78,13 @@ class RSSProcessor(BaseProcessor):
 
         return len(self.parsed.entries)
 
+    def _get_entry_main_image(self, entry):
+        for link in getattr(entry, 'links', []):
+            if link.get('rel') == 'enclosure' and link.get(
+                    'type', '').startswith('image'):
+                return link.get('href')
+        return False
+
     def create_entries(self):
         count = 0
         for i, entry in enumerate(self.parsed.entries):
@@ -115,17 +122,16 @@ class RSSProcessor(BaseProcessor):
                     show_on_root_channel=True
                 )
             )
-            if created:
-                if hasattr(entry, 'links'):
-                    links = [
-                        item for item in entry.links
-                        if item.get('rel') == 'enclosure'
-                    ]
-                    for link in links:
-                        if link.get('type', '').startswith('image'):
-                            url = link.get('href')
-                            db_entry.define_main_image(archive_link=url)
 
+            updated = False
+
+            if created or not db_entry.main_image_id:
+                main_image_url = self._get_entry_main_image(entry)
+                if main_image_url:
+                    db_entry.define_main_image(archive_link=main_image_url)
+                    updated = True
+
+            if created:
                 if hasattr(entry, 'published_parsed'):
                     published_time = datetime.fromtimestamp(
                         mktime(entry.published_parsed)
@@ -186,11 +192,13 @@ class RSSProcessor(BaseProcessor):
                 db_entry.headline = db_entry.entry_description
                 db_entry.short_title = db_entry.title
                 db_entry.hat = db_entry.title
-                db_entry.save()
                 count += 1
 
                 if self.verbose:
                     print("Entry created %s" % db_entry.title)
+
+            if created or updated:
+                db_entry.save()
 
         if self.verbose:
             print("%d entries created" % count)
