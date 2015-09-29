@@ -11,7 +11,7 @@ from django.db import transaction
 from opps.feedcrawler.models import Feed
 
 
-logger = logging.getLogger('opps.feedcrawler')
+logger = logging.getLogger()
 
 
 class Command(BaseCommand):

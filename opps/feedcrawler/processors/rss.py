@@ -3,6 +3,7 @@ import feedparser
 import logging
 import pytz
 import json
+from hashlib import sha256
 
 from datetime import datetime
 from time import mktime
@@ -114,8 +115,8 @@ class RSSProcessor(BaseProcessor):
 #            logger.warning(msg.format(msg))
 
     def create_entries(self):
-        created_count = 0
-        updated_count = 0
+        created_count = updated_count = 0
+
         for i, entry in enumerate(self.parsed.entries):
             if i > self.max_entries_saved:
                 break
@@ -132,6 +133,8 @@ class RSSProcessor(BaseProcessor):
                 logger.warning(msg % (entry.link))
                 continue
 
+            entry_hash = sha256(getattr(entry, 'id', entry.link)).hexdigest()
+
             if entry.title_detail.type == 'text/plain':
                 entry_title = html.escape(entry.title)
             else:
@@ -139,7 +142,7 @@ class RSSProcessor(BaseProcessor):
 
             db_entry, created = self.entry_model.objects.get_or_create(
                 site=self.feed.site,
-                slug=slugify(self.feed.slug + "-" + entry_title[:150]),
+                slug=slugify(self.feed.slug + "-" + entry_hash),
                 defaults=dict(
                     entry_feed=self.feed,
                     entry_link=entry.link,
@@ -161,14 +164,14 @@ class RSSProcessor(BaseProcessor):
                     updated = True
 
             if created or not db_entry.entry_description:
-                desc = _get_entry_description(entry)
+                desc = self._get_entry_description(entry)
                 if desc:
                     db_entry.entry_description = desc
                     updated = True
 
             if created or not db_entry.entry_content:
                 try:
-                    content = _get_entry_content(entry)
+                    content = self._get_entry_content(entry)
                     if content:
                         db_entry.entry_content = content
                         updated = True
@@ -213,8 +216,11 @@ class RSSProcessor(BaseProcessor):
                 db_entry.short_title = db_entry.title
                 db_entry.hat = db_entry.title
 
-                if self.verbose:
+            if self.verbose and (created or updated):
+                if created:
                     print("Entry created %s" % db_entry.title)
+                else:
+                    print("Entry updated %s" % db_entry.title)
 
             if created or updated:
                 db_entry.save()
