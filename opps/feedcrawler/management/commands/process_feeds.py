@@ -2,15 +2,16 @@
 """
 This command polls all of the Feeds and inserts any new entries found.
 """
+import logging
 from optparse import make_option
+
 from django.core.management.base import BaseCommand
+from django.db import transaction
+
 from opps.feedcrawler.models import Feed
 
-import logging
+
 logger = logging.getLogger()
-
-
-from django.db import transaction
 
 
 class Command(BaseCommand):
@@ -26,7 +27,6 @@ class Command(BaseCommand):
         ),
         make_option(
             '--feed',
-            action='store_true',
             dest='feed',
             default=False,
             help='Process only specified feed'
@@ -48,13 +48,13 @@ class Command(BaseCommand):
         num_feeds = feeds.count()
 
         if verbose:
-            print('%d feeds to process' % (num_feeds))
+            self.stdout.write('%d feeds to process' % (num_feeds))
 
         for i, feed in enumerate(feeds):
             try:
                 with transaction.commit_manually():
                     if verbose:
-                        print(
+                        self.stdout.write(
                             '(%d/%d) Processing Feed %s'
                             % (i + 1, num_feeds, feed.title)
                         )
@@ -62,12 +62,13 @@ class Command(BaseCommand):
                     processor = feed.get_processor(verbose)
                     if processor:
                         if verbose:
-                            print("Processing: %s" % processor.__class__)
+                            self.stdout.write(
+                                "Processing: %s" % processor.__class__)
                         try:
                             processor.process()
                         except Exception as e:
                             if verbose:
-                                print str(e)
+                                self.stderr.write(str(e))
 
                     transaction.commit()
             except Exception as e:

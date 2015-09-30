@@ -3,6 +3,7 @@ import feedparser
 import logging
 import pytz
 import json
+from hashlib import sha256
 
 from datetime import datetime
 from time import mktime
@@ -78,8 +79,44 @@ class RSSProcessor(BaseProcessor):
 
         return len(self.parsed.entries)
 
+    def _get_entry_main_image(self, entry):
+        for link in getattr(entry, 'links', []):
+            if link.get('rel') == 'enclosure' and link.get(
+                    'type', '').startswith('image'):
+                return link.get('href')
+        return False
+
+    def _get_entry_description(self, entry):
+        # Lots of entries are missing description_detail attributes.
+        # Escape their content by default
+        if hasattr(entry, 'description_detail') and\
+                entry.description_detail.type != 'text/plain':
+            return entry.description
+        return html.escape(entry.description)
+
+    def _get_entry_content(self, entry):
+        if not hasattr(entry, 'content'):
+            return None
+
+        content = entry.content
+
+        if isinstance(content, list):
+            if not content:
+                return None
+            content = entry.content[0]
+
+        if content.type == 'text/plain':
+            return html.escape(content.value)
+
+        return content.value
+
+#        except Exception, e:
+#            msg = 'Feedcrawler refresh_feeds. Entry "{}" content error'
+#            logger.warning(msg.format(msg))
+
     def create_entries(self):
-        count = 0
+        created_count = updated_count = 0
+
         for i, entry in enumerate(self.parsed.entries):
             if i > self.max_entries_saved:
                 break
@@ -96,6 +133,8 @@ class RSSProcessor(BaseProcessor):
                 logger.warning(msg % (entry.link))
                 continue
 
+            entry_hash = sha256(getattr(entry, 'id', entry.link)).hexdigest()
+
             if entry.title_detail.type == 'text/plain':
                 entry_title = html.escape(entry.title)
             else:
@@ -103,7 +142,7 @@ class RSSProcessor(BaseProcessor):
 
             db_entry, created = self.entry_model.objects.get_or_create(
                 site=self.feed.site,
-                slug=slugify(self.feed.slug + "-" + entry_title[:150]),
+                slug=slugify(self.feed.slug + "-" + entry_hash),
                 defaults=dict(
                     entry_feed=self.feed,
                     entry_link=entry.link,
@@ -115,17 +154,32 @@ class RSSProcessor(BaseProcessor):
                     show_on_root_channel=True
                 )
             )
-            if created:
-                if hasattr(entry, 'links'):
-                    links = [
-                        item for item in entry.links
-                        if item.get('rel') == 'enclosure'
-                    ]
-                    for link in links:
-                        if link.get('type', '').startswith('image'):
-                            url = link.get('href')
-                            db_entry.define_main_image(archive_link=url)
 
+            updated = False
+
+            if created or not db_entry.main_image_id:
+                main_image_url = self._get_entry_main_image(entry)
+                if main_image_url:
+                    db_entry.define_main_image(archive_link=main_image_url)
+                    updated = True
+
+            if created or not db_entry.entry_description:
+                desc = self._get_entry_description(entry)
+                if desc:
+                    db_entry.entry_description = desc
+                    updated = True
+
+            if created or not db_entry.entry_content:
+                try:
+                    content = self._get_entry_content(entry)
+                    if content:
+                        db_entry.entry_content = content
+                        updated = True
+                except Exception as e:
+                    msg = 'Feedcrawler refresh_feeds. Entry "%s" content error'
+                    logger.warning(msg % (entry.link))
+
+            if created:
                 if hasattr(entry, 'published_parsed'):
                     published_time = datetime.fromtimestamp(
                         mktime(entry.published_parsed)
@@ -144,36 +198,11 @@ class RSSProcessor(BaseProcessor):
                         published_time = now
                     db_entry.entry_published_time = published_time
 
-                # Lots of entries are missing description_detail attributes.
-                # Escape their content by default
-                if hasattr(entry, 'description_detail') and \
-                        entry.description_detail.type != 'text/plain':
-                    db_entry.entry_description = entry.description
-                else:
-                    db_entry.entry_description = html.escape(entry.description)
-
-                try:
-                    content = None
-                    if hasattr(entry, 'content'):
-                        content = entry.content
-                        if isinstance(content, list) and content:
-                            content = entry.content[0]
-
-                    if content and content.type != 'text/plain':
-                        db_entry.entry_content = content.value
-                    elif hasattr(entry, 'content'):
-                        db_entry.entry_content = html.escape(content.value)
-                except Exception, e:
-                    print str(e)
-                    msg = 'Feedcrawler refresh_feeds. Entry "%s" content error'
-                    logger.warning(msg % (entry.link))
-
                 try:
                     allowed = (str, unicode, dict, list, int, float, long)
                     entry_source = json.dumps(
                         {k: v for k, v in entry.iteritems()
-                            if isinstance(v, allowed)}
-                    )
+                            if isinstance(v, allowed)})
                     db_entry.entry_json = entry_source
                     pass
                 except Exception, e:
@@ -186,15 +215,25 @@ class RSSProcessor(BaseProcessor):
                 db_entry.headline = db_entry.entry_description
                 db_entry.short_title = db_entry.title
                 db_entry.hat = db_entry.title
-                db_entry.save()
-                count += 1
 
-                if self.verbose:
+            if self.verbose and (created or updated):
+                if created:
                     print("Entry created %s" % db_entry.title)
+                else:
+                    print("Entry updated %s" % db_entry.title)
+
+            if created or updated:
+                db_entry.save()
+                if created:
+                    created_count += 1
+                else:
+                    updated_count += 1
 
         if self.verbose:
-            print("%d entries created" % count)
-        return count
+            print("%d entries created" % created_count)
+            print("%d entries updated" % updated_count)
+
+        return created_count
 
     def delete_old_entries(self):
         entries = self.entry_model.objects.filter(entry_feed=self.feed)
